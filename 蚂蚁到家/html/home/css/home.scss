@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.flexs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heads{
+    >div{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        >div{
+            @extend .flexs;
+            color: #ffffff;
+            padding:0.05rem 0;
+            font:normal 0.128rem PingFang-SC-Regular;
+        }
+    }
+}
+.act{
+    border-bottom:0.01rem solid #ffffff;
+}
+.sets{
+    top:0.8rem;
+    bottom:0.4rem;
+}
+.foots{
+    >div{
+        display: flex;
+        flex-direction: column;
+        color: #333333;
+        font:normal 0.102rem PingFang-SC-Regular;
+        >div{
+            font-size:0.2rem;
+        }
+    }
+    .acts{
+        color: #fa6939;
+    }
+}
