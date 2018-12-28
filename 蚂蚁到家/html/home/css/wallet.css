@@ -1,0 +1,16 @@
+.flexs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sets {
+  top: 0;
+  bottom: 1.4rem;
+}
+
+.foots > div:nth-of-type(3) {
+  color: #fa6939;
+}
+
+/*# sourceMappingURL=wallet.css.map */

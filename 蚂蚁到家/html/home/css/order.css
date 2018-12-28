@@ -1,4 +1,60 @@
-.flexs, .heads > div > div {
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang, .personal > div:nth-child(1) > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs, .details > div > p:nth-child(1) {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .heads > div > .centers, .results > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,30 +64,130 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-.heads > div > div {
   color: #ffffff;
-  padding: 0.05rem 0;
-  font: normal 0.128rem PingFang-SC-Regular;
 }
-
-.act {
+.heads > div > .centers {
+  padding: 0.05rem 0;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+.heads > div > .rights {
+  font-size: 0.6rem;
+}
+.heads .act {
   border-bottom: 0.01rem solid #ffffff;
 }
 
 .sets {
-  top: 0.8rem;
-  bottom: 0.4rem;
+  top: 1.707rem;
+  bottom: 1.4rem;
+  overflow: hidden;
 }
 
-.foots > div {
+.tabs {
+  width: 100%;
+  height: 1.333rem;
+  border-bottom: 0.01rem solid #eeeeee;
+  color: #333333;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.tabs > li {
+  width: 100%;
+  height: 100%;
+}
+.tabs .act {
+  color: #fa6939;
+}
+
+.tabs_child {
+  width: 100%;
+  height: 100%;
+}
+
+.just, .take_over, .middle, .complete {
+  overflow: auto;
+}
+.just > div, .take_over > div, .middle > div, .complete > div {
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.just > div > div:nth-child(1), .take_over > div > div:nth-child(1), .middle > div > div:nth-child(1), .complete > div > div:nth-child(1) {
+  padding: 0 0.413rem;
+}
+
+.complete .personal > div:nth-child(2) {
+  color: #fa6939;
+}
+
+.personal {
+  width: 100%;
+  height: 1.12rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.16rem 0;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.personal > div:nth-child(1) > img {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.personal > div:nth-child(1) > span {
+  display: inline-block;
+  width: 4rem;
+  height: 0.5rem;
+  margin-left: 0.267rem;
+  color: #333333;
+  font: normal 0.373rem PingFang-SC-Regular;
+}
+
+.details {
+  padding: 0.387rem 0.427rem;
+  display: flex;
+}
+.details > img {
+  width: 2.12rem;
+  height: 2.12rem;
+}
+.details > div {
+  width: 5.5rem;
+  height: 2rem;
+  margin-left: 0.693rem;
   display: flex;
   flex-direction: column;
-  color: #333333;
-  font: normal 0.102rem PingFang-SC-Regular;
+  justify-content: space-between;
+  padding: 0.1rem 0;
 }
-.foots > div > div {
-  font-size: 0.2rem;
+.details > div > p:nth-child(1) {
+  width: 100%;
+  height: 1rem;
+  color: #333333;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.details > div > p:nth-child(2) {
+  color: #fa6939;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.results {
+  height: 1.32rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 0.01rem solid #eeeeee;
+}
+.results > div {
+  width: 2.133rem;
+  height: 0.8rem;
+  color: #333333;
+  margin-right: 0.413rem;
+  font: normal 0.32rem PingFang-SC-Regular;
+  border-radius: 0.107rem;
+  border: 0.018rem solid #b5b5b5;
+}
+
+.foots > div:nth-of-type(2) {
+  color: #fa6939;
 }
 
 /*# sourceMappingURL=order.css.map */

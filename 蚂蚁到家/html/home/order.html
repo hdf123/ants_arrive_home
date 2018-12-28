@@ -14,20 +14,153 @@
 	<body>
 		<header class="heads">
 			<div>
-				<div>订单详情</div>
+				<div class="centers">订单详情</div>
+				<div class="rights iconfont icon-xinxi"></div>
 			</div>
 		</header>
 		<section class="sets">
-			<div>
+			<ul class="tabs">
+				<li class="act">新订单</li>
+				<li>骑手接单</li>
+				<li>正在配送</li>
+				<li>订单完成</li>
+			</ul>
+			<div class="tabs_child">
+				<!--新订单-->
+				<div class="just">
+					<div>
+						<div>
+							<div class="personal">
+								<div>
+									<img src="" alt="" />
+									<span>阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好</span>
+								</div>
+								<div>买家申请取消订单</div>
+							</div>
+							<div class="details">
+								<img src="" alt="" />
+								<div>
+									<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+									<p>¥38.50</p>
+								</div>
+							</div>
+						</div>
+						<div class="results">
+							<div>同意取消</div>
+						</div>
+					</div>
 				
+				</div>
+				
+				
+				<!--骑手接单-->
+				<div class="take_over">
+					<div>
+						<div>
+							<div class="personal">
+								<div>
+									<img src="" alt="" />
+									<span>阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好</span>
+								</div>
+								<div></div>
+							</div>
+							<div class="details">
+								<img src="" alt="" />
+								<div>
+									<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+									<p>¥38.50</p>
+								</div>
+							</div>
+						</div>
+						<div class="results">
+							<div>骑手信息</div>
+							<div>确认接单</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!--正在配送-->
+				<div class="middle">
+					<div>
+						<div>
+							<div class="personal">
+								<div>
+									<img src="" alt="" />
+									<span>阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好</span>
+								</div>
+								<div></div>
+							</div>
+							<div class="details">
+								<img src="" alt="" />
+								<div>
+									<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+									<p>¥38.50</p>
+								</div>
+							</div>
+						</div>
+						<div class="results">
+							<div>骑手信息</div>
+							<div>确认接单</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!--订单完成-->
+				<div class="complete">
+					<div>
+						<div>
+							<div class="personal">
+								<div>
+									<img src="" alt="" />
+									<span>阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好阳光正好</span>
+								</div>
+								<div>订单完成</div>
+							</div>
+							<div class="details">
+								<img src="" alt="" />
+								<div>
+									<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+									<p>¥38.50</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
-		<div class="fts"></div>
+		<footer class="foots">
+			<div class="aa" onclick="location.href='home.html'">
+				<div class="iconfont icon-dianpu"></div>
+				店铺
+			</div>
+			<div class="aa" onclick="location.href='order.html'">
+				<div class="iconfont icon-dianpu"></div>
+				订单
+			</div>
+			<div class="aa" onclick="location.href='wallet.html'">
+				<div class="iconfont icon-dianpu"></div>
+				钱包
+			</div>
+			<div class="aa" onclick="location.href='personal.html'">
+				<div class="iconfont icon-dianpu"></div>
+				设置
+			</div>
+		</footer>
 <script type="text/javascript">
 	$(function(){
-		$(".fts").load("footer.html",function(){
-			$(".foots>div").eq(1).addClass("acts");
-		});
+		//菜单切换
+		var zuobiao=0;
+		$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
+		$(".tabs>li").eq(zuobiao).addClass("act").siblings().removeClass("act");
+		$(".tabs>li").click(function(){
+			zuobiao=$(this).index();
+			$(this).addClass("act").siblings().removeClass("act");
+			$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
+		})
+		
+		
 	})
 </script>
 	</body>

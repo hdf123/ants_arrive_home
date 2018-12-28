@@ -4,33 +4,212 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>店铺</title>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
-		<!--<link rel="stylesheet" type="text/css" href="css/home.css"/>-->
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<header class="heads">
-			<div>
-				<div class="act">店铺详情</div>
-				<div>商品管理</div>
-				<div>营销活动</div>
-				<div>用户评价</div>
-			</div>
+			<ul class="tabs">
+				<li class="act">店铺详情</li>
+				<li>商品管理</li>
+				<li>营销活动</li>
+				<li>用户评价</li>
+			</ul>
 		</header>
-		<section class="sets">
-			<div>
-				
+		<section class="sets tabs_child">
+			<!--店铺详情-->
+			<div class="store">
+				<img src="" alt="" />
+				<ul class="details">
+					<li>
+						<i class="iconfont icon-dian"></i><span>店铺名称:</span>
+						<span>小龙侠</span>
+					</li>
+					<li>
+						<i class="iconfont icon-dian"></i><span>主营:</span>
+						<span>餐饮</span>
+					</li>
+					<li>
+						<i class="iconfont icon-dian"></i><span>营业时间:</span>
+						<span>周一至周日 早10.30~次日凌晨2.00</span>
+					</li>
+					<li>
+						<i class="iconfont icon-dian"></i><span>联系电话:</span>
+						<span>183xxxxxxxx</span>
+					</li>
+					<li>
+						<i class="iconfont icon-dian"></i><span>营业中</span>
+					</li>
+				</ul>
+				<div class="photo">
+					<div>
+						<div>
+							<i class="iconfont icon-dian"></i>
+							营业执照
+						</div>
+						<div>
+							<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
+							<label for="photo_child1" class="photo_child1">
+				            	<img src="../../img/add_01.png"  alt="">
+				        	</label>
+						</div>
+					</div>
+					<div>
+						<div>
+							<i class="iconfont icon-dian"></i>
+							产品许可证
+						</div>
+						<div>
+							<input type="file" name='files' id="photo_child2" multiple accept="image/*"/>
+							<label for="photo_child2" class="photo_child2">
+				            	<img src="../../img/add_01.png"  alt="">
+				        	</label>
+						</div>
+					</div>
+					<div>
+						<div>
+							<i class="iconfont icon-dian"></i>
+							本人手持身份证正面半身照
+						</div>
+						<div>
+							<input type="file" name='files' id="photo_child3" multiple accept="image/*"/>
+							<label for="photo_child3" class="photo_child3">
+				            	<img src="../../img/add_01.png"  alt="">
+				        	</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!--商品管理-->
+			<div class="goods">
+				<div>
+					<div>添加新品</div>
+					<div>下架商品</div>
+				</div>
+				<ul>
+					<li>
+						<img src="" alt="" />
+						<div>
+							<p>福建桓管白心密柚adfasdfasdfas</p>
+							<p>
+								<span>¥29.9</span>
+								<span>/2个*1份</span>
+							</p>
+							<p>
+								<span>总销量 1102</span>
+								<span>日销量 11</span>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<!--营销活动-->
+			<div class="marketing">
+				<img src="" alt="" />
+				<ul>
+					<li>
+						<i class="iconfont icon-dian"></i>
+						新用户首单下单立减30%，全种类通用（已结束）</li>
+					<li>
+						<i class="iconfont icon-dian"></i>
+						活动时间7.15~7.20，限时五天，等你狂欢（已结束）
+					</li>
+					<li>
+						<i class="iconfont icon-dian"></i>
+						扫描上图二维码，一键注册，下单有红包哦（火热进行中）。
+					</li>
+				</ul>
+			</div>
+			
+			
+			<!--用户评价-->
+			<div class="user">
+				<ul>
+					<li>
+						<div class="iconfont icon-geren"></div>
+						<div>
+							<p>136********</p>
+							<p>味道很好，赞赞赞.味道很好，赞赞赞味道很好，赞赞赞</p>
+						</div>
+					</li>
+					<li>
+						<div class="iconfont icon-geren"></div>
+						<div>
+							<p>136********</p>
+							<p>味道很好，赞赞赞.味道很好，赞赞赞味道很好，赞赞赞</p>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</section>
-		<div class="fts"></div>
+		<footer class="foots">
+			<div class="aa" onclick="location.href='home.html'">
+				<div class="iconfont icon-dianpu"></div>
+				店铺
+			</div>
+			<div class="aa" onclick="location.href='order.html'">
+				<div class="iconfont icon-dianpu"></div>
+				订单
+			</div>
+			<div class="aa" onclick="location.href='wallet.html'">
+				<div class="iconfont icon-dianpu"></div>
+				钱包
+			</div>
+			<div class="aa" onclick="location.href='personal.html'">
+				<div class="iconfont icon-dianpu"></div>
+				设置
+			</div>
+		</footer>
 <script type="text/javascript">
 	$(function(){
-		$(".fts").load("footer.html",function(){
-			$(".foots>div").eq(0).addClass("acts");
-		});
+		//菜单切换
+		var zuobiao=0;
+		$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
+		$(".tabs>li").eq(zuobiao).addClass("act").siblings().removeClass("act");
+		$(".tabs>li").click(function(){
+			zuobiao=$(this).index();
+			$(this).addClass("act").siblings().removeClass("act");
+			$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
+		})
+		//营业执照
+        $("#photo_child1").change(function(){
+        	var file = this.files[0];
+        	var url = getObjectURL(file);
+        	$(".photo_child1>img").attr("src",url);
+        })
+        //产品许可证
+        $("#photo_child2").change(function(){
+        	var file = this.files[0];
+        	var url = getObjectURL(file);
+        	$(".photo_child2>img").attr("src",url);
+        })
+        //本人手持身份证正面半身照
+        $("#photo_child3").change(function(){
+        	var file = this.files[0];
+        	var url = getObjectURL(file);
+        	$(".photo_child3>img").attr("src",url);
+        })
+		function getObjectURL(file) {  
+		     var url=null;  
+		     if (window.createObjcectURL != undefined) {  
+		         url = window.createOjcectURL(file);  
+		     } else if (window.URL != undefined) {  
+		         url = window.URL.createObjectURL(file);  
+		     } else if (window.webkitURL != undefined) {  
+		         url = window.webkitURL.createObjectURL(file);  
+		     }  
+		     return url;  
+		 }
 	})
 </script>
 	</body>

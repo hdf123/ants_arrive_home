@@ -10,28 +10,30 @@
     >div{
         >.centers{
             color: #333333;
-            font:normal 0.16rem PingFang-SC-Regular;
+            font:normal 0.48rem PingFang-SC-Regular;
         }
     }
 }
 .sets{
-    top:0.8rem;
+    top:1.707rem;
     bottom:0;
     >div{
-        width: 2.773rem;
-        height:0.5rem;
+        width: 8.667rem;
+        height:1.48rem;
         display: flex;
         align-items: center;
-//      padding:0.188rem 0;
-        margin:0 auto;
+        margin:0.307rem auto 0;
         >div:nth-child(1){
+            height:100%;
+            @extend .flexs;
             color: #333333;
-            font:normal 0.128rem PingFang-SC-Regular;
+            font:normal 0.4rem PingFang-SC-Regular;
         }
         >input{
+            height:90%;
             color: #999999;
-            padding:0 0.1rem;
-            font:normal 0.128rem PingFang-SC-Regular;
+            padding-left:0.3rem;
+            font:normal 0.4rem PingFang-SC-Regular;
         }
     }
     >div:nth-child(1){
@@ -52,27 +54,24 @@
         border-bottom:0.01rem solid #eeeeee;
     }
     >div:nth-child(4){
-        width: 2.773rem;
-        height: 0.341rem;
-        margin-top:0.22rem;
+        width: 8.667rem;
+        height: 1.067rem;
         background-image: linear-gradient(#fa6939,#fa6939), 
         linear-gradient(#bdbdbd,#bdbdbd);
         background-blend-mode: normal,normal;
-        border-radius: 0.026rem;
+        border-radius: 0.08rem;
         @extend .flexs;
         color: #ffffff;
-        font:normal 0.16rem PingFang-SC-Regular;
+        font:normal 0.48rem PingFang-SC-Regular;
     }
     >div:nth-child(5){
         height:0.35rem;
-        display:flex;
         justify-content: flex-end;
         >div{
             height:100%;
-            padding:0 0.1rem;
+            
             color: #0099fe;
-            font:normal 0.102rem PingFang-SC-Regular;
-            line-height:0.35rem;
+            font:normal 0.32rem PingFang-SC-Regular;
         }
     }
 }
