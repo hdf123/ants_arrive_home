@@ -1,0 +1,195 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexkk, .menu li, .times {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heads > div > .lefts {
+  color: #ffffff;
+}
+.heads > div > .centers {
+  color: #ffffff;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 2.5rem;
+  bottom: 0;
+}
+
+.menu {
+  width: 100%;
+  padding: 0 0.413rem;
+}
+.menu li {
+  width: 100%;
+  height: 1.32rem;
+  border-bottom: 0.01rem solid #eeeeee;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.menu li i {
+  font-size: 0.5rem;
+}
+.menu > .fillk > input, .menu .fillks > input {
+  width: 80%;
+  font: normal 0.4rem PingFang-SC-Regular;
+  padding-right: 1.1rem;
+}
+.menu > .fillk > input::-webkit-input-placeholder, .menu .fillks > input::-webkit-input-placeholder {
+  color: #333333;
+  text-align: right;
+}
+.menu > .fillks > input {
+  width: 88%;
+}
+.menu > li:nth-of-type(5) > div:nth-of-type(2) {
+  padding-right: 1.1rem;
+}
+
+.logos {
+  width: 7rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.logos > img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.6rem;
+}
+
+.times {
+  width: 7.3rem;
+  height: 100%;
+}
+.times > div {
+  width: 6.4rem;
+  height: 100%;
+  margin-right: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.state {
+  width: 7.3rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.state > span {
+  display: inline-block;
+  margin-right: 0.6rem;
+  text-align: center;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.shijians {
+  width: 10rem;
+  height: 6.1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.business, .closing, .state_father {
+  width: 100%;
+  height: 1rem;
+  background: #eeeeee;
+  display: flex;
+}
+.business > div, .closing > div, .state_father > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+.business > div:nth-child(3), .closing > div:nth-child(3), .state_father > div:nth-child(3) {
+  color: #fa6939;
+}
+
+.statek {
+  height: 4rem;
+}
+
+.states > div {
+  width: 80%;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font: normal 0.4rem PingFang-SC-Regular;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+
+/*# sourceMappingURL=store_modify.css.map */

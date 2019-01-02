@@ -1,0 +1,191 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .amount > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div {
+  background: white;
+}
+.heads > div > .centers {
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 2.5rem;
+  bottom: 0;
+  border-top: 0.267rem solid #eeeeee;
+}
+.sets > div:nth-child(4) {
+  width: 3.827rem;
+  height: 1.067rem;
+  margin: 0.52rem auto;
+  background-color: #eeeeee;
+  border-radius: 0.08rem;
+  border: solid 0.013rem #d2d2d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.times {
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.times > div {
+  width: 100%;
+  height: 1.173rem;
+  padding: 0 0.413rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: normal 0.4rem PingFang-SC-Regular;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.times > div > input {
+  width: 75%;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.preferential {
+  width: 100%;
+  height: 1.573rem;
+  padding: 0 0.413rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.267rem solid #eeeeee;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.preferential > img:nth-child(2) {
+  width: 0.973rem;
+  height: 0.973rem;
+}
+.preferential > div:nth-child(3) {
+  font-size: 0.5rem;
+}
+
+.amount {
+  width: 9.2rem;
+  height: 2.48rem;
+  margin: 0.4rem auto;
+  display: flex;
+}
+.amount > div:nth-child(1) {
+  width: 7.867rem;
+  height: 100%;
+}
+.amount > div:nth-child(1) > div {
+  width: 100%;
+  height: 50%;
+  border: 0.01rem solid #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.amount > div:nth-child(1) > div > div {
+  width: 20%;
+  text-align: right;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.amount > div:nth-child(1) > div > input {
+  width: 80%;
+  font: normal 0.4rem PingFang-SC-Regular;
+  padding-left: 0.5rem;
+}
+.amount > div:nth-child(2) {
+  width: 1.293rem;
+  height: 100%;
+  border: 0.01rem solid #eeeeee;
+  border-left: none;
+  font-size: 0.5rem;
+}
+
+.shijians {
+  width: 10rem;
+  height: 6.1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.time-box {
+  width: 100%;
+}
+
+.business, .closing {
+  width: 100%;
+  height: 1rem;
+  background: #eeeeee;
+  display: flex;
+}
+.business > div, .closing > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+.business > div:nth-child(3), .closing > div:nth-child(3) {
+  color: #fa6939;
+}
+
+/*# sourceMappingURL=coupon.css.map */

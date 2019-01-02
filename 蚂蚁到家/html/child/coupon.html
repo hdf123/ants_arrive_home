@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>优惠劵</title>
+		<link rel="stylesheet" type="text/css" href="css/shijian.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/coupon.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">优惠劵</div>
+			</div>
+		</header>
+		<section class="sets">
+			<div class="times">
+				<div>
+					<div>开始时间</div>
+					<input type="text" id="input1" placeholder="请选择开始时间" />
+				</div>
+				<div>
+					<div>结束时间</div>
+					<input type="text" id="input2" placeholder="请选择结束时间" />
+				</div>
+			</div>
+			<div class="preferential">
+				<div>优惠商品</div>
+				<img src="" alt="" />
+				<div class="iconfont icon-qianjin"></div>
+			</div>
+			<div class="amount">
+				<div>
+					<div>
+						<div>消费满</div>
+						<input type="text" placeholder="请填写金额" />
+					</div>
+					<div>
+						<div>优惠</div>
+						<input type="text" placeholder="请填写金额" />
+					</div>
+				</div>
+				<div class="iconfont icon-shanchu"></div>
+			</div>
+			<div>添加下一级</div>
+		</section>
+		<div class="shijians">
+			<div class="business">
+				<div>取消</div>
+				<div>选择开始时间</div>
+				<div>确认</div>
+			</div>
+			<div class="time-box" style="position: relative;width:100%;height: 200px;margin: 0 auto;"></div>
+		</div>
+		<div class="shijians">
+			<div class="closing">
+				<div>取消</div>
+				<div>选择结束时间</div>
+				<div>确认</div>
+			</div>
+			<div class="time-boxs" style="position: relative;width:100%;height: 200px;margin: 0 auto;"></div>
+		</div>
+		
+		
+		
+<script src="js/jquer_shijian.js" type="text/javascript" charset="utf-8"></script>
+<!--营业时间-->
+<script type="text/javascript">
+	$(".shijians").hide();
+	$("#input1").click(function(){
+		$(".shijians").hide();
+		$(".shijians").eq(0).show();
+	})
+	$("#input2").click(function(){
+		$(".shijians").hide();
+		$(".shijians").eq(1).show();
+	})
+	$(".business>div:eq(2)").click(function(){
+		$(".shijians").eq(0).hide();
+	})
+	$(".closing>div:eq(2)").click(function(){
+		$(".shijians").eq(1).hide();
+	})
+	$("#input1").shijian({
+		showNowTime:false,
+		Year:false,//是否显示年
+        Month:true,//是否显示月
+        Day:true,//是否显示日
+        h:"00",
+        m:"01",
+		alwaysShow:true,
+		timeElm:$(".time-box"),
+	})
+	$("#input2").shijian({
+		showNowTime:false,
+		Year:false,//是否显示年
+        Month:true,//是否显示月
+        Day:true,//是否显示日
+        h:"00",
+        m:"01",
+		alwaysShow:true,
+		timeElm:$(".time-boxs"),
+	})
+</script>
+	</body>
+</html>

@@ -1,6 +1,7 @@
 *{
 	margin:0;
 	padding:0;
+	color: #333333;
 	list-style: none;
 	/*把此元素放置在父元素的中部。*/
 	vertical-align: middle;

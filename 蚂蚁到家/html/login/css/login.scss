@@ -1,15 +1,10 @@
 @charset "UTF-8";
 @import "../../../css/styleks.scss";
-.flexs{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 body{
     >div:nth-child(1){
         color:#333333;
         font:normal 0.48rem PingFang-SC-Regular;
-        margin-top:0.4rem;
+        margin-top:40px;
         text-align: center;
     }
     >div:nth-child(2){

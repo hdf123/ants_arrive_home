@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>店铺修改</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/store_modify.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shijian.css"/>
+		<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+		<!--<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">店铺修改</div>
+			</div>
+		</header>
+		<section class="sets">
+			<ul class="menu">
+				<li class="fillk">
+					<div>店铺名称</div>
+					<input type="text" placeholder="小龙虾" />
+				</li>
+				<li>
+					<div>店铺LOGO</div>
+					<div class="logos" id="logox">
+						<img src="../../img/add_01.png" class="imgs"/>
+						<i class="iconfont icon-qianjin"></i>
+					</div>
+				</li>
+				<li class="fillks">
+					<div>主营</div>
+					<input type="text" placeholder="餐饮" />
+				</li>
+				<li>
+					<div>营业时间</div>
+					<div class="times">
+						<div>
+							<span id="input1">8：00</span>~
+							<span id="input2">20：00</span>
+						</div>
+						<i class="iconfont icon-qianjin"></i>
+					</div>
+				</li>
+				<li>
+					<div>联系电话</div>
+					<div>15423678525</div>
+				</li>
+				<li>
+					<div>营业状态</div>
+					<div class="state">
+						<span>营业中</span>
+						<i class="iconfont icon-qianjin"></i>
+					</div>
+				</li>
+			</ul>
+		</section>
+		
+		
+		<article class="htmleaf-container">
+			<div id="clipArea"></div>
+			<div class="foot-use">
+				<div class="uploader1 blue">
+					<input type="button" name="file" class="button" value="打开">
+					<input id="file" type="file" accept="image/*" multiple  />
+				</div>
+				<button id="clipBtn">截取</button>
+			</div>
+			<div id="view"></div>
+		</article>
+		<div class="shijians">
+			<div class="business">
+				<div>取消</div>
+				<div>选择营业时间</div>
+				<div>确认</div>
+			</div>
+			<div class="time-box" style="position: relative;width: 200px;height: 200px;margin: 0 auto;"></div>
+		</div>
+		<div class="shijians">
+			<div class="closing">
+				<div>取消</div>
+				<div>选择打烊时间</div>
+				<div>确认</div>
+			</div>
+			<div class="time-boxs" style="position: relative;width: 200px;height: 200px;margin: 0 auto;"></div>
+		</div>
+		<div class="shijians statek">
+			<div class="state_father">
+				<div>取消</div>
+				<div>营业状态</div>
+				<div>确认</div>
+			</div>
+			<div class="states">
+				<div>营业中</div>
+				<div>已打烊</div>
+			</div>
+		</div>
+
+			
+			
+<script src="js/iscroll-zoom.js"></script>
+<script src="js/hammer.js"></script>
+<script src="js/jquery.photoClip.js"></script>
+<script src="js/jquer_shijian.js" type="text/javascript" charset="utf-8"></script>
+<!--头像-->
+<script>
+	var obUrl = ''
+	$("#clipArea").photoClip({
+		width: 300,
+		height: 300,
+		file: "#file",
+		view: "#view",
+		ok: "#clipBtn",
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			console.log(dataURL);//图片路径
+		}
+	});
+</script>
+<script>
+	$(function(){
+		$("#logox").click(function(){
+			$(".htmleaf-container").show();
+		})
+		$("#clipBtn").click(function(){
+			if(imgsource!=""){
+				$(".imgs").empty();
+				$(".imgs").attr("src",imgsource);
+				$(".htmleaf-container").hide();
+			}else{
+				$(".htmleaf-container").hide();
+			}
+		})
+	});
+</script>
+<!--营业时间-->
+<script type="text/javascript">
+	$(".shijians").hide();
+	$(".times").click(function(){
+		$(".shijians").hide();
+		$(".shijians").eq(0).show();
+	})
+	$(".business>div:eq(2)").click(function(){
+		$(".shijians").eq(0).hide(function(){
+			$(".shijians").eq(1).show();
+		});
+	})
+	$(".closing>div:eq(2)").click(function(){
+		$(".shijians").eq(1).hide();
+	})
+	$("#input1").shijian({
+		showNowTime:true,
+		Year:false,//是否显示年
+        Month:false,//是否显示月
+        Day:false,//是否显示日
+        h:"00",
+        m:"01",
+		alwaysShow:true,
+		timeElm:$(".time-box"),
+	})
+	$("#input2").shijian({
+		showNowTime:true,
+		Year:false,//是否显示年
+        Month:false,//是否显示月
+        Day:false,//是否显示日
+        h:"00",
+        m:"01",
+		alwaysShow:true,
+		timeElm:$(".time-boxs"),
+	})
+	//状态
+	$(".state").click(function(){
+		$(".shijians").hide();
+		$(".shijians").eq(2).show();
+	})
+	$(".state_father>div:eq(2)").click(function(){
+		$(".shijians").eq(2).hide();
+	})
+	$(".states>div").click(function(){
+		$(".shijians").eq(2).hide();
+	})
+</script>
+	<body>
+	</body>
+</html>

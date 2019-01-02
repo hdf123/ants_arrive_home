@@ -1,0 +1,139 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.flexkk{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.heads{
+    >div{
+        >.lefts{
+            color:#ffffff;
+        }
+        >.centers{
+            color: #ffffff;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    top:2.5rem;
+    bottom:0;
+}
+.menu{
+    width:100%;
+    padding:0 0.413rem;
+    li{
+        width:100%;
+        height:1.32rem;
+        border-bottom:0.01rem solid #eeeeee;
+        @extend .flexkk;
+        font:$fonta;
+        i{
+            font-size:0.5rem;
+        }
+    }
+    >.fillk,.fillks{
+        >input{
+            width:80%;
+            font:$fonta;
+            padding-right:1.1rem;
+        }
+       >input::-webkit-input-placeholder{
+           color:#333333;
+            text-align:right;
+        }
+    }
+    >.fillks{
+        >input{
+            width:88%;
+        } 
+    }
+    >li:nth-of-type(5){
+        >div:nth-of-type(2){
+            padding-right:1.1rem;
+        }
+    }
+}
+.logos{
+    width:7rem;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    >img{
+        width:1.2rem;
+        height:1.2rem;
+        border-radius:50%;
+        overflow: hidden;
+        margin-right:0.6rem;
+    }
+}
+.times{
+    width:7.3rem;
+    height:100%;
+    @extend .flexkk;
+    >div{
+        width:6.4rem;
+        height:100%;
+        margin-right:0.6rem;
+        display: flex;
+        align-items:center;
+        justify-content:flex-end;
+    }
+}
+.state{
+    width:7.3rem;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    >span{
+        display: inline-block;
+        margin-right:0.6rem;
+        text-align: center;
+        font:$fonta;
+    }
+}
+
+
+.shijians{
+    width:10rem;
+    height:6.1rem;
+    position:absolute;
+    left:0;
+    bottom:0;
+    overflow: hidden;
+}
+.business,.closing,.state_father{
+    width:100%;
+    height:1rem;
+    background:#eeeeee;
+    display: flex;
+    >div{
+        width:100%;
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font:$fontb;
+    }
+    >div:nth-child(3){
+        color:#fa6939;
+    }
+}
+.statek{
+    height:4rem;
+}
+.states{
+    >div{
+        width:80%;
+        height:1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin:0 auto;
+        font:$fonta;
+        border-bottom:0.01rem solid #eeeeee;
+    }
+}
