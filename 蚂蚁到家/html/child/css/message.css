@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang, .nameks > div:nth-child(2) > div:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .nameks > div:nth-child(3) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers {
+  color: white;
+}
+
+.sets {
+  top: 2.5rem;
+  left: 0;
+}
+
+.nameks {
+  width: 100%;
+  height: 1.867rem;
+  display: flex;
+  padding: 0.333rem 0.387rem 0.373rem 0.413rem;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.nameks > div:nth-child(1) {
+  width: 1.147rem;
+  height: 1.147rem;
+}
+.nameks > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.nameks > div:nth-child(2) {
+  width: 5.1rem;
+  margin-left: 0.413rem;
+}
+.nameks > div:nth-child(2) > div:nth-child(1) {
+  font: normal 0.427rem PingFang-SC-Regular;
+}
+.nameks > div:nth-child(2) > div:nth-child(2) {
+  width: 100%;
+  height: 0.5rem;
+  color: #666666;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.nameks > div:nth-child(3) {
+  width: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.nameks > div:nth-child(3) > div:nth-child(1) {
+  color: #666666;
+  font: normal 0.293rem PingFang-SC-Regular;
+}
+.nameks > div:nth-child(3) > div:nth-child(2) {
+  margin-right: 0.2rem;
+  padding: 0 0.12rem;
+  border-radius: 50%;
+  background-color: #f45235;
+  color: #ffffff;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=message.css.map */

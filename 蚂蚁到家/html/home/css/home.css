@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang, .store > .details > li, .goods > ul:nth-child(2) > li > div > p:nth-child(1), .user > ul > li > div:nth-child(2) > p:nth-child(1), .user > ul > li > div:nth-child(2) > p:nth-child(2) {
+.yincang, .store > .details > li, .goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(1), .user > ul > li > div:nth-child(2) > p:nth-child(1), .user > ul > li > div:nth-child(2) > p:nth-child(2) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -62,10 +62,10 @@
 
 .heads > ul {
   height: 100%;
-  color: #ffffff;
   font: normal 0.4rem PingFang-SC-Regular;
 }
 .heads > ul > li {
+  color: #ffffff;
   padding: 0.15rem 0;
 }
 .heads > ul .act {
@@ -172,33 +172,41 @@
   width: 2.413rem;
   height: 2.76rem;
 }
-.goods > ul:nth-child(2) > li > div {
+.goods > ul:nth-child(2) > li > div:nth-child(2) {
   margin: 0.2rem 0 0 0.907rem;
-  width: 5.8rem;
+  width: 4.2rem;
 }
-.goods > ul:nth-child(2) > li > div > p:nth-child(1) {
+.goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(1) {
   width: 100%;
   height: 0.8rem;
   font: normal 0.48rem PingFang-SC-Regular;
   line-height: 0.8rem;
 }
-.goods > ul:nth-child(2) > li > div > p:nth-child(2) {
+.goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(2) {
   line-height: 0.8rem;
 }
-.goods > ul:nth-child(2) > li > div > p:nth-child(2) > span:nth-child(1) {
+.goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(2) > span:nth-child(1) {
   color: #fa6939;
   font: normal 0.48rem PingFang-SC-Regular;
 }
-.goods > ul:nth-child(2) > li > div > p:nth-child(2) > span:nth-child(2) {
+.goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(2) > span:nth-child(2) {
   color: #999999;
   font: normal 0.4rem PingFang-SC-Regular;
 }
-.goods > ul:nth-child(2) > li > div > p:nth-child(3) {
+.goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(3) {
   line-height: 0.6rem;
 }
-.goods > ul:nth-child(2) > li > div > p:nth-child(3) > span {
+.goods > ul:nth-child(2) > li > div:nth-child(2) > p:nth-child(3) > span {
   color: #999999;
   font: normal 0.32rem PingFang-SC-Regular;
+}
+.goods > ul:nth-child(2) > li > div:nth-child(3) {
+  width: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fa6939;
+  font: normal 0.4rem PingFang-SC-Regular;
 }
 
 /*营销活动*/

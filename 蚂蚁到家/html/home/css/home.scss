@@ -3,9 +3,9 @@
 .heads{
     >ul{
         height:100%;
-        color: #ffffff;
         font:normal 0.4rem PingFang-SC-Regular;
         >li{
+            color: #ffffff;
             padding:0.15rem 0;
         }
         .act{
@@ -115,9 +115,10 @@
                 width: 2.413rem;
                 height: 2.76rem;
             }
-            >div{
+            >div:nth-child(2){
                 margin:0.2rem 0 0 0.907rem;
-                width:5.8rem;
+                width:4.2rem;
+//              width:5.8rem;
                 >p:nth-child(1){
                     width:100%;
                     height:0.8rem;
@@ -143,6 +144,14 @@
                         font:normal 0.32rem PingFang-SC-Regular;;
                     }
                 }
+            }
+            >div:nth-child(3){
+                width:1.6rem;
+                display: flex;
+                align-items:center;
+                justify-content:center;
+                color: #fa6939;
+                font:$fonta;
             }
         }
     }

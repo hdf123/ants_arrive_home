@@ -5,13 +5,14 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        color: #ffffff;
         >.centers{
             @extend .flexs;
+            color: #ffffff;
             padding:0.05rem 0;
             font:normal 0.48rem PingFang-SC-Regular;
         }
         >.rights{
+            color: #ffffff;
             font-size:0.6rem;
         }
     }
@@ -50,13 +51,6 @@
         }
     }
 }
-.complete{
-    .personal{
-        >div:nth-child(2){
-            color:#fa6939;
-        }
-    }
-}
 .personal{
     width:100%;
     height:1.12rem;
@@ -80,6 +74,10 @@
             font:normal 0.373rem PingFang-SC-Regular;
             @extend .yincang;
         }
+    }
+    >div:nth-child(2){
+        color:#fa6939;
+        font:normal 0.32rem PingFang-SC-Regular;
     }
 }
 .details{

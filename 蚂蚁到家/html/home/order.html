@@ -15,7 +15,7 @@
 		<header class="heads">
 			<div>
 				<div class="centers">订单详情</div>
-				<div class="rights iconfont icon-xinxi"></div>
+				<div class="rights iconfont icon-xinxi1" onclick="location.href='../child/message.html'"></div>
 			</div>
 		</header>
 		<section class="sets">
@@ -159,7 +159,10 @@
 			$(this).addClass("act").siblings().removeClass("act");
 			$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
 		})
-		
+		//新订单
+		$(".sets").on("click",".just>div",function(){
+			window.location.href="../child/cancel.html";
+		})
 		
 	})
 </script>

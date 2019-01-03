@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .amount > div:nth-child(2) {
+.flexs, .amount > div:nth-child(2), .foots {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,7 +69,7 @@
 
 .sets {
   top: 2.5rem;
-  bottom: 0;
+  bottom: 1.4rem;
   border-top: 0.267rem solid #eeeeee;
 }
 .sets > div:nth-child(4) {
@@ -155,6 +155,12 @@
   border: 0.01rem solid #eeeeee;
   border-left: none;
   font-size: 0.5rem;
+}
+
+.foots {
+  color: #ffffff;
+  font: normal 0.48rem PingFang-SC-Regular;
+  background-color: #fa6939;
 }
 
 .shijians {
