@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商品详情</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/details.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">商品详情</div>
+				<div class="rights">确定</div>
+			</div>
+		</header>
+		<section class="sets">
+			<div>
+				<textarea placeholder="请输入产品说明"></textarea>
+			</div>
+			<div>
+				<div>
+					<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
+					<label for="photo_child1" class="photo_child1">
+						<div class="iconfont icon-tupian"></div>
+						<div>添加图片</div>
+		        	</label>
+				</div>
+				<div class="images"></div>
+			</div>
+		</section>
+		
+		
+<script type="text/javascript">
+	$(function(){
+    	/*上传图片*/
+        $("#photo_child1").change(function(){
+        	var file = this.files[0];
+        	console.log(file);
+        	var size = this.files[0].size / 1024;
+        	console.log(size);
+        	if(size > 1024*2){
+        		alert('图片大小不能超过2M');
+        		return false;
+        	}else{
+	        	var url = getObjectURL(file);
+	        	console.log(url);
+	        	$(".images>img").css("display","block");
+	        	$(".images").append(`<img src=${url} class="images_child" />`);
+        		console.log('图片大小为：' + size.toFixed(2) + 'KB');
+        	}
+        })
+		function getObjectURL(file) {  
+		    var url = null;  
+		    if(window.createObjcectURL != undefined) {  
+		        url = window.createOjcectURL(file);  
+		    }else if (window.URL != undefined) {  
+		        url = window.URL.createObjectURL(file);  
+		    }else if(window.webkitURL != undefined) {  
+		        url = window.webkitURL.createObjectURL(file);  
+		    }  
+		    return url;  
+		}
+		$(".images").on("click",".images_child",function(){
+			$(this).remove();
+		})
+		
+		
+	})
+</script>
+	</body>
+</html>

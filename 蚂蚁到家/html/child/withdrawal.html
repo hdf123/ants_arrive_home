@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>提现</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/withdrawal.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">提现</div>
+			</div>
+		</header>
+		<section class="sets">
+			<ul class="species">
+				<li>
+					<div class="iconfont icon-weixinzhifu"></div>
+					<div class="">
+						提现到微信
+						<div class="iconfont icon-dui1"></div>
+					</div>
+					
+				</li>
+				<li>
+					<div class="iconfont icon-zhifubaozhifu"></div>
+					<div class="">提现到支付宝</div>
+				</li>
+			</ul>
+			<div class="money">
+				<div>提现金额</div>
+				<div>
+					¥<input type="text" />
+				</div>
+				<div>满100可提现</div>
+			</div>
+			<div class="determine">确定</div>
+		</section>
+		
+		
+<script type="text/javascript">
+	$(function(){
+		$(".species>li").click(function(){
+			if($(this).find(".icon-dui1").length){
+				console.log(111);
+			}else{
+				$(this).children("div").eq(1).append(`<div class="iconfont icon-dui1"></div>`);
+				$(this).siblings().find(".icon-dui1").remove();
+//				$(this).append(`<i class="iconfont icon-dui"></i>`).siblings().children(".icon-dui").remove();
+			}
+		})
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers,.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    top:2.5rem;
+    bottom:0;
+    background:#eeeeee;
+    >div:nth-child(1){
+        width:100%;
+        height:3rem;
+        background:white;
+        padding:0.3rem 0.25rem;
+        >textarea{
+            width:100%;
+            height:100%;
+            resize:none;
+            border:none;
+            outline: none;
+        }
+    }
+    >div:nth-child(2){
+        width:100%;
+        padding-bottom:0.5rem;
+        background:white;
+        >div:nth-child(1){
+            width:3rem;
+            height:3rem;
+            margin-left:0.227rem;
+            border-radius:0.2rem;
+            overflow:hidden;
+            background:rgba(244,244,244,0.8);
+            border:0.03rem solid #eeeeee;
+            >input{
+                display:none;
+            }
+            >label{
+                >div:nth-child(1){
+                    width:100%;
+                    height:70%;
+                    @extend .flexs;
+                    color:#dddddd;
+                    font-size:1rem;
+                } 
+                >div:nth-child(2){
+                    width:100%;
+                    text-align: center;
+                    color:#eeeeee;
+                    font:$fonta;
+                } 
+            }
+        }
+    }
+}
+.images{
+    text-align: center;
+    >img{
+        max-width:100%;
+    }
+}

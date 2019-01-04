@@ -1,0 +1,113 @@
+{
+	"index.html": {
+		"refer": [
+			"html/login/Start.html"
+		],
+		"resources": []
+	},
+	"html/login/login.html": {
+		"refer": [
+			"html/home/home.html"
+		],
+		"resources": []
+	},
+	"html/login/Start.html": {
+		"refer": [
+			"html/login/login.html"
+		],
+		"resources": []
+	},
+	"html/home/home.html": {
+		"refer": [
+			"html/home/order.html",
+			"html/home/personal.html",
+			"html/child/adds.html",
+			"html/child/unloads.html"
+		],
+		"resources": []
+	},
+	"html/home/wallet.html": {
+		"refer": [
+			"html/home/personal.html",
+			"html/home/order.html",
+			"html/child/detail.html",
+			"html/child/withdrawal.html"
+		],
+		"resources": []
+	},
+	"html/home/order.html": {
+		"refer": [
+			"html/home/wallet.html",
+			"html/home/home.html",
+			"html/child/cancel.html",
+			"html/child/message.html"
+		],
+		"resources": []
+	},
+	"html/home/personal.html": {
+		"refer": [
+			"html/home/wallet.html",
+			"html/child/store_modify.html",
+			"html/child/coupon.html",
+			"html/child/after-sales.html",
+			"html/child/change_password.html",
+			"html/child/feedback.html"
+		]
+	},
+	"html/child/store_modify.html": {
+		"refer": [
+			"html/home/personal.html"
+		]
+	},
+	"html/child/coupon.html": {
+		"refer": [
+			"html/home/personal.html",
+			"html/child/preferential.html"
+		]
+	},
+	"html/child/preferential.html": {
+		"refer": [
+			"html/child/coupon.html"
+		]
+	},
+	"html/child/after-sales.html": {
+		"refer": [
+			"html/home/personal.html"
+		]
+	},
+	"html/child/change_password.html": {
+		"refer": [
+			"html/home/personal.html"
+		]
+	},
+	"html/child/feedback.html": {
+		"refer": [
+			"html/home/personal.html"
+		]
+	},
+	"html/child/detail.html": {
+		"refer": [
+			"html/home/wallet.html"
+		]
+	},
+	"html/child/withdrawal.html": {
+		"refer": [
+			"html/home/wallet.html"
+		]
+	},
+	"html/child/cancel.html": {
+		"refer": [
+			"html/home/order.html"
+		]
+	},
+	"html/child/adds.html": {
+		"refer": [
+			"html/home/home.html"
+		]
+	},
+	"html/child/unloads.html": {
+		"refer": [
+			"html/home/home.html"
+		]
+	}
+}

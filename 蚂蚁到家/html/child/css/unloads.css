@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang, .sets > ul > li > div:nth-child(2) > p:nth-child(1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pos, .sets > ul > li > div:nth-child(1) > div:nth-child(2), .sets > ul > li > div:nth-child(1) > div:nth-child(2) > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 2.5rem;
+  bottom: 0;
+}
+.sets > ul {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.sets > ul > li {
+  width: 100%;
+  height: 3.24rem;
+  padding: 0.267rem 0 0.267rem 0.68rem;
+  display: flex;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.sets > ul > li > div:nth-child(1) {
+  width: 2.413rem;
+  height: 2.76rem;
+  position: relative;
+}
+.sets > ul > li > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.sets > ul > li > div:nth-child(1) > div:nth-child(2) {
+  background: rgba(238, 238, 238, 0.9);
+}
+.sets > ul > li > div:nth-child(1) > div:nth-child(2) > div {
+  font-size: 2.4rem;
+}
+.sets > ul > li > div:nth-child(2) {
+  margin: 0.2rem 0 0 0.907rem;
+  width: 4.2rem;
+}
+.sets > ul > li > div:nth-child(2) > p:nth-child(1) {
+  width: 100%;
+  height: 0.8rem;
+  font: normal 0.48rem PingFang-SC-Regular;
+  line-height: 0.8rem;
+}
+.sets > ul > li > div:nth-child(2) > p:nth-child(2) {
+  line-height: 0.8rem;
+}
+.sets > ul > li > div:nth-child(2) > p:nth-child(2) > span:nth-child(1) {
+  color: #fa6939;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+.sets > ul > li > div:nth-child(2) > p:nth-child(2) > span:nth-child(2) {
+  color: #999999;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.sets > ul > li > div:nth-child(2) > p:nth-child(3) {
+  line-height: 0.6rem;
+}
+.sets > ul > li > div:nth-child(2) > p:nth-child(3) > span {
+  color: #999999;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.sets > ul > li > div:nth-child(3) {
+  width: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fa6939;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=unloads.css.map */

@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:#ffffff;
+        }
+        >.centers{
+            color: #ffffff;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    top:2.5rem;
+    bottom:0;
+    background:#eeeeee;
+}
+.species{
+    width:10rem;
+    height:3.28rem;
+    background:white;
+    border-top:0.333rem solid #eeeeee;
+    border-bottom:0.333rem solid #eeeeee;
+    >li{
+        height:50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:0 0.4rem 0 0.413rem;
+        border-bottom:0.01rem solid #eeeeee;
+        >div:nth-child(1){
+            width:10%;
+            height:100%;
+            @extend .flexs;
+            font-size:0.6rem;
+        }
+        >div:nth-child(2){
+            width:90%;
+            height:100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left:0.5rem;
+            font:normal 0.427rem PingFang-SC-Regular;
+            >div{
+                color:#4483f4;
+                font-size:0.5rem;
+            }
+        }
+    }
+    >li:nth-child(1){
+        >div:nth-child(1){
+            color:#64aa23;
+        }
+    }
+    >li:nth-child(2){
+        >div:nth-child(1){
+            color:#01a9f2;
+        }
+    }
+}
+.money{
+    background:white;
+    padding:0 0.427rem;
+    >div:nth-child(1){
+        color: #666666;
+        font:$fonta;
+        padding:0.453rem 0;
+    }
+    >div:nth-child(2){
+        width:100%;
+        font:normal 0.64rem PingFang-SC-Regular;
+        border-bottom:0.01rem solid #eeeeee;
+        >input{
+            width:95%;
+            padding:0 0.2rem;
+            font:$fonta;
+        }
+    }
+    >div:nth-child(3){
+        height:1.333rem;
+        font:$fonta;
+        line-height:1.333rem;
+    }
+}
+.determine{
+    width: 9.2rem;
+    height: 1.173rem;
+    margin:0.693rem auto;
+    background-color: #fa6939;
+    border-radius: 0.08rem;
+    @extend .flexs;
+    color: #ffffff;
+    font:$fontb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

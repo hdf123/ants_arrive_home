@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>编辑商品</title>
+		<title>添加商品</title>
 		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/editor.css"/>
+		<link rel="stylesheet" type="text/css" href="css/adds.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
@@ -17,21 +17,16 @@
 		<header class="heads">
 			<div>
 				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
-				<div class="centers">编辑商品</div>
+				<div class="centers">添加商品</div>
 			</div>
 		</header>
 		<section class="sets">
-			<div class="swiper-container swiper1">
-			  	<div class="swiper-wrapper">
-			    	<div class="swiper-slide">
-			    		<img src=""/>
-			    		<div class="iconfont icon-paizhao"></div>
-			    	</div>
-			    	<div class="swiper-slide">
-			    		<img src="../../img/add_01.png"/>
-			    	</div>
-			  	</div>
-			  	<div class="swiper-pagination"></div>
+			<div class="addsa">
+				<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
+				<label for="photo_child1" class="photo_child1">
+					<div class="iconfont icon-paizhao"></div>
+					<div>添加商品图片</div>
+	        	</label>
 			</div>
 			<div class="titles">
 				<div>标题</div>
@@ -55,30 +50,13 @@
 				<div>商品详情</div>
 				<div class="iconfont icon-qianjin"></div>
 			</div>
-			<div class="state">
-				<div>下架</div>
-				<div>删除</div>
-			</div>
+			<div class="releases">发布</div>
 		</section>
 		
 		
 <script type="text/javascript">
 	$(function(){
-		var ks="";
-		for(var i=0;i<2;i++){
-			ks+=`<div class="swiper-slide">
-		    		<img src=""/>
-		    		<div class="iconfont icon-paizhao"></div>
-		    	</div>`;
-		}
-		var kt=`<div class="swiper-slide">
-		    		<img src="../../img/add_01.png"/>
-		    	</div>`;
-		$(".swiper1>.swiper-wrapper").html(ks+kt);
-		var mySwiper = new Swiper('.swiper1', {
-			pagination : '.swiper-pagination',
-			paginationType : 'fraction',
-		})
+		
 	})
 </script>
 	</body>

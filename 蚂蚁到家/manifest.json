@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H57C567A5",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "蚂蚁到家",/*应用名称，程序桌面图标名称*/
@@ -44,12 +44,16 @@
             "autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
             "waiting": true/*是否在程序启动界面显示等待雪花，true表示显示，false表示不显示。*/
         },
+        "statusbar":{
+			"immersed": true //透明状态栏 
+		},
         "popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
         "runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
         "signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
         "distribute": {
             "apple": {
                 "appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+               	"UIReserveStatusbarOffset":true,
                 "mobileprovision": "",/*iOS应用打包配置文件*/
                 "password": "",/*iOS应用打包个人证书导入密码*/
                 "p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
@@ -58,6 +62,7 @@
                 ]/*调用Native.js调用原生Objective-c API需要引用的FrameWork，如需调用GameCenter，则添加"GameKit.framework"*/
             },
             "google": {
+            	"ImmersedStatusbar":true,
                 "packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
                 "keystore": "",/*Android应用打包使用的密钥库文件*/
                 "password": "",/*Android应用打包使用密钥库中证书的密码*/
@@ -135,5 +140,261 @@
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [],
+				"refer": [
+					"html/login/Start.html"
+				],
+				"priority": 0
+			},
+			"html/login/login.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/login/Start.html": {
+				"resources": [],
+				"refer": [
+					"html/login/login.html"
+				],
+				"priority": 0
+			},
+			"html/home/home.html": {
+				"resources": [],
+				"refer": [
+					"html/home/order.html",
+					"html/home/personal.html",
+					"html/child/adds.html",
+					"html/child/unloads.html"
+				],
+				"priority": 0
+			},
+			"html/home/wallet.html": {
+				"resources": [],
+				"refer": [
+					"html/home/personal.html",
+					"html/home/order.html",
+					"html/child/detail.html",
+					"html/child/withdrawal.html"
+				],
+				"priority": 0
+			},
+			"html/home/order.html": {
+				"resources": [],
+				"refer": [
+					"html/home/wallet.html",
+					"html/home/home.html",
+					"html/child/cancel.html",
+					"html/child/message.html"
+				],
+				"priority": 0
+			},
+			"html/home/personal.html": {
+				"resources": [],
+				"refer": [
+					"html/home/wallet.html",
+					"html/child/store_modify.html",
+					"html/child/coupon.html",
+					"html/child/after-sales.html",
+					"html/child/change_password.html",
+					"html/child/feedback.html"
+				],
+				"priority": 0
+			},
+			"html/child/store_modify.html": {
+				"resources": [],
+				"refer": [
+					"html/home/personal.html"
+				],
+				"priority": 0
+			},
+			"html/child/coupon.html": {
+				"resources": [],
+				"refer": [
+					"html/home/personal.html",
+					"html/child/preferential.html"
+				],
+				"priority": 0
+			},
+			"html/child/preferential.html": {
+				"resources": [],
+				"refer": [
+					"html/child/coupon.html"
+				],
+				"priority": 0
+			},
+			"html/child/after-sales.html": {
+				"resources": [],
+				"refer": [
+					"html/home/personal.html"
+				],
+				"priority": 0
+			},
+			"html/child/change_password.html": {
+				"resources": [],
+				"refer": [
+					"html/home/personal.html"
+				],
+				"priority": 0
+			},
+			"html/child/feedback.html": {
+				"resources": [],
+				"refer": [
+					"html/home/personal.html"
+				],
+				"priority": 0
+			},
+			"html/child/detail.html": {
+				"resources": [],
+				"refer": [
+					"html/home/wallet.html"
+				],
+				"priority": 0
+			},
+			"html/child/withdrawal.html": {
+				"resources": [],
+				"refer": [
+					"html/home/wallet.html"
+				],
+				"priority": 0
+			},
+			"html/child/cancel.html": {
+				"resources": [],
+				"refer": [
+					"html/home/order.html"
+				],
+				"priority": 0
+			},
+			"html/child/adds.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/unloads.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"html/child/css/preferential.css",
+				"css/base.css",
+				"html/child/js/jquery-1.8.2.min.js",
+				"css/font_988121_e5orkdgqfb/iconfont.woff2",
+				"html/login/css/forget.css.map",
+				"html/child/css/coupon.css.map",
+				"css/font_988121_e5orkdgqfb/demo_index.html",
+				"html/child/css/feedback.css.map",
+				"js/swiper-4.3.3.min.js",
+				"css/iconfont.css",
+				"html/login/registered.html",
+				"html/child/css/message.css",
+				"html/login/css/forget.css",
+				"html/child/css/store_modify.css",
+				"css/font_988121_e5orkdgqfb/iconfont.eot",
+				"html/child/details.html",
+				"html/home/css/order.css.map",
+				"html/home/css/wallet.css.map",
+				"html/child/css/withdrawal.css.map",
+				"html/child/js/iscroll-zoom.js",
+				"html/child/css/shijian.css",
+				"html/child/css/style.css",
+				"js/md5.js",
+				"html/child/css/adds.scss",
+				"css/font_988121_e5orkdgqfb/demo.css",
+				"img/add_01.png",
+				"html/child/css/after-sales.css",
+				"css/swiper-3.4.2.min.css",
+				"css/font_988121_e5orkdgqfb/iconfont.css",
+				"html/home/css/wallet.css",
+				"html/home/css/order.scss",
+				"html/child/css/details.scss",
+				"js/swiper-3.4.2.jquery.min.js",
+				"html/child/css/change_password.css.map",
+				"html/home/css/personal.css",
+				"html/child/css/details.css",
+				"img/add_02.png",
+				"html/child/css/preferential.css.map",
+				"html/child/js/jquer_shijian.js",
+				"html/login/css/login.css",
+				"html/child/css/change_password.scss",
+				"html/child/css/after-sales.css.map",
+				"css/font_988121_e5orkdgqfb/iconfont.js",
+				"html/child/css/detail.scss",
+				"html/child/js/jquery.photoClip.js",
+				"html/child/css/editor.scss",
+				"html/login/css/registered.css",
+				"css/layout.scss",
+				"js/TouchSlide.1.1.js",
+				"js/flexible.js",
+				"html/child/wallet.html",
+				"html/child/css/cancel.scss",
+				"css/font_988121_e5orkdgqfb/iconfont.woff",
+				"html/child/js/hammer.js",
+				"html/child/css/cancel.css.map",
+				"css/styleks.css",
+				"html/child/css/message.css.map",
+				"html/child/css/coupon.css",
+				"html/login/css/registered.scss",
+				"html/child/css/store_modify.scss",
+				"html/child/css/details.css.map",
+				"css/layout.css",
+				"html/login/css/forget.scss",
+				"html/login/css/login.css.map",
+				"html/home/css/home.css.map",
+				"css/styleks.css.map",
+				"html/child/css/store_modify.css.map",
+				"html/child/css/editor.css",
+				"html/home/css/home.scss",
+				"html/child/css/classification.css",
+				"css/font_988121_e5orkdgqfb/iconfont.svg",
+				"html/home/css/wallet.scss",
+				"html/login/forget.html",
+				"html/home/css/personal.scss",
+				"html/child/css/withdrawal.css",
+				"html/child/css/coupon.scss",
+				"html/child/css/unloads.css",
+				"html/home/css/order.css",
+				"html/child/css/unloads.css.map",
+				"html/child/css/unloads.scss",
+				"html/child/css/adds.css.map",
+				"html/child/css/feedback.css",
+				"html/child/editor.html",
+				"css/layout.css.map",
+				"html/child/classification.html",
+				"html/child/css/adds.css",
+				"html/login/css/registered.css.map",
+				"css/styleks.scss",
+				"css/swiper-4.3.3.min.css",
+				"html/child/css/classification.css.map",
+				"html/home/css/home.css",
+				"html/child/css/detail.css.map",
+				"html/child/css/preferential.scss",
+				"js/ajaxs.js",
+				"html/child/css/message.scss",
+				"js/jquery.min.js",
+				"html/child/css/feedback.scss",
+				"html/child/css/cancel.css",
+				"html/child/css/detail.css",
+				"html/child/css/editor.css.map",
+				"html/child/css/withdrawal.scss",
+				"css/font_988121_e5orkdgqfb/iconfont.ttf",
+				"html/login/css/login.scss",
+				"html/child/css/classification.scss",
+				"html/child/css/change_password.css",
+				"html/home/css/personal.css.map",
+				"html/child/css/after-sales.scss"
+			]
+		}
+	}
 }

@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.pos{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    top:2.5rem;
+    bottom:0;
+    >ul{
+        width:100%;
+        height:100%;
+        overflow: auto;
+        >li{
+            width:100%;
+            height:3.24rem;
+            padding:0.267rem 0 0.267rem 0.68rem;
+            display: flex;
+            border-bottom:0.01rem solid #eeeeee;
+            >div:nth-child(1){
+                width: 2.413rem;
+                height: 2.76rem;
+                position:relative;
+                >img{
+                    width:100%;
+                    height:100%;
+                }
+                >div:nth-child(2){
+                    @extend .pos;
+                    background:rgba(238,238,238,0.9);
+                    >div{
+                        @extend .pos;
+                        font-size:2.4rem;
+                    }
+                }
+            }
+            >div:nth-child(2){
+                margin:0.2rem 0 0 0.907rem;
+                width:4.2rem;
+                >p:nth-child(1){
+                    width:100%;
+                    height:0.8rem;
+                    font:$fontb;
+                    line-height:0.8rem;
+                    @extend .yincang;
+                }
+                >p:nth-child(2){
+                    line-height:0.8rem;
+                    >span:nth-child(1){
+                        color: #fa6939;
+                        font:$fontb;
+                    }
+                    >span:nth-child(2){
+                        color: #999999;
+                        font:$fonta;
+                    }
+                }
+                >p:nth-child(3){
+                    line-height:0.6rem;
+                    >span{
+                        color: #999999;
+                        font:normal 0.32rem PingFang-SC-Regular;;
+                    }
+                }
+            }
+            >div:nth-child(3){
+                width:1.6rem;
+                display: flex;
+                align-items:center;
+                justify-content:center;
+                color: #fa6939;
+                font:$fonta;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

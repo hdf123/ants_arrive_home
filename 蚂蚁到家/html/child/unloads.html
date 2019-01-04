@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>下架商品</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/unloads.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">下架商品</div>
+			</div>
+		</header>
+		<section class="sets">
+				<ul>
+					<li>
+						<div>
+							<img src="" alt="" />
+							<div>
+								<div class="iconfont icon-yixiajia"></div>
+							</div>
+						</div>
+						<div>
+							<p>福建桓管白心密柚</p>
+							<p>
+								<span>¥29.9</span>
+								<span>/2个*1份</span>
+							</p>
+							<p>
+								<span>总销量 1102</span>
+								<span>日销量 11</span>
+							</p>
+						</div>
+						<div class="editor">编辑</div>
+					</li>
+				</ul>
+		</section>
+		
+		
+<script type="text/javascript">
+	$(function(){
+		//编辑
+		$(".sets").on("click",".editor",function(){
+			window.location.href="editor.html";
+		})
+	})
+</script>
+	</body>
+</html>

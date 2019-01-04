@@ -14,7 +14,7 @@
 }
 
 /*多行隐藏*/
-.yincangs {
+.yincangs, .sets > div > div:nth-child(2) {
   overflow: hidden;
   /*超出隐藏*/
   display: -webkit-box;
@@ -54,64 +54,51 @@
 }
 
 /*上下左右居中*/
-.flexs, .sets > div:nth-of-type(2) {
+.flexs, .sets > div > div:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sets {
-  top: 0;
-  bottom: 1.4rem;
+.heads > div > .lefts {
+  color: #ffffff;
 }
-.sets > div:nth-of-type(1) {
-  width: 10rem;
-  height: 5rem;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fa6939), to(#fa6939));
-  background-image: -webkit-linear-gradient(#fa6939, #fa6939);
-  background-image: -moz-linear-gradient(#fa6939, #fa6939);
-  background-image: -o-linear-gradient(#fa6939, #fa6939);
-  background-image: linear-gradient(#fa6939, #fa6939), linear-gradient(#fa6939, #fa6939);
-  background-blend-mode: normal,normal;
-  opacity: 0.75;
-  padding: 2rem 0 0 1rem;
-}
-.sets > div:nth-of-type(1) > img {
-  width: 1.76rem;
-  height: 1.76rem;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.sets > div:nth-of-type(1) > span {
-  margin-left: 0.3rem;
-  font: normal 0.48rem PingFang-SC-Regular;
-}
-.sets > div:nth-of-type(2) {
-  width: 8.053rem;
-  height: 1.253rem;
-  margin: 0.8rem 0.933rem;
-  background-color: #fa6939;
-  border-radius: 0.267rem;
+.heads > div > .centers, .heads > div .rights {
   color: #ffffff;
   font: normal 0.48rem PingFang-SC-Regular;
 }
 
-.menu > li {
+.sets {
+  top: 2.5rem;
+  bottom: 0;
+}
+.sets > div {
   width: 100%;
-  height: 1.333rem;
-  padding: 0 0.413rem;
+  height: 3.213rem;
+  padding: 0.24rem 0.68rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font: normal 0.48rem PingFang-SC-Regular;
   border-bottom: 0.01rem solid #eeeeee;
 }
-.menu > li > i {
-  font-size: 0.5rem;
+.sets > div > img:nth-child(1) {
+  width: 2.413rem;
+  height: 2.76rem;
+}
+.sets > div > div:nth-child(2) {
+  width: 5rem;
+  height: 100%;
+  line-height: 0.5rem;
+  -webkit-line-clamp: 5;
+  /*超出5行用省略号表示*/
+  padding: 0.2rem;
+}
+.sets > div > div:nth-child(3) {
+  width: 1rem;
+  font-size: 0.6rem;
 }
 
-.foots > div:nth-of-type(4) {
+.icon-danxuankuang2 {
   color: #fa6939;
 }
 
-/*# sourceMappingURL=personal.css.map */
+/*# sourceMappingURL=preferential.css.map */

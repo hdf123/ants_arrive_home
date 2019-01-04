@@ -107,7 +107,7 @@
     }
 })(window, window['lib'] || (window['lib'] = {}));
 //ajax封装调用
-	var urs="http://39.104.127.252:8080/wanlitiaoyi/";
+	var urs="http://x5wkyg.natappfree.cc";
 	function ajaxsd(url,async,type,data,suFn,erFn){
 		$.ajax({
 			url:urs+url,
