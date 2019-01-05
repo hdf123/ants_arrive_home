@@ -3,3 +3,13 @@
 .heads{
     background:$backa;
 }
+.as{
+  width:100%;
+  border:1px solid red;
+  text-align: justify;
+}
+.as:after {
+    content: " ";
+    display: inline-block;
+    width: 100%;
+}

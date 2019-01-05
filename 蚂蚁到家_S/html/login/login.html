@@ -3,21 +3,97 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>登录</title>
 		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
-		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		
 	</head>
 	<body>
 		<div class="logina">logo</div>
-		<div class="loginb">
-			<div>登录</div>
-			<div>注册</div>
+		<div class="logins">
+			<ul class="tabs">
+				<li class="act">登录</li>
+				<li>注册</li>
+			</ul>
+			<div class="tabs_child">
+				<div>
+					<div class="inps">
+						<div>
+							<div class="iconfont icon-geren"></div>
+							<input type="text" />
+						</div>
+						<div>
+							<div class="iconfont icon-tubiao202"></div>
+							<input type="text" />
+						</div>
+					</div>
+					<div class="login" onclick="location.href='../home/home.html'">登录</div>
+					<div class="forget" onclick="location.href='forget.html'">忘记密码</div>
+					<div class="thirds">
+						<div></div>
+						<div>第三方</div>
+						<div></div>
+					</div>
+					<div class="third_child">
+						<div class="iconfont icon-qq"></div>
+						<div class="iconfont icon-weixin"></div>
+						<div class="iconfont icon-weibo"></div>
+					</div>
+				</div>
+				
+				
+				<div>
+					<div class="inpk">
+						<div>
+							<div class="iconfont icon-shouji"></div>
+							<input type="text" />
+						</div>
+						<div>
+							<div class="iconfont icon-yanzhengma"></div>
+							<input type="text" />
+							<div>获取验证码</div>
+						</div>
+						<div>
+							<div class="iconfont icon-shouji"></div>
+							<input type="text" placeholder="6~16位数字字母符号组合" />
+						</div>
+					</div>
+					<div class="registered">注册</div>
+					<div class="tks">
+						<i class="iconfont icon-danxuankuang"></i>
+						&nbsp;&nbsp;我已同意蚂蚁到家<span>注册服务条款</span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div></div>
+		
+		
+<script type="text/javascript">
+	$(function(){
+		$(".tabs_child>div").eq(1).hide();
+		$(".tabs>li").click(function(){
+			zuobiao=$(this).index();
+			$(this).addClass("act").siblings().removeClass("act");
+			$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
+		})
+		$(".tks").click(function(){
+			if($(this).children("i").is(".icon-danxuankuang")){
+				console.log(111);
+				$(this).children("i").removeClass("icon-danxuankuang");
+				$(this).children("i").addClass("icon-danxuankuang2");
+			}else{
+				$(this).children("i").addClass("icon-danxuankuang");
+				$(this).children("i").removeClass("icon-danxuankuang2");
+			}
+		})
+		$(".tks>span").click(function(event){
+			 event.stopPropagation();
+		})
+	})
+</script>
 	</body>
 </html>

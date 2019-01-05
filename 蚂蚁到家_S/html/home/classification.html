@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>分类</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/classification.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="centers">
+					<div>
+						<input type="text" placeholder="搜店铺，搜商品" />
+						<i class="iconfont icon-fangdajing"></i>
+					</div>
+				</div>
+				<div class="iconfont icon-location rights"></div>
+			</div>
+		</header>
+		<section class="sets">
+			<div class="sets_child">
+				<ul class="menu">
+					<li class="menu_child act">0000</li>
+					<li class="menu_child">1111</li>
+					<li class="menu_child">2222</li>
+					<li class="menu_child">3333</li>
+					<li class="menu_child">4444</li>
+					<li class="menu_child">5555</li>
+					<li class="menu_child">6666</li>
+					<li class="menu_child">7777</li>
+					<li class="menu_child">8888</li>
+					<li class="menu_child">9999</li>
+					<li class="menu_child">000</li>
+					<li class="menu_child">111</li>
+					<li class="menu_child">222</li>
+					<li class="menu_child">333</li>
+				</ul>
+				<ul class="ccbg">
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才</div>
+							<div>0.01元/斤</div>
+							<!--<div>
+								<div class="iconfont icon-jian"></div>
+								<input type="text" class="inps" onkeyup="num(this)" onblur="nums(this)" value="0"/>
+								<div class="iconfont icon-jia"></div>
+							</div>-->
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.02元/斤
+							</div>
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.03元/斤
+							</div>
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.04元/斤
+							</div>
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.05元/斤
+							</div>
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.06元/斤
+							</div>
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.07元/斤
+							</div>
+						</div>
+					</li>
+					<li class="singles">
+						<img src="" />
+						<div>
+							<div>水晶并才水晶并才水晶并才</div>
+							<div>
+								0.08元/斤
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<footer class="foots">
+			<div class="aa" onclick="location.href='home.html'">
+				<div class="iconfont icon-dianpu"></div>
+				首页
+			</div>
+			<div class="aa" onclick="location.href='classification.html'">
+				<div class="iconfont icon-fenlei1"></div>
+				分类
+			</div>
+			<div class="aa" onclick="location.href='shopping.html'">
+				<div class="iconfont icon-shouye"></div>
+				购物车
+			</div>
+			<div class="aa" onclick="location.href='my.html'">
+				<div class="iconfont icon-weibiaoti2fuzhi12"></div>
+				我的
+			</div>
+		</footer>
+		
+		
+<script type="text/javascript">
+	$(function(){
+		var indexs=0;
+		menu(indexs);
+		$(".menu").on("click",".menu_child",function(){
+			indexs=$(this).index();
+			menu(indexs);
+		});
+		function menu(indexs){
+			$(".menu>li").eq(indexs+1).css({"border-top":"none"});
+			$(".menu>li").eq(indexs+1).siblings().css({"border-top":"0.01rem solid #666666"});
+			$(".menu>li").eq(indexs).css({"border-top":"none"});
+			$(".menu>li").eq(indexs).addClass("active").siblings().removeClass("active");
+		}
+	})
+	function num(obj){//只能输入正整数,可以为0
+		var reg=/^([1-9]\d*|[0]{1,1})$/; //含0正整数
+		if(reg.test(obj.value)){
+			return;
+		}else{
+			obj.value="";
+		}
+	}
+	function nums(obj){
+		if(obj.value==""){
+			obj.value=0;
+		}
+	}
+</script>
+	</body>
+</html>

@@ -1,0 +1,208 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left:0.333rem;
+        padding-right:0.347rem;
+        >.hda{
+            width:1.3rem;
+            height:100%;
+            color:white;
+            font:$fonta;
+            @extend .flexs;
+        }
+        >.hdb{
+            width: 7.24rem;
+            height: 0.653rem;
+            display: flex;
+            position:relative;
+            >input{
+                width:100%;
+                padding:0 0.3rem;
+                border-radius: 0.267rem;
+                font:$fonts;
+            }
+            >i{
+                width:1rem;
+                height:100%;
+                @extend .flexs;
+                position:absolute;
+                top:0;
+                right:0;
+            }
+        }
+        >.hdc{
+            width:1.3rem;
+            height:100%;
+            color:white;
+            font-size:0.6rem;
+            @extend .flexs;
+        }
+    }
+}
+.swiper1{
+    .swiper-slide{
+        height: 5.187rem;
+        background:rgba(0,0,0,0.3);
+    }
+}
+.menu{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom:0.56rem;
+    border-bottom:0.413rem solid #eeeeee;
+    >li{
+        width:25%;
+        margin-top:0.56rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        >img{
+            width: 1.293rem;
+            height: 1.293rem;
+            background:white;
+        }
+        >span{
+            margin-top:0.12rem;
+            font:normal 0.385rem PingFang-SC-Regular;
+        }
+    }
+}
+.menus{
+    width:100%;
+    padding:1.28rem 0 0.3rem 0;
+    border-bottom:0.2rem solid #eeeeee;
+    >li{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        padding:0 0.667rem 0.2rem 0.36rem;
+        border-bottom:0.01rem solid #eeeeee;
+        >div{
+            width:48%;
+            >div:nth-child(1){
+                color: #fa4408;
+                font:$fontb;
+                line-height:0.8rem;
+            }
+            >div:nth-child(2){
+                display: flex;
+                justify-content: space-between;
+                >div:nth-child(1){
+                    font:$fonts;
+                }
+                >img:nth-child(2){
+                    width: 2.707rem;
+                    height: 2.493rem;
+                }
+            }
+        }
+    }
+    >li:last-child{
+        border:none;
+    }
+}
+.sets_child{
+    >div:nth-child(4){
+        padding:0.3rem 0.36rem;
+        font:$fonta;
+    }
+}
+.menuk{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    padding:0.5rem 0.3rem;
+    background:#eeeeee;
+    >li{
+        width:48%;
+        padding-bottom:0.6rem;
+        position:relative;
+        background:white;
+        >div:nth-child(1){
+            padding:0.2rem 0;
+            @extend .flexs;
+            >img{
+                width:4rem;
+                height:4rem;
+            }
+        }
+        >p:nth-child(2){
+            width:100%;
+            max-height:1rem;
+            font:$fonts;
+            line-height:0.48rem;
+            @extend .yincangs;
+        }
+        >div:nth-child(3){
+            width:100%;
+            height:0.6rem;
+            position:absolute;
+            left:0;
+            bottom:0;
+            padding-right:0.2rem;
+            display: flex;
+            justify-content: space-between;
+            >div:nth-child(1){
+                font:$fonta;
+            }
+            >i{
+                color:$backa;
+                font-size:0.5rem;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

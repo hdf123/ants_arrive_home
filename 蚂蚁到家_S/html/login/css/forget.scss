@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:#ffffff;
+        }
+        >.centers{
+            color: #ffffff;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    width:100%;
+    >div:nth-child(1){
+        width: 8.253rem;
+        margin:0 auto;
+        >input,>div{
+            width:100%;
+            height:1.307rem;
+            padding:0 0.28rem;
+            font:$fonta;
+            border-bottom:0.013rem solid #e5e5e5;
+        }
+        >div{
+            display: flex;
+            >input{
+                width:70%;
+                font:$fonta;
+            }
+            >div{
+                width:30%;
+                @extend .flexs;
+                >div{
+                    width: 2.053rem;
+                    height: 0.76rem;
+                    background-color: #fa6939;
+                    border-radius: 0.08rem;
+                    @extend .flexs;
+                    color: #ffffff;
+                    font:$fonts;
+                }
+            }
+        }
+    }
+}
+.determine{
+    width: 9.2rem;
+    height: 1.173rem;
+    margin:1.213rem auto;
+    background-color: #fa6939;
+    border-radius: 0.08rem;
+    color: #ffffff;
+    font:$fontb;
+    @extend .flexs;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

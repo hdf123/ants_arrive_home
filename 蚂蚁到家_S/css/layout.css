@@ -1,4 +1,4 @@
-.flexs, .heads > div > .lefts, .heads > div > .centers, .heads > div > .rights {
+.flexs, .heads > div > .lefts, .heads > div > .centers, .heads > div > .rights, .foots > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +18,7 @@ body {
 .heads {
   width: 10rem;
   padding-top: 40px;
+  background-color: #fa6939;
   box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
 }
 .heads > div {
@@ -57,11 +58,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 100px;
-}
-.sets > .sets_child > div {
-  width: 100%;
-  height: 20px;
+  bottom: 0;
 }
 
 .foots {
@@ -70,7 +67,18 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
+  display: flex;
   box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
+}
+.foots > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.foots > div > div {
+  font-size: 0.64rem;
 }
 
 /*tab*/

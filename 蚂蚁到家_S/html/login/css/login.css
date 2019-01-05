@@ -54,15 +54,181 @@
 }
 
 /*上下左右居中*/
-.flexs {
+.flexs, .inps > div > div:nth-child(1), .login, .inpk > div > div:nth-child(1), .inpk > div:nth-child(2) > div:nth-child(3), .registered {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .logina {
+  width: 10rem;
+  margin: 3.08rem auto 2.8rem;
   color: #fa6939;
-  font-size: 0.84rem;
+  text-align: center;
+  font: normal 0.84rem FZDBSJW--GB1-0;
+}
+
+.logins {
+  width: 5.48rem;
+  margin: 0 auto;
+}
+
+.tabs {
+  width: 100%;
+}
+.tabs > li {
+  width: 100%;
+  padding: 0.173rem 0;
+  font: normal 0.4rem PingFang-SC-Regular;
+  border-bottom: 0.04rem solid #333333;
+}
+.tabs > .act {
+  color: #fa4408;
+  border-bottom: 0.04rem solid #fa4408;
+}
+
+.tabs_child {
+  width: 5.48rem;
+}
+
+.inps {
+  width: 5.48rem;
+}
+.inps > div {
+  width: 100%;
+  height: 0.813rem;
+  display: flex;
+  background: #eeeeee;
+}
+.inps > div > div:nth-child(1) {
+  width: 15%;
+  font-size: 0.5rem;
+}
+.inps > div > input {
+  width: 85%;
+  font: normal 0.4rem PingFang-SC-Regular;
+  background: rgba(254, 254, 254, 0);
+}
+.inps > div:nth-child(1) {
+  margin: 0.827rem auto;
+}
+
+.login {
+  width: 4.44rem;
+  height: 0.813rem;
+  border-radius: 0.407rem;
+  background-color: #fa6939;
+  margin: 0.76rem auto 0;
+  color: #ffffff;
+  font: normal 0.502rem PingFang-SC-Regular;
+}
+
+.forget {
+  margin-top: 0.3rem;
+  padding: 0.06rem 0;
+  text-align: center;
+  color: #666666;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.thirds {
+  width: 100%;
+  height: 0.5rem;
+  margin: 0.76rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thirds > div:nth-child(1), .thirds > div:nth-child(3) {
+  width: 2.173rem;
+  height: 0.03rem;
+  background-color: #333333;
+}
+.thirds > div:nth-child(2) {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.third_child {
+  display: flex;
+  justify-content: space-around;
+}
+.third_child > div {
+  font-size: 1.08rem;
+}
+.third_child > div:nth-child(1) {
+  color: #06A2EA;
+}
+.third_child > div:nth-child(2) {
+  color: #20D24B;
+}
+.third_child > div:nth-child(3) {
+  color: #D84841;
+}
+
+.inpk {
+  width: 5.48rem;
+}
+.inpk > div {
+  width: 100%;
+  height: 0.813rem;
+  display: flex;
+  background: #eeeeee;
+  margin: 0.827rem auto;
+}
+.inpk > div > div:nth-child(1) {
+  width: 15%;
+  font-size: 0.5rem;
+}
+.inpk > div > input {
+  font: normal 0.4rem PingFang-SC-Regular;
+  padding: 0 0.15rem 0 0;
+  background: rgba(254, 254, 254, 0);
+}
+.inpk > div:nth-child(1) > input {
+  width: 85%;
+}
+.inpk > div:nth-child(3) > input {
+  width: 85%;
+}
+.inpk > div:nth-child(3) > input::-webkit-input-placeholder {
+  color: #999999;
+  font: normal 0.2rem PingFang-SC-Regular;
+}
+.inpk > div:nth-child(2) > input {
+  width: 50%;
+}
+.inpk > div:nth-child(2) > div:nth-child(3) {
+  width: 35%;
+  color: #666666;
+  font: normal 0.2rem PingFang-SC-Regular;
+}
+
+.registered {
+  width: 4.44rem;
+  height: 0.813rem;
+  margin: 0 auto;
+  background-color: #fa4408;
+  border-radius: 0.407rem;
+  color: #ffffff;
+  font: normal 0.502rem PingFang-SC-Regular;
+}
+
+.tks {
+  margin-top: 0.787rem;
+  color: #cccccc;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.tks > i {
+  float: left;
+  font-size: 0.5rem;
+}
+.tks > span {
+  color: #1c6ff8;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.icon-danxuankuang2 {
+  color: #fa4408;
 }
 
 /*# sourceMappingURL=login.css.map */
