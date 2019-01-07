@@ -60,11 +60,14 @@
 					<div class="evaluation1_child2">
 						<textarea placeholder="请对骑手做出评价"></textarea>
 						<div>
-							<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
-							<label for="photo_child1" class="photo_child1">
-								<div class="iconfont icon-tupian"></div>
-								<div>添加图片</div>
-				        	</label>
+							<div>
+								<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
+								<label for="photo_child1" class="photo_child1">
+									<div class="iconfont icon-tupian"></div>
+									<div>添加图片</div>
+					        	</label>
+							</div>
+							<div class="images"></div>
 						</div>
 					</div>
 				</div>
@@ -89,7 +92,7 @@
         	}else{
 	        	var url = getObjectURL(file);
 	        	console.log(url);
-	        	$(".images>img").css("display","block");
+//	        	$(".images>img").css("display","block");
 	        	$(".images").append(`<img src=${url} class="images_child" />`);
         		console.log('图片大小为：' + size.toFixed(2) + 'KB');
         	}
