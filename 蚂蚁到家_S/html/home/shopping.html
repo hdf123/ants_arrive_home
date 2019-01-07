@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>分类</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shopping.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="centers">
+					购物车
+				</div>
+				<div class="rights">管理</div>
+			</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="shopping">
+					<div>
+						<div class="iconfont icon-danxuankuang"></div>
+						<div>
+							<img src=""/>
+							<div>
+								<div>iPhone 8 /8P/7/7P精致手机壳是打发斯蒂芬精致手机壳是打发斯蒂芬精致手机壳是打发斯蒂芬精致手机壳是打发斯蒂芬精致手机壳是打发斯蒂芬</div>
+								<div>
+									<div>
+										¥1060.00
+									</div>
+									<div class="numbers">
+										<div class="iconfont icon-jian"></div>
+										<input type="text" value="2" />
+										<div class="iconfont icon-jia"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>删除</div>
+					</div>
+				</div>
+				<div class="shopping">
+					<div>
+						<div class="iconfont icon-danxuankuang"></div>
+						<div>
+							<img src=""/>
+							<div>
+								<div class="yincangs">欧时力（ochirly) 九分哈伦裤 HDUDDA5498</div>
+								<div>
+									<div>
+										¥1060.00
+									</div>
+									<div class="numbers">
+										<div class="iconfont icon-jian"></div>
+										<input type="text" value="3" />
+										<div class="iconfont icon-jia"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>删除</div>
+					</div>
+				</div>
+				<div class="shopping">
+					<div>
+						<div class="iconfont icon-danxuankuang"></div>
+						<div>
+							<img src=""/>
+							<div>
+								<div class="yincangs">欧时力（ochirly) 九分哈伦裤 HDUDDA5498</div>
+								<div>
+									<div>
+										¥1060.00
+									</div>
+									<div class="numbers">
+										<div class="iconfont icon-jian"></div>
+										<input type="text" value="4" />
+										<div class="iconfont icon-jia"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>删除</div>
+					</div>
+				</div>
+				<div class="shopping">
+					<div>
+						<div class="iconfont icon-danxuankuang"></div>
+						<div>
+							<img src=""/>
+							<div>
+								<div class="yincangs">欧时力（ochirly) 九分哈伦裤 HDUDDA5498</div>
+								<div>
+									<div>
+										¥1060.00
+									</div>
+									<div class="numbers">
+										<div class="iconfont icon-jian"></div>
+										<input type="text" value="5" />
+										<div class="iconfont icon-jia"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>删除</div>
+					</div>
+				</div>
+				<div class="shopping">
+					<div>
+						<div class="iconfont icon-danxuankuang"></div>
+						<div>
+							<img src=""/>
+							<div>
+								<div class="yincangs">欧时力（ochirly) 九分哈伦裤 HDUDDA5498</div>
+								<div>
+									<div>
+										¥1060.00
+									</div>
+									<div class="numbers">
+										<div class="iconfont icon-jian"></div>
+										<input type="text" value="6" />
+										<div class="iconfont icon-jia"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>删除</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div class="iconfont icon-tubiao-xuanze alls">
+						<span>全选</span>
+					</div>
+					<div>合计：¥<span id="us">0</span></div>
+				</div>
+				<div class="settlement">
+					进行结算(<span id="mun">0</span>)
+				</div>
+			</div>
+		</section>
+		<footer class="foots">
+			<div class="aa" onclick="location.href='home.html'">
+				<div class="iconfont icon-dianpu"></div>
+				首页
+			</div>
+			<div class="aa" onclick="location.href='classification.html'">
+				<div class="iconfont icon-fenlei1"></div>
+				分类
+			</div>
+			<div class="aa" onclick="location.href='shopping.html'">
+				<div class="iconfont icon-shouye"></div>
+				购物车
+			</div>
+			<div class="aa" onclick="location.href='my.html'">
+				<div class="iconfont icon-weibiaoti2fuzhi12"></div>
+				我的
+			</div>
+		</footer>
+		
+		
+<script type="text/javascript">
+	$(document).ready(function(){
+		//获取购物车信息
+		/*ajaxs("api/cart/getitem",'post',{type:1,userId:isLogin()},function(data){
+			console.log(data);
+			var data=data.list,ks="",arrs=[];
+			$.each(data, function(index,item){
+				ks+=`<div class="shopping" data-sta=${item.productId} data-itemid=${item.itemId} data-price=${item.price*item.quantity}>
+						<div>
+							<div class="iconfont icon-tubiao-xuanze xzs"></div>
+							<div>
+								<img src=${item.image} />
+								<div>
+									<div class="yincangs">${item.name}</div>
+									<div>
+										<div>¥${item.price}</div>
+										<div class="numbers">
+											<div class="iconfont icon-jianshao"></div>
+											<input type="text" class="inp" onkeyup="num(this)" onafterpaste="num(this)" value=${item.quantity} data-munk=${item.quantity} data-totals=${item.price} />
+											<div class="iconfont icon-jia"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="deles">删除</div>
+						</div>
+					</div>`;
+			});
+			$(".sets>div").html(ks);*/
+			//加
+			$(".sets").on("click",".icon-jia",function(){
+				var beforek=$(this).closest(".shopping").data("price");//当前商品开始总价
+				var nums=Number($(this).prev().val())+1;
+				$(this).prev().val(nums);
+				$(this).prev().data("munk",nums);//当前商品数量
+				var totals=$(this).prev().data("totals");//当前商品价格
+				$(this).closest(".shopping").data("price",nums*totals);//当前商品总价
+				//判断当前商品是否被选中
+				if($(this).closest(".shopping").find(".xzs").is(".icon-xuanze")){
+					us();
+				}
+			})
+			//减
+			$(".sets").on("click",".icon-jianshao",function(){
+				var nums=Number($(this).next().val())-1;
+				console.log(nums);
+				if(nums<=0){
+					$(this).next().val(1);
+					$(this).next().data("munk",nums);//当前商品数量
+					var totals=$(this).next().data("totals");//当前商品价格
+					$(this).closest(".shopping").data("price",nums*totals);//当前商品总价
+					//判断当前商品是否被选中
+					if($(this).closest(".shopping").find(".xzs").is(".icon-xuanze")){
+						us();
+					}
+				}else{
+					$(this).next().val(nums);
+					$(this).next().data("munk",nums);//当前商品数量
+					var totals=$(this).next().data("totals");//当前商品价格
+					$(this).closest(".shopping").data("price",nums*totals);//当前商品总价
+					//判断当前商品是否被选中
+					if($(this).closest(".shopping").find(".xzs").is(".icon-xuanze")){
+						us();
+					}
+				}
+			})
+			//input失去焦点后如果为空，显示原本的数量,并计算当前商品总价
+			$(".sets").on("blur",".inp",function(){
+				var ths=$(this).val();//数量
+				var munk=$(this).data("munk");//原有数量
+				var price=$(this).data("totals");//单价
+				if(ths==""){
+					$(this).val(munk);
+					$(this).closest(".shopping").data("price",$(this).val()*price);
+					console.log($(this).closest(".shopping").data("price"));
+				}
+			})
+			//选择商品结账
+			$(".sets").on("click",".xzs",function(){
+				var aa=$(this);
+				var arrid=aa.closest(".shopping").data("sta");//当前商品id
+				var munk=aa.closest(".shopping").find(".inp").data("munk");//当前商品数量
+				var price=aa.closest(".shopping").data("price");//当前商品总价
+				if(aa.is(".icon-tubiao-xuanze")){//选中
+					aa.removeClass("icon-tubiao-xuanze");
+					aa.addClass("icon-xuanze");
+					arrs.push(aa.closest(".shopping").data("price"));
+					console.log(arrs);
+					//选中的商品总价
+					var sti=eval(arrs.join("+"));
+					$("#us").html(sti)
+					$("#mun").html($(".sets .icon-xuanze").length);
+					var fg=true;//是否全部选中，改变全选状态
+					$(".sets .xzs").each(function(){
+						if($(this).is(".icon-tubiao-xuanze")){
+							console.log(111);
+							return fg=false;
+						}
+					});
+					if(fg){
+						$(".alls").removeClass("icon-tubiao-xuanze");
+						$(".alls").addClass("icon-xuanze");
+					}
+					console.log(fg);
+				}else{//取消
+					aa.addClass("icon-tubiao-xuanze");
+					aa.removeClass("icon-xuanze");
+					$("#mun").html($(".sets .icon-xuanze").length);
+					$(".alls").addClass("icon-tubiao-xuanze");
+					$(".alls").removeClass("icon-xuanze");
+					//取消选中后从数组中删除
+					removeWithoutCopy(arrs,price);
+					console.log(arrs);
+					if(arrs.length<=0){
+						$("#us").html(0);
+					}else{
+						//选中的商品总价
+						var sti=eval(arrs.join("+"));
+						$("#us").html(sti);
+					}
+				}
+			})
+			function removeWithoutCopy(arrs,price) {
+				for(i in arrs){
+					if(arrs[i]==price){
+						arrs.splice(i,1);
+						i--;
+						return arrs;
+					}
+				}
+				
+				var sti=eval(arrs.join("+"));
+				$("#us").html(sti)
+			}
+			//全选
+			$(".alls").click(function(){
+				if($(this).is(".icon-tubiao-xuanze")){
+					$(this).removeClass("icon-tubiao-xuanze");
+					$(this).addClass("icon-xuanze");
+					$(this).children("span").html("取消");
+					$(".xzs").removeClass("icon-tubiao-xuanze");
+					$(".xzs").addClass("icon-xuanze");
+					$("#mun").html($(".sets .icon-xuanze").length);
+					us();
+				}else{
+					$(this).addClass("icon-tubiao-xuanze");
+					$(this).removeClass("icon-xuanze");
+					$(this).children("span").html("全选");
+					$(".xzs").addClass("icon-tubiao-xuanze");
+					$(".xzs").removeClass("icon-xuanze");
+					$("#us").html(0);
+					$("#mun").html(0);
+				}
+			})
+			function us(){
+				arrs=[];
+				for(var i=0;i<$(".sets .xzs").length;i++){
+					arrs.push($(".sets .xzs:eq("+i+")").closest(".shopping").data("price"));
+				}
+				var sti=eval(arrs.join("+"));
+				$("#us").html(sti);
+			}
+			//删除
+			$(".sets").on("click",".deles",function(){
+				
+				/*var current=$(this);
+				var itemid=$(this).closest(".shopping").data("itemid");
+				ajaxs("api/cart/del",'post',{itemId:itemid},function(data){
+					console.log(data);
+					if(data.msg=="success"){
+						current.closest(".shopping").remove();
+					}else{
+						alert("删除失败");
+					}
+	            },function(err){
+	                console.log(err);
+	            });*/
+			})
+			//结算
+			$("settlement").click(function(){
+				$(this).children("span").html($(".sets .icon-xuanze").length);
+				var arr=[];
+				$(".sets .xzs").each(function() {
+					if($(this).is(".icon-xuanze")){
+						var orderItems={
+							productid:$(this).closest(".shopping").data("sta"),//商品id
+							quantity:$(this).closest(".shopping").find(".inp").data("munk")//数量
+						}
+						arr.push(orderItems);
+					}
+				});
+				if(arr.length<=0){
+					alert("请选择结算商品");
+					return false;
+				}
+				console.log("商品数据:"+arr);
+			})
+        /*},function(err){
+            console.log(err);
+        });*/
+	})
+	//input验证不能输入包含0在内的字母和汉子
+	function num(obj){
+		if(obj.value.length==1){
+			obj.value=obj.value.replace(/[^1-9]/g,'');
+		}else{
+			obj.value=obj.value.replace(/\D/g,'');
+		}
+	}
+</script>
+	</body>
+</html>

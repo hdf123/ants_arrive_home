@@ -1,0 +1,156 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    padding:0 0.4rem 0.5rem 0.4rem;
+    background:#eeeeee;
+}
+.rider,.merchants{
+    >div:nth-child(1){
+        width:100%;
+        margin:0 auto;
+        display: flex;
+        padding:0.427rem 0 0.267rem 0;
+        >img:nth-child(1){
+            width: 0.987rem;
+            height: 0.987rem;
+            background:#CCCCCC;
+            border-radius:50%;
+        }
+        >div:nth-child(2){
+            margin-left:0.307rem;
+            >div:nth-child(1){
+                font:$fonta;
+            }
+            >div:nth-child(2){
+                font:$fonts;
+            }
+        }
+    }
+}
+.evaluation1{
+    width:100%;
+    height: 6.453rem;
+    padding-top:0.627rem;
+    background-color: #ffffff;
+    >div:nth-child(1){
+        text-align: center;
+        font:$fonta;
+    }
+    >div:nth-child(2){
+        width:45%;
+        margin:0.387rem auto;
+        display: flex;
+        justify-content:space-around;
+        >i{
+            font-size:0.5rem;
+        }
+    }
+    >div:nth-child(3){
+        width: 8.747rem;
+        margin:0 auto;
+        padding:0.507rem 0.547rem;
+        background:#eeeeee;
+        >textarea{
+            width:100%;
+            resize:none;/*禁止拉伸*/
+            outline:none;
+            border:none;
+            background:#eeeeee;
+            font:$fonta;
+        }
+    }
+}
+.evaluation1:nth-child(2){
+    height: 7.44rem;
+}
+
+.evaluation1_child1{
+    height: 3.507rem;
+    >textarea{
+        height:100%;
+        background:khaki;
+        
+    }
+}
+.evaluation1_child2{
+    height:4.187rem;
+    >textarea{
+        height:2rem;
+        background:lime;
+    }
+    >div:nth-child(2){
+        width: 1.413rem;
+        height: 1.413rem;
+        margin-left:0.227rem;
+        border-radius:0.2rem;
+        overflow:hidden;
+        background:rgba(244,244,244,0.8);
+        border:0.03rem solid #eeeeee;
+        >input{
+            display:none;
+        }
+        >label{
+            >div:nth-child(1){
+                width:100%;
+                height:70%;
+                @extend .flexs;
+                color:#dddddd;
+                font-size:0.7rem;
+            } 
+            >div:nth-child(2){
+                width:100%;
+                text-align: center;
+                color:#cccccc;
+                font:normal 0.267rem PingFang-SC-Regular;
+            } 
+        }
+    }
+}
+
+
+.merchants{
+    >div:nth-child(1){
+        >div:nth-child(2){
+            font:$fonta;
+            display: flex;
+            align-items:center;
+        }
+    }
+}
+.foots{
+    @extend .flexs;
+    >div{
+        width: 9.2rem;
+        height: 1.173rem;
+        background-color: #fa6939;
+        border-radius: 0.133rem;
+        color: #ffffff;
+        font:$fonta;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

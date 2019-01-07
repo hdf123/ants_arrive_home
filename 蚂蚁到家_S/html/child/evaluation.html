@@ -3,41 +3,80 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>商品详情</title>
+		<title>评价</title>
 		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
-		<link rel="stylesheet" type="text/css" href="css/details.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/evaluation.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<header class="heads">
 			<div>
 				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
-				<div class="centers">商品详情</div>
-				<div class="rights">确定</div>
+				<div class="centers">评价</div>
 			</div>
 		</header>
 		<section class="sets">
-			<div>
-				<textarea placeholder="请输入产品说明"></textarea>
-			</div>
-			<div>
+			<div class="rider">
 				<div>
-					<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
-					<label for="photo_child1" class="photo_child1">
-						<div class="iconfont icon-tupian"></div>
-						<div>添加图片</div>
-		        	</label>
+					<img src="" alt="" />
+					<div>
+						<div>周长远</div>
+						<div>40分钟（13:20）送达</div>
+					</div>
 				</div>
-				<div class="images"></div>
+				<div class="evaluation1">
+					<div>配送评价</div>
+					<div>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+					</div>
+					<div class="evaluation1_child1">
+						<textarea placeholder="请对骑手做出评价"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="merchants">
+				<div>
+					<img src="" alt="" />
+					<div>越来越喜便利店</div>
+				</div>
+				<div class="evaluation1">
+					<div>配送评价</div>
+					<div>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+						<i class="iconfont icon-favourite"></i>
+					</div>
+					<div class="evaluation1_child2">
+						<textarea placeholder="请对骑手做出评价"></textarea>
+						<div>
+							<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
+							<label for="photo_child1" class="photo_child1">
+								<div class="iconfont icon-tupian"></div>
+								<div>添加图片</div>
+				        	</label>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
-		
-		
+		<footer class="foots">
+			<div>提交评价</div>
+		</footer>
 <script type="text/javascript">
 	$(function(){
+		funkr();//获取头部和底部的总高度
+	
     	/*上传图片*/
         $("#photo_child1").change(function(){
         	var file = this.files[0];

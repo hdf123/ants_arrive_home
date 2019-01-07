@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .evaluation1_child2 > div:nth-child(2) > label > div:nth-child(1), .foots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  padding: 0 0.4rem 0.5rem 0.4rem;
+  background: #eeeeee;
+}
+
+.rider > div:nth-child(1), .merchants > div:nth-child(1) {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 0.427rem 0 0.267rem 0;
+}
+.rider > div:nth-child(1) > img:nth-child(1), .merchants > div:nth-child(1) > img:nth-child(1) {
+  width: 0.987rem;
+  height: 0.987rem;
+  background: #CCCCCC;
+  border-radius: 50%;
+}
+.rider > div:nth-child(1) > div:nth-child(2), .merchants > div:nth-child(1) > div:nth-child(2) {
+  margin-left: 0.307rem;
+}
+.rider > div:nth-child(1) > div:nth-child(2) > div:nth-child(1), .merchants > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.rider > div:nth-child(1) > div:nth-child(2) > div:nth-child(2), .merchants > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.evaluation1 {
+  width: 100%;
+  height: 6.453rem;
+  padding-top: 0.627rem;
+  background-color: #ffffff;
+}
+.evaluation1 > div:nth-child(1) {
+  text-align: center;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.evaluation1 > div:nth-child(2) {
+  width: 45%;
+  margin: 0.387rem auto;
+  display: flex;
+  justify-content: space-around;
+}
+.evaluation1 > div:nth-child(2) > i {
+  font-size: 0.5rem;
+}
+.evaluation1 > div:nth-child(3) {
+  width: 8.747rem;
+  margin: 0 auto;
+  padding: 0.507rem 0.547rem;
+  background: #eeeeee;
+}
+.evaluation1 > div:nth-child(3) > textarea {
+  width: 100%;
+  resize: none;
+  /*禁止拉伸*/
+  outline: none;
+  border: none;
+  background: #eeeeee;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.evaluation1:nth-child(2) {
+  height: 7.44rem;
+}
+
+.evaluation1_child1 {
+  height: 3.507rem;
+}
+.evaluation1_child1 > textarea {
+  height: 100%;
+  background: khaki;
+}
+
+.evaluation1_child2 {
+  height: 4.187rem;
+}
+.evaluation1_child2 > textarea {
+  height: 2rem;
+  background: lime;
+}
+.evaluation1_child2 > div:nth-child(2) {
+  width: 1.413rem;
+  height: 1.413rem;
+  margin-left: 0.227rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  background: rgba(244, 244, 244, 0.8);
+  border: 0.03rem solid #eeeeee;
+}
+.evaluation1_child2 > div:nth-child(2) > input {
+  display: none;
+}
+.evaluation1_child2 > div:nth-child(2) > label > div:nth-child(1) {
+  width: 100%;
+  height: 70%;
+  color: #dddddd;
+  font-size: 0.7rem;
+}
+.evaluation1_child2 > div:nth-child(2) > label > div:nth-child(2) {
+  width: 100%;
+  text-align: center;
+  color: #cccccc;
+  font: normal 0.267rem PingFang-SC-Regular;
+}
+
+.merchants > div:nth-child(1) > div:nth-child(2) {
+  font: normal 0.4rem PingFang-SC-Regular;
+  display: flex;
+  align-items: center;
+}
+
+.foots > div {
+  width: 9.2rem;
+  height: 1.173rem;
+  background-color: #fa6939;
+  border-radius: 0.133rem;
+  color: #ffffff;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=evaluation.css.map */

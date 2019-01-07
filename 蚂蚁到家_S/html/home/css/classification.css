@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang, .sets_child > .menu > li, .sets_child > .ccbg > li > div:nth-child(2) > div:nth-child(1) {
+.yincang, .sets > .menu > li, .sets > .ccbg > li > div:nth-child(2) > div:nth-child(1) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -83,17 +83,17 @@
   font-size: 0.55rem;
 }
 
-.sets_child {
+.sets {
   display: flex;
 }
-.sets_child > ul {
+.sets > ul {
   height: 14rem;
   overflow: auto;
 }
-.sets_child > .menu {
+.sets > .menu {
   width: 2.667rem;
 }
-.sets_child > .menu > li {
+.sets > .menu > li {
   width: 100%;
   height: 1.39rem;
   background: #eeeeee;
@@ -103,30 +103,30 @@
   border-top: 0.01rem solid #666666;
   line-height: 1.453rem;
 }
-.sets_child > .menu > .active {
+.sets > .menu > .active {
   border-left: 0.05rem solid #fa4408;
   background: #ffffff;
 }
-.sets_child > .ccbg {
+.sets > .ccbg {
   width: 7.333rem;
 }
-.sets_child > .ccbg > li {
+.sets > .ccbg > li {
   display: flex;
   padding: 0.3rem 0 0.3rem 0.4rem;
   border-bottom: 0.01rem solid #eeeeee;
 }
-.sets_child > .ccbg > li > img:nth-child(1) {
+.sets > .ccbg > li > img:nth-child(1) {
   width: 2.187rem;
   height: 2.187rem;
   border-radius: 0.267rem;
   overflow: hidden;
   border: solid 0.015rem #333333;
 }
-.sets_child > .ccbg > li > div:nth-child(2) {
+.sets > .ccbg > li > div:nth-child(2) {
   width: 4rem;
   margin-left: 0.613rem;
 }
-.sets_child > .ccbg > li > div:nth-child(2) > div:nth-child(1) {
+.sets > .ccbg > li > div:nth-child(2) > div:nth-child(1) {
   width: 100%;
   height: 0.6rem;
   color: #333333;
@@ -134,7 +134,7 @@
   margin-top: 0.2rem;
   padding-top: 0.1rem;
 }
-.sets_child > .ccbg > li > div:nth-child(2) > div:nth-child(2) {
+.sets > .ccbg > li > div:nth-child(2) > div:nth-child(2) {
   color: #fa6939;
   font: normal 0.32rem PingFang-SC-Regular;
   margin-top: 0.2rem;

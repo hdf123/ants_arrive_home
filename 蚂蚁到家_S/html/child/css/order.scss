@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.order{
+    border-bottom:0.267rem solid #eeeeee;
+    >div:nth-child(3){
+        height:1.187rem;
+        font:$fonta;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right:0.5rem;
+        border-top:0.01rem solid #eeeeee;
+        border-bottom:0.01rem solid #eeeeee;
+        >span{
+            color:$backa;
+        }
+    }
+    >div:nth-child(4){
+        height:1.52rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        >div{
+            width: 2.133rem;
+            height: 0.8rem;
+            border-radius: 0.107rem;
+            border: solid 0.02rem #b5b5b5;
+            @extend .flexs;
+            font:$fonts;
+        }
+    }
+}
+.order_child1,.order_child2{
+    width:9.16rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0 auto;
+}
+.order_child1{
+    height:1.12rem;
+    border-bottom:0.01rem solid #eeeeee;
+    >div{
+        font:$fonts;
+    }
+    >div:nth-child(1){
+        >i{
+            margin-left:0.1rem;
+            font-size:0.4rem;
+        }
+    }
+    >div:nth-child(2){
+        color:$backa;
+    }
+}
+.order_child2{
+    height:3.04rem;
+    padding:0.387rem 0 0.52rem 0;
+    >img{
+        width: 2.12rem;
+        height: 2.12rem;
+    }
+    >div:nth-child(2){
+        width:6.6rem;
+        height:100%;
+        position:relative;
+        >p{
+            width:100%;
+            max-height:1.3rem;
+            font:$fonts;
+            @extend .yincangs;
+            -webkit-line-clamp:3; /*超出2行用省略号表示*/
+        }
+        >div{
+            position:absolute;
+            left: 0;
+            bottom:0.1rem;
+            font:$fonta;
+        }
+    }
+}

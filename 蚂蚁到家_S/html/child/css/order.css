@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs, .order_child2 > div:nth-child(2) > p {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .order > div:nth-child(4) > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.order {
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.order > div:nth-child(3) {
+  height: 1.187rem;
+  font: normal 0.4rem PingFang-SC-Regular;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  border-top: 0.01rem solid #eeeeee;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.order > div:nth-child(3) > span {
+  color: #fa6939;
+}
+.order > div:nth-child(4) {
+  height: 1.52rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.order > div:nth-child(4) > div {
+  width: 2.133rem;
+  height: 0.8rem;
+  border-radius: 0.107rem;
+  border: solid 0.02rem #b5b5b5;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.order_child1, .order_child2 {
+  width: 9.16rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.order_child1 {
+  height: 1.12rem;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.order_child1 > div {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.order_child1 > div:nth-child(1) > i {
+  margin-left: 0.1rem;
+  font-size: 0.4rem;
+}
+.order_child1 > div:nth-child(2) {
+  color: #fa6939;
+}
+
+.order_child2 {
+  height: 3.04rem;
+  padding: 0.387rem 0 0.52rem 0;
+}
+.order_child2 > img {
+  width: 2.12rem;
+  height: 2.12rem;
+}
+.order_child2 > div:nth-child(2) {
+  width: 6.6rem;
+  height: 100%;
+  position: relative;
+}
+.order_child2 > div:nth-child(2) > p {
+  width: 100%;
+  max-height: 1.3rem;
+  font: normal 0.32rem PingFang-SC-Regular;
+  -webkit-line-clamp: 3;
+  /*超出2行用省略号表示*/
+}
+.order_child2 > div:nth-child(2) > div {
+  position: absolute;
+  left: 0;
+  bottom: 0.1rem;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=order.css.map */

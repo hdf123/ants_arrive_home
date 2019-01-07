@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background:#eeeeee;
+    >div{
+        background:white;
+        display: flex;
+        padding:0.387rem 0.427rem;
+    }
+    >div:nth-child(1){
+        height:1.76rem;
+        align-items: center;
+        border-bottom:0.01rem solid #eeeeee;
+        >img{
+            width: 0.987rem;
+            height: 0.987rem;
+            border-radius:50%;
+        }
+        >div:nth-child(2){
+            margin-left:0.36rem;
+            >div:nth-child(1){
+                font:$fonta;
+            }
+            >div:nth-child(2){
+                color:$backa;
+                font:$fonts;
+            }
+        }
+    }
+    >div:nth-child(2){
+        height:1.307rem;
+        justify-content: space-between;
+        >div{
+            font:$fonta;
+        }
+    }
+}
+

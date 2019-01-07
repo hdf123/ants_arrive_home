@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        background:white;
+        >.centers{
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    position:relative;
+    >div:nth-child(1){
+        height:1.387rem;
+        padding-left:0.5rem;
+        display: flex;
+        align-items: center;
+        font:$fonta;
+        border-bottom:0.267rem solid #eeeeee;
+    }
+    >div:nth-child(4){
+        width: 9.6rem;
+        height:1.173rem;
+        margin:0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom:0.01rem solid #eeeeee;
+        >div{
+            font:$fonts;
+        }
+    }
+    >div:nth-child(5){
+        width: 9.6rem;
+        margin:0.5rem auto;
+    }
+    >div:nth-child(6){
+        position: absolute;
+        right:0;
+        bottom:0.427rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right:0.88rem;
+        >div{
+            width: 2.4rem;
+            height: 0.88rem;
+            border-radius: 0.44rem;
+            border: solid 0.02rem $backa;
+            @extend .flexs;
+            color:$backa;
+            font:$fonta;
+        }
+    }
+}
+.information{
+    padding:0.32rem 0 0.413rem 0;
+    >div:nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        padding:0 0.947rem;
+        >div{
+            font:$fonta;
+        }
+    }
+    >div:nth-child(2){
+        padding:0 0.3rem;
+        margin-top:0.1rem;
+        font:$fonts;
+        >i{
+            margin-right:0.1rem;
+            font-size:0.5rem;
+        }
+    }
+}
+.order{
+    width:10rem;
+    height:3.04rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0 auto;
+    background:#eeeeee;
+    padding:0.387rem 0.3rem 0.52rem 0.3rem;
+    >img{
+        width: 2.12rem;
+        height: 2.12rem;
+        background:#20D24B;
+    }
+    >div:nth-child(2){
+        width:6.6rem;
+        height:100%;
+        position:relative;
+        >p{
+            width:100%;
+            max-height:1.3rem;
+            font:$fonts;
+            @extend .yincangs;
+            -webkit-line-clamp:3; /*超出2行用省略号表示*/
+        }
+        >div{
+            width:100%;
+            position:absolute;
+            left: 0;
+            bottom:0.1rem;
+            font:$fonta;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

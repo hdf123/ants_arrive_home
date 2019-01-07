@@ -60,20 +60,48 @@
   justify-content: center;
 }
 
-.heads {
-  background: #fa6939;
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
 }
 
-.as {
-  width: 100%;
-  border: 1px solid red;
-  text-align: justify;
+.sets {
+  background: #eeeeee;
+}
+.sets > div {
+  background: white;
+  display: flex;
+  padding: 0.387rem 0.427rem;
+}
+.sets > div:nth-child(1) {
+  height: 1.76rem;
+  align-items: center;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.sets > div:nth-child(1) > img {
+  width: 0.987rem;
+  height: 0.987rem;
+  border-radius: 50%;
+}
+.sets > div:nth-child(1) > div:nth-child(2) {
+  margin-left: 0.36rem;
+}
+.sets > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.sets > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  color: #fa6939;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.sets > div:nth-child(2) {
+  height: 1.307rem;
+  justify-content: space-between;
+}
+.sets > div:nth-child(2) > div {
+  font: normal 0.4rem PingFang-SC-Regular;
 }
 
-.as:after {
-  content: " ";
-  display: inline-block;
-  width: 100%;
-}
-
-/*# sourceMappingURL=aa.css.map */
+/*# sourceMappingURL=rider.css.map */

@@ -28,6 +28,7 @@ a{
     cursor: pointer;
     outline: none;
     text-decoration: none;
+    display: inline-block;
     /*导致鼠标在页面活动时视频延迟变卡问题解决.*/
     blr:expression(this.onFocus=this.blur());
 }

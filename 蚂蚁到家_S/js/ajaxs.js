@@ -292,13 +292,14 @@
 		}, true);
 	}
 //基础布局
-	function pos(){
+	function funkr(){
+		var ss=$(document.body).outerHeight(true);
+//		var ss=document.body.scrollHeight;
+//		var ss=window.screen.availHeight;
 		var he=$(".heads").outerHeight();
 		var ft=$(".foots").outerHeight();
-		var aa=he+ft;
-		console.log(he);
-		console.log(ft);
-		console.log(aa);
-		$(".sets_child").css({"bottom":he+ft+"px"});
+		he==undefined?he=0:he=he;
+		ft==undefined?ft=0:ft=ft;
+		var bod=ss-(he+ft);
+		$(".sets").css({"height":bod+"px"});
 	}
-
