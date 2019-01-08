@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .collection > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers, .heads > div > .rights {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  background: #eeeeee;
+}
+
+.collection {
+  height: 2.88rem;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.collection > div:nth-child(1) {
+  width: 1.48rem;
+  height: 100%;
+  font-size: 0.45rem;
+}
+.collection > img {
+  width: 2.08rem;
+  height: 2.08rem;
+  border-radius: 0.133rem;
+  margin-left: 0.4rem;
+}
+.collection > div:nth-child(3) {
+  width: 6.44rem;
+  height: 2.08rem;
+  padding-left: 0.96rem;
+  position: relative;
+}
+.collection > div:nth-child(3) > p:nth-child(1) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.collection > div:nth-child(3) > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.2rem 0 0.96rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.collection > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) {
+  color: #fa6939;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.collection > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) {
+  color: #fa6939;
+  font-size: 0.5rem;
+}
+
+.foots {
+  align-items: center;
+  justify-content: space-between;
+}
+.foots > div:nth-child(1) {
+  width: 35%;
+  font-size: 0.45rem;
+  flex-direction: row;
+}
+.foots > div:nth-child(1) > div {
+  font: normal 0.4rem PingFang-SC-Regular;
+  margin-left: 0.3rem;
+}
+.foots > div:nth-child(2) {
+  width: 2.16rem;
+  height: 0.747rem;
+  margin-right: 0.24rem;
+  background-color: #fa6939;
+  border-radius: 0.373rem;
+  color: #ffffff;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=collection.css.map */

@@ -38,9 +38,8 @@
         }
     }
 }
-.evaluation1{
+.evaluation1,.evaluation2{
     width:100%;
-    height: 6.453rem;
     padding-top:0.627rem;
     background-color: #ffffff;
     >div:nth-child(1){
@@ -71,8 +70,13 @@
         }
     }
 }
-.evaluation1:nth-child(2){
-    height: 7.44rem;
+.evaluation1{
+    height: 6.453rem;
+}
+
+.evaluation2{
+//  height: 7.44rem;
+    padding-bottom:1rem;
 }
 
 .evaluation1_child1{
@@ -84,49 +88,47 @@
     }
 }
 .evaluation1_child2{
-    height:4.187rem;
+//  height:4.187rem;
     >textarea{
         height:2rem;
         background:lime;
     }
-    >div:nth-child(2){
-        display: flex;
-        >div:nth-child(1){
-            width: 1.413rem;
-            height: 1.413rem;
-            margin-left:0.227rem;
-            border-radius:0.2rem;
-            overflow:hidden;
-            background:rgba(244,244,244,0.8);
-            border:0.03rem solid #eeeeee;
-            >input{
-                display:none;
-            }
-            >label{
-                >div:nth-child(1){
-                    width:100%;
-                    height:70%;
-                    @extend .flexs;
-                    color:#dddddd;
-                    font-size:0.7rem;
-                } 
-                >div:nth-child(2){
-                    width:100%;
-                    text-align: center;
-                    color:#cccccc;
-                    font:normal 0.267rem PingFang-SC-Regular;
-                } 
-            }
+}
+.images{
+    display: flex;
+    flex-wrap: wrap;
+    >div:nth-child(1){
+        width: 1.413rem;
+        height: 1.413rem;
+        border-radius:0.2rem;
+        overflow:hidden;
+        background:rgba(244,244,244,0.8);
+        border:0.03rem solid #eeeeee;
+        >input{
+            display:none;
         }
-        >div:nth-child(2){
-            img{
-                width:1rem;
-                height:1rem;
-            }
+        >label{
+            >div:nth-child(1){
+                width:100%;
+                height:70%;
+                @extend .flexs;
+                color:#dddddd;
+                font-size:0.7rem;
+            } 
+            >div:nth-child(2){
+                width:100%;
+                text-align: center;
+                color:#cccccc;
+                font:normal 0.267rem PingFang-SC-Regular;
+            } 
         }
     }
+    >img{
+        width: 1.413rem;
+        height: 1.413rem;
+        margin-left:0.1rem;
+    }
 }
-
 
 .merchants{
     >div:nth-child(1){

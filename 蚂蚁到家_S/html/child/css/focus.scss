@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background:#eeeeee;
+    >ul{
+        width:100%;
+        padding:0 0.4rem;
+        background:white;
+    }
+}
+.focusk{
+    height:1.6rem;
+    display: flex;
+    align-items: center;
+    border-bottom:0.01rem solid #eeeeee;
+    >img{
+        width: 1.067rem;
+        height: 1.067rem;
+        border-radius:50%;
+    }
+    >span{
+        font:$fonta;
+        margin-left:0.48rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

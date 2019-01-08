@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .sets > div:nth-child(1) > div:nth-child(5), .sets > div:nth-child(3) > div, .sets > div:nth-child(3) > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div > .lefts {
+  color: white;
+}
+.heads > div > .centers, .heads > div > .rights {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  background-image: url(../../../img/图层1.png);
+  background-size: 100% 100%;
+}
+.sets > div:nth-child(1) {
+  width: 8.933rem;
+  height: 11.893rem;
+  background-color: #ffffff;
+  margin: 0.7rem auto 0.5rem;
+  padding-top: 1.3rem;
+}
+.sets > div:nth-child(1) > div:nth-child(1) {
+  color: #bd1e28;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.sets > div:nth-child(1) > div:nth-child(2) {
+  font: normal 0.4rem PingFang-SC-Regular;
+  text-align: center;
+  line-height: 0.8rem;
+  margin-top: 1.5rem;
+}
+.sets > div:nth-child(1) > div:nth-child(3) {
+  font: normal 0.4rem PingFang-SC-Regular;
+  text-align: center;
+  line-height: 1rem;
+}
+.sets > div:nth-child(1) > div:nth-child(3) > span {
+  color: #9d5ffd;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.sets > div:nth-child(1) > input:nth-child(4) {
+  width: 6.36rem;
+  height: 1.067rem;
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0 0.307rem;
+  border: solid 0.013rem #a0a0a0;
+}
+.sets > div:nth-child(1) > div:nth-child(5) {
+  width: 6.36rem;
+  height: 1.067rem;
+  margin: 0.5rem auto 0;
+  background-color: #bd1e28;
+  color: #ffffff;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.sets > div:nth-child(1) > div:nth-child(6) {
+  color: #666666;
+  text-align: center;
+  font: normal 0.373rem PingFang-SC-Regular;
+  line-height: 1rem;
+}
+.sets > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sets > div:nth-child(2) > div:nth-child(1), .sets > div:nth-child(2) > div:nth-child(3) {
+  width: 40%;
+  height: 0.05rem;
+  background: #f8b62b;
+}
+.sets > div:nth-child(2) > div:nth-child(2) {
+  color: #ffffff;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.sets > div:nth-child(3) {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0.3rem auto 0;
+}
+.sets > div:nth-child(3) > div {
+  width: 100%;
+}
+.sets > div:nth-child(3) > div > div {
+  width: 0.9rem;
+  height: 0.9rem;
+  font-size: 1.067rem;
+  background: white;
+  border-radius: 50%;
+}
+.sets > div:nth-child(3) > div:nth-child(1) > div {
+  color: #4DAFEA;
+}
+.sets > div:nth-child(3) > div:nth-child(2) > div {
+  color: #3EB135;
+}
+.sets > div:nth-child(3) > div:nth-child(3) > div {
+  color: #3EB135;
+}
+
+/*# sourceMappingURL=partner.css.map */

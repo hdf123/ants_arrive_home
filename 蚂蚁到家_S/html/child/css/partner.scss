@@ -1,0 +1,115 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers,>.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background-image:url(../../../img/图层1.png);
+    background-size:100% 100%;
+    >div:nth-child(1){
+        width: 8.933rem;
+        height: 11.893rem;
+        background-color: #ffffff;
+        margin:0.7rem auto 0.5rem;
+        padding-top:1.3rem;
+        >div:nth-child(1){
+            color: #bd1e28;
+            font-size:0.8rem;
+            text-align: center;
+        }
+        >div:nth-child(2){
+            font:$fonta;
+            text-align: center;
+            line-height:0.8rem;
+            margin-top:1.5rem;
+        }
+        >div:nth-child(3){
+            font:$fonta;
+            text-align: center;
+            line-height:1rem;
+            >span{
+                color: #9d5ffd;
+                font:$fonta;
+            }
+        }
+        >input:nth-child(4){
+            width: 6.36rem;
+            height: 1.067rem;
+            display:block;
+            margin:1.5rem auto 0;
+            padding:0 0.307rem;
+            border: solid 0.013rem #a0a0a0;
+        }
+        >div:nth-child(5){
+            width: 6.36rem;
+            height: 1.067rem;
+            margin:0.5rem auto 0;
+            background-color: #bd1e28;
+            color: #ffffff;
+            font:$fonta;
+            @extend .flexs;
+        }
+        >div:nth-child(6){
+            color: #666666;
+            text-align: center;
+            font:normal 0.373rem PingFang-SC-Regular;
+            line-height:1rem;
+        }
+    }
+    >div:nth-child(2){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        >div:nth-child(1), >div:nth-child(3){
+            width:40%;
+            height:0.05rem;
+            background:#f8b62b;
+        }
+        >div:nth-child(2){
+            color: #ffffff;
+            font:$fonta;
+        }
+    }
+    >div:nth-child(3){
+        width:70%;
+        display: flex;
+        justify-content: space-around;
+        margin:0.3rem auto 0;
+        >div{
+            width:100%;
+            @extend .flexs;
+            
+            >div{
+                width:0.9rem;
+                height:0.9rem;
+                font-size:1.067rem;
+                background:white;
+                border-radius:50%;
+                @extend .flexs;
+            }
+        }
+        >div:nth-child(1){
+            >div{
+                color:#4DAFEA;
+            }
+        }
+        >div:nth-child(2){
+            >div{
+                color:#3EB135;
+            }
+        }
+        >div:nth-child(3){
+            >div{
+                color:#3EB135;
+            }
+        }
+    }
+}

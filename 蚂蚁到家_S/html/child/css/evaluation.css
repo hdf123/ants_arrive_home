@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .evaluation1_child2 > div:nth-child(2) > div:nth-child(1) > label > div:nth-child(1), .foots {
+.flexs, .images > div:nth-child(1) > label > div:nth-child(1), .foots {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,32 +95,31 @@
   font: normal 0.32rem PingFang-SC-Regular;
 }
 
-.evaluation1 {
+.evaluation1, .evaluation2 {
   width: 100%;
-  height: 6.453rem;
   padding-top: 0.627rem;
   background-color: #ffffff;
 }
-.evaluation1 > div:nth-child(1) {
+.evaluation1 > div:nth-child(1), .evaluation2 > div:nth-child(1) {
   text-align: center;
   font: normal 0.4rem PingFang-SC-Regular;
 }
-.evaluation1 > div:nth-child(2) {
+.evaluation1 > div:nth-child(2), .evaluation2 > div:nth-child(2) {
   width: 45%;
   margin: 0.387rem auto;
   display: flex;
   justify-content: space-around;
 }
-.evaluation1 > div:nth-child(2) > i {
+.evaluation1 > div:nth-child(2) > i, .evaluation2 > div:nth-child(2) > i {
   font-size: 0.5rem;
 }
-.evaluation1 > div:nth-child(3) {
+.evaluation1 > div:nth-child(3), .evaluation2 > div:nth-child(3) {
   width: 8.747rem;
   margin: 0 auto;
   padding: 0.507rem 0.547rem;
   background: #eeeeee;
 }
-.evaluation1 > div:nth-child(3) > textarea {
+.evaluation1 > div:nth-child(3) > textarea, .evaluation2 > div:nth-child(3) > textarea {
   width: 100%;
   resize: none;
   /*禁止拉伸*/
@@ -130,8 +129,12 @@
   font: normal 0.4rem PingFang-SC-Regular;
 }
 
-.evaluation1:nth-child(2) {
-  height: 7.44rem;
+.evaluation1 {
+  height: 6.453rem;
+}
+
+.evaluation2 {
+  padding-bottom: 1rem;
 }
 
 .evaluation1_child1 {
@@ -142,43 +145,42 @@
   background: khaki;
 }
 
-.evaluation1_child2 {
-  height: 4.187rem;
-}
 .evaluation1_child2 > textarea {
   height: 2rem;
   background: lime;
 }
-.evaluation1_child2 > div:nth-child(2) {
+
+.images {
   display: flex;
+  flex-wrap: wrap;
 }
-.evaluation1_child2 > div:nth-child(2) > div:nth-child(1) {
+.images > div:nth-child(1) {
   width: 1.413rem;
   height: 1.413rem;
-  margin-left: 0.227rem;
   border-radius: 0.2rem;
   overflow: hidden;
   background: rgba(244, 244, 244, 0.8);
   border: 0.03rem solid #eeeeee;
 }
-.evaluation1_child2 > div:nth-child(2) > div:nth-child(1) > input {
+.images > div:nth-child(1) > input {
   display: none;
 }
-.evaluation1_child2 > div:nth-child(2) > div:nth-child(1) > label > div:nth-child(1) {
+.images > div:nth-child(1) > label > div:nth-child(1) {
   width: 100%;
   height: 70%;
   color: #dddddd;
   font-size: 0.7rem;
 }
-.evaluation1_child2 > div:nth-child(2) > div:nth-child(1) > label > div:nth-child(2) {
+.images > div:nth-child(1) > label > div:nth-child(2) {
   width: 100%;
   text-align: center;
   color: #cccccc;
   font: normal 0.267rem PingFang-SC-Regular;
 }
-.evaluation1_child2 > div:nth-child(2) > div:nth-child(2) img {
-  width: 1rem;
-  height: 1rem;
+.images > img {
+  width: 1.413rem;
+  height: 1.413rem;
+  margin-left: 0.1rem;
 }
 
 .merchants > div:nth-child(1) > div:nth-child(2) {

@@ -1,0 +1,108 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers,>.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background:#eeeeee;
+    
+}
+.collection{
+    height:2.88rem;
+    display: flex;
+    align-items: center;
+    background:white;
+    border-bottom:0.01rem solid #eeeeee;
+    >div:nth-child(1){
+        width:1.48rem;
+        height:100%;
+        @extend .flexs;
+        font-size:0.45rem;
+    }
+    >img{
+        width: 2.08rem;
+        height: 2.08rem;
+        border-radius: 0.133rem;
+        margin-left:0.4rem;
+    }
+    >div:nth-child(3){
+        width:6.44rem;
+        height: 2.08rem;
+        padding-left:0.96rem;
+        position:relative;
+        >p:nth-child(1){
+            font:$fonta;
+        }
+        >div:nth-child(2){
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+            padding:0 0.2rem 0 0.96rem;
+            position:absolute;
+            right:0;
+            bottom:0;
+            >div:nth-child(1){
+                color:$backa;
+                font:$fonta;
+            }
+            >div:nth-child(2){
+                color:$backa;
+                font-size:0.5rem;
+            }
+        }
+    }
+}
+.foots{
+    align-items: center;
+    justify-content: space-between;
+    >div:nth-child(1){
+        width:35%;
+        font-size:0.45rem;
+        flex-direction:row;
+        >div{
+            font:$fonta;
+            margin-left:0.3rem;
+        }
+    }
+    >div:nth-child(2){
+        width: 2.16rem;
+        height: 0.747rem;
+        margin-right:0.24rem;
+        background-color: #fa6939;
+        border-radius: 0.373rem;
+        color: #ffffff;
+        font:$fonta;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

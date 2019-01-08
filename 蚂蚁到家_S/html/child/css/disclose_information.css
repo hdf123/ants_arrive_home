@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .sets > div:nth-child(2) > div:nth-child(1) > label > div:nth-child(1) {
+.flexs, .sets > div:nth-child(5) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,64 +63,60 @@
 .heads > div > .lefts {
   color: white;
 }
-.heads > div > .centers, .heads > div .rights {
+.heads > div > .centers, .heads > div > .rights {
   color: white;
   font: normal 0.48rem PingFang-SC-Regular;
 }
 
 .sets {
-  top: 2.5rem;
-  bottom: 0;
-  background: #eeeeee;
+  padding-bottom: 0.6rem;
 }
-.sets > div:nth-child(1) {
+.sets > input {
   width: 100%;
-  height: 3rem;
-  background: white;
-  padding: 0.3rem 0.25rem;
+  font: normal 0.4rem PingFang-SC-Regular;
+  padding: 0 0.4rem;
 }
-.sets > div:nth-child(1) > textarea {
-  width: 100%;
-  height: 100%;
-  resize: none;
-  border: none;
-  outline: none;
+.sets > input:nth-child(1) {
+  height: 1.533rem;
+  border-bottom: 0.267rem solid #eeeeee;
 }
-.sets > div:nth-child(2) {
-  width: 100%;
-  padding-bottom: 0.5rem;
-  background: white;
+.sets > input:nth-child(2) {
+  height: 1.307rem;
+  border-bottom: 0.01rem solid #eeeeee;
 }
-.sets > div:nth-child(2) > div:nth-child(1) {
-  width: 3rem;
-  height: 3rem;
-  margin-left: 0.227rem;
+.sets > input:nth-child(3) {
+  height: 1.573rem;
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.sets > div:nth-child(4) > div:nth-child(1) {
+  font: normal 0.4rem PingFang-SC-Regular;
+  padding: 0.387rem 0.4rem;
+}
+.sets > div:nth-child(5) {
+  width: 9.2rem;
+  height: 1.173rem;
+  background-color: #fa6939;
+  border-radius: 0.08rem;
+  margin: 0 auto;
+  color: #ffffff;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.zhengjian {
+  width: 5.307rem;
+  height: 3.227rem;
+  margin: 0 auto 0.573rem;
   border-radius: 0.2rem;
   overflow: hidden;
   background: rgba(244, 244, 244, 0.8);
   border: 0.03rem solid #eeeeee;
 }
-.sets > div:nth-child(2) > div:nth-child(1) > input {
+.zhengjian > input {
   display: none;
 }
-.sets > div:nth-child(2) > div:nth-child(1) > label > div:nth-child(1) {
-  width: 100%;
-  height: 70%;
-  color: #dddddd;
-  font-size: 1rem;
-}
-.sets > div:nth-child(2) > div:nth-child(1) > label > div:nth-child(2) {
-  width: 100%;
-  text-align: center;
-  color: #bbbbbb;
-  font: normal 0.4rem PingFang-SC-Regular;
+.zhengjian > label > img {
+  width: 5.307rem;
+  height: 3.227rem;
 }
 
-.images {
-  text-align: center;
-}
-.images > img {
-  max-width: 100%;
-}
-
-/*# sourceMappingURL=details.css.map */
+/*# sourceMappingURL=disclose_information.css.map */
