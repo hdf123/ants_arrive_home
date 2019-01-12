@@ -18,7 +18,7 @@ body{
     padding-top:40px;
     background-color: #fa6939;
     box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
-    >div{
+    >div:nth-child(1){
         width:100%;
         height:1.25rem;
         position:relative;

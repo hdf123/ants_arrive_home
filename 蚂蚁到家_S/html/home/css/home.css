@@ -112,19 +112,19 @@
   padding-bottom: 0.56rem;
   border-bottom: 0.413rem solid #eeeeee;
 }
-.menu > li {
+.menu > a {
   width: 25%;
   margin-top: 0.56rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.menu > li > img {
+.menu > a > img {
   width: 1.293rem;
   height: 1.293rem;
   background: white;
 }
-.menu > li > span {
+.menu > a > span {
   margin-top: 0.12rem;
   font: normal 0.385rem PingFang-SC-Regular;
 }

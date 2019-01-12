@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商品详情</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/goods_details.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div class="hd0">
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">
+					<div class="act">商品</div>
+					<div>评价</div>
+					<div>详情</div>
+				</div>
+				<div class="rights iconfont icon-buy-car"></div>
+			</div>
+		</header>
+		<section class="sets">
+			<div class="swiper-container swiper1">
+			  	<div class="swiper-wrapper">
+			    	<div class="swiper-slide">
+			    		<img src="" alt="" />
+			    	</div>
+			    	<div class="swiper-slide">slider2</div>
+			    	<div class="swiper-slide">slider3</div>
+			  	</div>
+			  	<div class="swiper-pagination"></div>
+			</div>
+			<div class="details">
+				<div>¥2.8</div>
+				<div>优质西蓝花</div>
+				<div>
+					<div>重量0.8kg</div>
+					<div>月销1254</div>
+				</div>
+				<div>
+					<div>
+						<div>500k*1袋</div>
+						<div>规格</div>
+					</div>
+					<div>
+						<div>新鲜采摘</div>
+						<div>产品特点</div>
+					</div>
+				</div>
+			</div>
+			<div class="tips">
+				<div>
+					<div>店铺红包</div>
+					<div>满300减50，满500减100</div>
+				</div>
+				<i class="iconfont icon-qianjin"></i>
+			</div>
+			<div class="store">
+				<div>
+					<img src="" alt="" />
+					<span>陌上浅笑</span>
+				</div>
+				<div>进店逛逛</div>
+			</div>
+			<div class="evaluation">
+				商品评价<i class="iconfont icon-qianjin"></i>
+			</div>
+			<div class="evaluation_child">
+				<div>
+					<div>
+						<img src=""/>
+						<span>你评论啊我评论</span>
+					</div>
+					<div>8月27日  17:11</div>
+				</div>
+				<div class="bodys">
+					因为搞活动买的东西比较多。西兰花质量都很好，比较方便会继续购买。
+					<div>
+						<img src="" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="alls">
+				<div>查看全部评价</div>
+			</div>
+			<div class="dataks">
+				<div>商品详情</div>
+				<div>
+					5555555555555
+				</div>
+			</div>
+		</section>
+		<footer class="foots">
+			<div>
+				<div class="iconfont icon-wangwang2">
+					<div>客服</div>
+				</div>
+				<div class="iconfont icon-favourite">
+					<div>收藏</div>
+				</div>
+			</div>
+			<div>加入购物车</div>
+		</footer>
+<script type="text/javascript">
+	$(function(){
+		funkr();//获取头部和底部的总高度
+		var mySwiper1 = new Swiper('.swiper1', {
+			autoplay: true,//可选选项，自动滑动
+			loop : true,
+			pagination: {
+				el: '.swiper-pagination',
+			},
+		})
+	})
+</script>
+	</body>
+</html>

@@ -54,79 +54,59 @@
 }
 
 /*上下左右居中*/
-.flexs, .heads > div > div:nth-child(1) > i {
+.flexs, .sets > a:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.heads > div {
-  height: 4.4rem;
+.heads > div > .lefts {
+  color: white;
 }
-.heads > div > div:nth-child(1) {
-  display: flex;
-  justify-content: flex-end;
-}
-.heads > div > div:nth-child(1) > i {
-  width: 1.3rem;
-  height: 1.3rem;
-  font-size: 0.5rem;
-}
-
-.personal > div {
-  width: 52%;
-  margin-left: 0.907rem;
-  display: flex;
-  justify-content: center;
-}
-.personal > div > img {
-  width: 1.76rem;
-  height: 1.76rem;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.personal > div > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-left: 0.5rem;
-}
-.personal > div > div:nth-child(2) > div:nth-child(1) {
+.heads > div > .centers, .heads > div > .rights {
+  color: white;
   font: normal 0.48rem PingFang-SC-Regular;
 }
-.personal > div > div:nth-child(2) > div:nth-child(2) {
-  font: normal 0.4rem PingFang-SC-Regular;
-  display: flex;
-  align-items: center;
-}
-.personal > div > div:nth-child(2) > div:nth-child(2) > i {
-  color: #666666;
-  font-size: 0.45rem;
-  margin-left: 0.3rem;
-}
 
-.sets > ul {
-  width: 100%;
-  padding: 0 0.42rem;
-  border-top: 0.267rem solid #eeeeee;
+.sets {
+  background: #eeeeee;
 }
-.sets > ul > li {
+.sets > div:nth-child(1), .sets > div:nth-child(2) {
   width: 100%;
-  height: 1.25rem;
+  padding: 0 0.4rem;
+  background: white;
+}
+.sets > div:nth-child(1) > a, .sets > div:nth-child(2) > a {
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font: normal 0.4rem PingFang-SC-Regular;
   border-bottom: 0.01rem solid #eeeeee;
 }
-.sets > ul > li > div {
+.sets > div:nth-child(1) > a > .icon-qianjin, .sets > div:nth-child(2) > a > .icon-qianjin {
+  font-size: 0.5rem;
+}
+.sets > div:nth-child(1) > a > .gx, .sets > div:nth-child(2) > a > .gx {
   font: normal 0.4rem PingFang-SC-Regular;
 }
-.sets > ul > li > div > i {
-  font-size: 0.5rem;
-  margin-right: 0.333rem;
+.sets > div:nth-child(1) {
+  height: 3.147rem;
+  border-top: 0.267rem solid #eeeeee;
+  border-bottom: 0.267rem solid #eeeeee;
 }
-.sets > ul > li > i {
-  font-size: 0.5rem;
+.sets > div:nth-child(2) {
+  height: 2.64rem;
+  padding: 0 0.4rem;
+  background: white;
+}
+.sets > a:nth-child(3) {
+  width: 100%;
+  height: 1.573rem;
+  background: white;
+  border-top: 0.267rem solid #eeeeee;
+  color: #fa6939;
+  font: normal 0.48rem PingFang-SC-Regular;
 }
 
-/*# sourceMappingURL=my.css.map */
+/*# sourceMappingURL=Set_up.css.map */

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers,>.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.swiper1{
+    .swiper-slide{
+        margin:0 auto;
+//      background:#00FF00;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top:0.4rem;
+        padding-bottom:0.1rem;
+        >img{
+            width: 1.293rem;
+            height: 1.293rem;
+            background:white;
+        }
+        >div{
+            width:100%;
+            height:0.7rem;
+            font:$fonta;
+            text-align: center;
+            line-height:0.7rem;
+            @extend .yincang;
+        }
+    }
+    .act{
+        border-bottom:0.05rem solid #fa6939;
+    }
+}
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:0.307rem;
+    background:white;
+    border-top:0.267rem solid #eeeeee;
+    >li{
+        width:1.8rem;
+        margin-bottom:0.24rem;
+        @extend .flexs;
+        >div{
+            width: 1.453rem;
+            height: 0.6rem;
+            background-color: #fa6939;
+            border-radius: 0.3rem;
+            @extend .flexs;
+            color: #ffffff;
+            font:$fonts;
+        }
+        >.act{
+            color:#ffffff;
+            background:#fa6939;
+        }
+    }
+}
+.menu_child{
+    >li{
+        height:3rem;
+        display: flex;
+        align-items: center;
+        padding:0 0.4rem;
+        border-bottom:0.01rem solid #eeeeee;
+        >div:nth-child(1){
+            width:3.56rem;
+            height:100%;
+            padding:0.2rem 0;
+            @extend .flexs;
+            >img{
+                width:3rem;
+                height:2.3rem;
+            }
+        }
+        >div:nth-child(2){
+            width:5.64rem;
+            height:100%;
+            padding:0.3rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            >p{
+                width:100%;
+                height:0.7rem;
+                font:$fontb;
+                @extend .yincang;
+            }
+            >div:nth-child(2){
+                width:100%;
+                display: flex;
+                justify-content: space-between;
+                >span{
+                    color:$backa;
+                    font:$fontb;
+                }
+                >i{
+                    color:$backa;
+                    font-size:0.5rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

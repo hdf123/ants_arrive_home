@@ -1,0 +1,275 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang, .tips > div:nth-child(1) > div:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .heads > div:nth-child(1) > .centers > div, .tips > div:nth-child(1) > div:nth-child(1), .store > div:nth-child(2), .alls > div, .foots > div:nth-child(1) > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div:nth-child(1) > .lefts {
+  color: white;
+}
+.heads > div:nth-child(1) > .centers {
+  padding: 0 1.3rem;
+  display: flex;
+}
+.heads > div:nth-child(1) > .centers > div {
+  width: 100%;
+  height: 100%;
+  color: #666666;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+.heads > div:nth-child(1) > .centers > .act {
+  color: white;
+}
+.heads > div:nth-child(1) > .rights {
+  color: white;
+  font-size: 0.5rem;
+}
+
+.sets {
+  padding-bottom: 1rem;
+}
+
+.swiper1 .swiper-slide {
+  height: 8.44rem;
+}
+.swiper1 .swiper-slide > img {
+  width: 100%;
+  height: 100%;
+}
+
+.details {
+  padding: 0 0.32rem 0.2rem 0.32rem;
+}
+.details > div:nth-child(1) {
+  height: 1.2rem;
+  color: #fa6939;
+  font: normal 0.64rem PingFang-SC-Regular;
+  line-height: 1.2rem;
+}
+.details > div:nth-child(2) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.details > div:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.15rem auto 0.3rem;
+}
+.details > div:nth-child(3) > div {
+  color: #999999;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.details > div:nth-child(4) {
+  display: flex;
+}
+.details > div:nth-child(4) > div > div:nth-child(1) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.details > div:nth-child(4) > div > div:nth-child(2) {
+  color: #999999;
+  text-align: center;
+  font: normal 0.32rem PingFang-SC-Regular;
+  line-height: 0.6rem;
+}
+.details > div:nth-child(4) > div:nth-child(2) {
+  margin-left: 1rem;
+}
+
+.tips {
+  height: 1.627rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.4rem;
+  border-top: 0.267rem solid #eeeeee;
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.tips > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+.tips > div:nth-child(1) > div:nth-child(1) {
+  width: 1.547rem;
+  height: 0.547rem;
+  border: solid 0.013rem #fe6430;
+  color: #fd7f54;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.tips > div:nth-child(1) > div:nth-child(2) {
+  width: 6.5rem;
+  height: 0.547rem;
+  font: normal 0.32rem PingFang-SC-Regular;
+  margin-left: 0.347rem;
+  line-height: 0.547rem;
+}
+
+.store {
+  height: 2.24rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.store > div:nth-child(1) > img {
+  width: 1.067rem;
+  height: 1.08rem;
+  border-radius: 50%;
+}
+.store > div:nth-child(1) > span {
+  font: normal 0.4rem PingFang-SC-Regular;
+  margin-left: 0.347rem;
+}
+.store > div:nth-child(2) {
+  width: 1.76rem;
+  height: 0.667rem;
+  background-image: linear-gradient(-30deg, #9fc710 0%, #b2d33c 100%), linear-gradient(#ff0000, #ff0000);
+  background-blend-mode: normal,normal;
+  border-radius: 0.333rem;
+  color: #ffffff;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.evaluation {
+  height: 1.2rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: normal 0.4rem PingFang-SC-Regular;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.evaluation > i {
+  font-size: 0.5rem;
+}
+
+.evaluation_child {
+  padding: 0 0.4rem;
+}
+.evaluation_child > div:nth-child(1) {
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.evaluation_child > div:nth-child(1) > div:nth-child(1) > img {
+  width: 0.68rem;
+  height: 0.68rem;
+  border-radius: 50%;
+}
+.evaluation_child > div:nth-child(1) > div:nth-child(1) > span {
+  font: normal 0.4rem PingFang-SC-Regular;
+  margin-left: 0.253rem;
+}
+.evaluation_child > div:nth-child(1) > div:nth-child(2) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.bodys {
+  font: normal 0.373rem PingFang-SC-Regular;
+}
+.bodys > div {
+  padding: 0.2rem 0;
+}
+.bodys > div > img {
+  width: 2.747rem;
+  height: 2.747rem;
+  margin: 0.2rem 0 0 0.2rem;
+}
+
+.alls {
+  padding-bottom: 0.1rem;
+  border-bottom: 0.213rem solid #eeeeee;
+}
+.alls > div {
+  width: 3.467rem;
+  height: 0.8rem;
+  margin: 0.2rem auto;
+  border-radius: 0.4rem;
+  border: solid 0.02rem #fba940;
+  color: #fba940;
+  font: normal 0.373rem PingFang-SC-Regular;
+}
+
+.dataks {
+  padding: 0 0.4rem;
+}
+.dataks > div:nth-child(1) {
+  font: normal 0.4rem PingFang-SC-Regular;
+  padding: 0.45rem 0;
+}
+
+.foots > div:nth-child(1) {
+  flex-direction: row;
+}
+.foots > div:nth-child(1) > div {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.foots > div:nth-child(1) > div > div {
+  color: #999999;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.foots > div:nth-child(2) {
+  color: #fefefe;
+  font: normal 0.48rem PingFang-SC-Regular;
+  background-color: #fa6939;
+}
+
+/*# sourceMappingURL=goods_details.css.map */

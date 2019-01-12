@@ -1,4 +1,4 @@
-.flexs, .heads > div > .lefts, .heads > div > .centers, .heads > div > .rights, .foots > div {
+.flexs, .heads > div:nth-child(1) > .lefts, .heads > div:nth-child(1) > .centers, .heads > div:nth-child(1) > .rights, .foots > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,12 +21,12 @@ body {
   background-color: #fa6939;
   box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
 }
-.heads > div {
+.heads > div:nth-child(1) {
   width: 100%;
   height: 1.25rem;
   position: relative;
 }
-.heads > div > .lefts {
+.heads > div:nth-child(1) > .lefts {
   width: 1.3rem;
   height: 100%;
   position: absolute;
@@ -35,11 +35,11 @@ body {
   color: #696969;
   font-size: 0.5rem;
 }
-.heads > div > .centers {
+.heads > div:nth-child(1) > .centers {
   width: 100%;
   height: 100%;
 }
-.heads > div > .rights {
+.heads > div:nth-child(1) > .rights {
   width: 1.3rem;
   height: 100%;
   position: absolute;

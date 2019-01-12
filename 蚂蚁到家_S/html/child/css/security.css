@@ -54,79 +54,37 @@
 }
 
 /*上下左右居中*/
-.flexs, .heads > div > div:nth-child(1) > i {
+.flexs {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.heads > div {
-  height: 4.4rem;
+.heads > div > .lefts {
+  color: white;
 }
-.heads > div > div:nth-child(1) {
-  display: flex;
-  justify-content: flex-end;
-}
-.heads > div > div:nth-child(1) > i {
-  width: 1.3rem;
-  height: 1.3rem;
-  font-size: 0.5rem;
-}
-
-.personal > div {
-  width: 52%;
-  margin-left: 0.907rem;
-  display: flex;
-  justify-content: center;
-}
-.personal > div > img {
-  width: 1.76rem;
-  height: 1.76rem;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.personal > div > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-left: 0.5rem;
-}
-.personal > div > div:nth-child(2) > div:nth-child(1) {
+.heads > div > .centers, .heads > div > .rights {
+  color: white;
   font: normal 0.48rem PingFang-SC-Regular;
 }
-.personal > div > div:nth-child(2) > div:nth-child(2) {
-  font: normal 0.4rem PingFang-SC-Regular;
-  display: flex;
-  align-items: center;
-}
-.personal > div > div:nth-child(2) > div:nth-child(2) > i {
-  color: #666666;
-  font-size: 0.45rem;
-  margin-left: 0.3rem;
-}
 
-.sets > ul {
-  width: 100%;
-  padding: 0 0.42rem;
-  border-top: 0.267rem solid #eeeeee;
+.sets {
+  padding-top: 0.267rem;
+  background: #eeeeee;
 }
-.sets > ul > li {
+.sets > div, .sets > a {
   width: 100%;
-  height: 1.25rem;
+  height: 1.173rem;
+  padding: 0 0.4rem;
+  font: normal 0.4rem PingFang-SC-Regular;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.01rem solid #eeeeee;
 }
-.sets > ul > li > div {
-  font: normal 0.4rem PingFang-SC-Regular;
-}
-.sets > ul > li > div > i {
-  font-size: 0.5rem;
-  margin-right: 0.333rem;
-}
-.sets > ul > li > i {
+.sets > div > i, .sets > a > i {
   font-size: 0.5rem;
 }
 
-/*# sourceMappingURL=my.css.map */
+/*# sourceMappingURL=security.css.map */

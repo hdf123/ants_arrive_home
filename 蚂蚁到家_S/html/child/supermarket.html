@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>蚂蚁超市</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/supermarket.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">蚂蚁超市</div>
+				<a href="../home/shopping.html" class="rights iconfont icon-buy-car"></a>
+			</div>
+		</header>
+		<section class="sets">
+			<div class="swiper-container swiper1">
+		  		<div class="swiper-wrapper">
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_01.png" alt="" />
+						<div>蚂蚁超市</div>
+		    		</div>
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_02.png" alt="" />
+						<div>生鲜</div>
+		    		</div>
+		    		<div class="swiper-slide act">
+		    			<img src="../../img/menu_03.png" alt="" />
+						<div>果蔬</div>
+		    		</div>
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_04.png" alt="" />
+						<div>送药上门</div>
+		    		</div>
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_05.png" alt="" />
+						<div>电器</div>
+		    		</div>
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_06.png" alt="" />
+						<div>母婴用品</div>
+		    		</div>
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_07.png" alt="" />
+						<div>甜点</div>
+		    		</div>
+		    		<div class="swiper-slide">
+		    			<img src="../../img/menu_08.png" alt="" />
+						<div>鲜花</div>
+		    		</div>
+		  		</div>
+			</div>
+			<ul class="menu">
+				<li><div>精选</div></li>
+				<li><div>电饭煲</div></li>
+				<li><div class="act">电热水壶</div></li>
+				<li><div>厨房家电</div></li>
+				<li><div>电烤箱</div></li>
+				<li><div>榨汁机</div></li>
+				<li><div>电火锅</div></li>
+				<li><div>吸尘器</div></li>
+				<li><div>加湿器</div></li>
+				<li><div>空调</div></li>
+			</ul>
+			<ul class="menu_child">
+				<li>
+					<div>
+						<img src="" alt="" />
+					</div>
+					<div>
+						<p>美的不锈钢电水壶美的不锈钢电水壶美的不锈钢电水壶</p>
+						<div>
+							<span>¥29.9</span>
+							<i class="iconfont icon-buy-car"></i>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="" alt="" />
+					</div>
+					<div>
+						<p>美的不锈钢电水壶</p>
+						<div>
+							<span>¥29.9</span>
+							<i class="iconfont icon-buy-car"></i>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</section>
+<script type="text/javascript">
+	$(function(){
+		funkr();//获取头部和底部的总高度
+		var mySwiper = new Swiper('.swiper1', {
+			slidesPerView :5,
+			spaceBetween:15,
+		})
+		$(".swiper1 .swiper-slide").click(function(){
+			console.log(111);
+			$(this).addClass("act");
+			$(this).siblings().removeClass("act");
+		})
+	})
+</script>
+	</body>
+</html>

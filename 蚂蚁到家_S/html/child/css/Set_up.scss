@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers,>.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background:#eeeeee;
+    >div:nth-child(1),>div:nth-child(2){
+        width:100%;
+        padding:0 0.4rem;
+        background:white;
+        >a{
+            height:50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font:$fonta;
+            border-bottom:0.01rem solid #eeeeee;
+            >.icon-qianjin{
+                font-size:0.5rem;
+            }
+            >.gx{
+                font:$fonta;
+            }
+        }
+    }
+    >div:nth-child(1){
+        height:3.147rem;
+        border-top:0.267rem solid #eeeeee;
+        border-bottom:0.267rem solid #eeeeee;
+    }
+    >div:nth-child(2){
+        height:2.64rem;
+        padding:0 0.4rem;
+        background:white;
+    }
+    >a:nth-child(3){
+        width:100%;
+        height:1.573rem;
+        background:white;
+        border-top:0.267rem solid #eeeeee;
+        @extend .flexs;
+        color: #fa6939;
+        font:$fontb;
+    }
+}

@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div{
+        >.lefts{
+            color:white;
+        }
+        >.centers,>.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    padding-top:0.267rem;
+    background:#eeeeee;
+    >div,>a{
+        width:100%;
+        height:1.173rem;
+        padding:0 0.4rem;
+        font:$fonta;
+        background:white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom:0.01rem solid #eeeeee;
+        >i{
+            font-size:0.5rem;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
