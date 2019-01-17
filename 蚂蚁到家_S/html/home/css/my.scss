@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "../../../css/styleks.scss";
 .heads{
-    >div{
+    >div:nth-child(1){
         height:4.4rem;
         >div:nth-child(1){
             display: flex;
@@ -16,7 +16,7 @@
     }
 }
 .personal{
-    >div{
+    >a{
         width:52%;
         margin-left:0.907rem;
         display: flex;
@@ -74,7 +74,14 @@
     }
 }
 
-
+.foots{
+    >div:nth-child(4){
+        color:#fa6939;
+        >div{
+            color:#fa6939;
+        }
+    }
+}
 
 
 

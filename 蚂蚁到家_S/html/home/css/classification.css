@@ -140,4 +140,11 @@
   margin-top: 0.2rem;
 }
 
+.foots > div:nth-child(2) {
+  color: #fa6939;
+}
+.foots > div:nth-child(2) > div {
+  color: #fa6939;
+}
+
 /*# sourceMappingURL=classification.css.map */

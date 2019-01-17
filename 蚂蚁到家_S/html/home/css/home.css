@@ -141,22 +141,22 @@
   padding: 0 0.667rem 0.2rem 0.36rem;
   border-bottom: 0.01rem solid #eeeeee;
 }
-.menus > li > div {
+.menus > li > a {
   width: 48%;
 }
-.menus > li > div > div:nth-child(1) {
+.menus > li > a > div:nth-child(1) {
   color: #fa4408;
   font: normal 0.48rem PingFang-SC-Regular;
   line-height: 0.8rem;
 }
-.menus > li > div > div:nth-child(2) {
+.menus > li > a > div:nth-child(2) {
   display: flex;
   justify-content: space-between;
 }
-.menus > li > div > div:nth-child(2) > div:nth-child(1) {
+.menus > li > a > div:nth-child(2) > div:nth-child(1) {
   font: normal 0.32rem PingFang-SC-Regular;
 }
-.menus > li > div > div:nth-child(2) > img:nth-child(2) {
+.menus > li > a > div:nth-child(2) > img:nth-child(2) {
   width: 2.707rem;
   height: 2.493rem;
 }
@@ -172,13 +172,15 @@
 .menuk {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0.5rem 0.3rem;
+  padding: 0.5rem 0.3rem 0.2rem 0.3rem;
   background: #eeeeee;
 }
 .menuk > li {
   width: 48%;
   padding-bottom: 0.6rem;
+  margin-bottom: 0.2rem;
   position: relative;
   background: white;
 }
@@ -211,6 +213,13 @@
 .menuk > li > div:nth-child(3) > i {
   color: #fa6939;
   font-size: 0.5rem;
+}
+
+.foots > div:nth-child(1) {
+  color: #fa6939;
+}
+.foots > div:nth-child(1) > div {
+  color: #fa6939;
 }
 
 /*# sourceMappingURL=home.css.map */

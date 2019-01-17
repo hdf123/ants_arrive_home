@@ -346,7 +346,7 @@
 	            });*/
 			})
 			//结算
-			$("settlement").click(function(){
+			$(".settlement").click(function(){
 				$(this).children("span").html($(".sets .icon-xuanze").length);
 				var arr=[];
 				$(".sets .xzs").each(function() {
@@ -358,11 +358,11 @@
 						arr.push(orderItems);
 					}
 				});
-				if(arr.length<=0){
-					alert("请选择结算商品");
-					return false;
-				}
-				console.log("商品数据:"+arr);
+//				if(arr.length<=0){
+//					alert("请选择结算商品");
+//					return false;
+//				}
+				location.href="../child/sure_order.html";
 			})
         /*},function(err){
             console.log(err);

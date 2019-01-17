@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div:nth-child(1){
+        >.lefts{
+            color:white;
+        }
+        >.centers,>.rights{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background:#eeeeee;
+}
+.quality{
+    width: 9.28rem;
+    height: 3.653rem;
+    margin:0.4rem auto;
+    background-color: #ffffff;
+    display: flex;
+    padding:0.267rem;
+    >img{
+        width: 3.093rem;
+        height: 3.12rem;
+    }
+    >div{
+        margin-left:0.267rem;
+        >div:nth-child(1){
+            width:5.5rem;
+            height:1.2rem;
+            color: #000000;
+            font:$fonta;
+            line-height:1.2rem;
+            @extend .yincang;
+        }
+        >div:nth-child(2){
+            width: 1.827rem;
+            height: 0.587rem;
+            background-color: #fa6939;
+            border-radius: 0.08rem;
+            color: #ffffff;
+            font:$fonts;
+            @extend .flexs;
+            margin-top:0.293rem;
+        }
+        >div:nth-child(3){
+            color: #fa6939;
+            font:$fonta;
+            margin-top:0.293rem;
+            
+        }
+    }
+}

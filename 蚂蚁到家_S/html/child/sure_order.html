@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>确认订单</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sure_order.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">确认订单</div>
+			</div>
+		</header>
+		<section class="sets">
+			<div class="information" onclick="location.href='address.html'">
+				<div>
+					<div>收货人：魏雨</div>
+					<div>17684569322</div>
+				</div>
+				<div>
+					<div>
+						<i class="iconfont icon-dingwei1"></i>
+						取货地址：<span>河南省郑州市中原区梧桐街道祝福红城南区河南省郑州市中原区梧桐街道祝福红城南区</span>
+					</div>
+					<div class="iconfont icon-qianjin"></div>
+				</div>
+			</div>
+			<div class="order">
+				<img src="" alt="" />
+				<div>
+					<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+					<div>
+						<div>¥38.50</div>
+						<div>X1</div>
+					</div>
+				</div>
+			</div>
+			<div class="numbers">
+				<div>购买数量</div>
+				<div>总计1件</div>
+			</div>
+			<div class="numbera">
+				订单号：23256562354623
+			</div>
+			<div class="shipping">
+				<div>配送费</div>
+				<div>¥3</div>
+			</div>
+			<div class="message">
+				<div>买家留言：</div>
+				<input type="text" placeholder="有什么问题和宝贵的意见都可以提出哦！" />
+			</div>
+		</section>
+		<footer class="foots">
+			<div>
+				<div>合计：</div>
+				<div>54646</div>
+			</div>
+			<div>提交订单</div>
+		</footer>
+<script type="text/javascript">
+	$(function(){
+		funkr();//获取头部和底部的总高度
+		$(".foots>div:eq(1)").click(function(){
+			location.href="pay.html";
+		})
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,201 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs, .order > div:nth-child(2) > p {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .information > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div:nth-child(1) > .lefts {
+  color: white;
+}
+.heads > div:nth-child(1) > .centers {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.information {
+  padding: 0.32rem 0 0.413rem 0;
+}
+.information > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.947rem;
+}
+.information > div:nth-child(1) > div {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.information > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+}
+.information > div:nth-child(2) > div:nth-child(1) {
+  width: 90%;
+  padding: 0 0.3rem;
+  margin-top: 0.1rem;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.information > div:nth-child(2) > div:nth-child(1) > i {
+  margin-right: 0.1rem;
+  font-size: 0.5rem;
+}
+.information > div:nth-child(2) > div:nth-child(2) {
+  width: 10%;
+  font-size: 0.5rem;
+}
+
+.order {
+  width: 10rem;
+  height: 3.04rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0.387rem 0.3rem 0.52rem 0.3rem;
+}
+.order > img {
+  width: 2.12rem;
+  height: 2.12rem;
+  background: #20D24B;
+}
+.order > div:nth-child(2) {
+  width: 6.6rem;
+  height: 100%;
+  position: relative;
+}
+.order > div:nth-child(2) > p {
+  width: 100%;
+  max-height: 1.3rem;
+  font: normal 0.32rem PingFang-SC-Regular;
+  -webkit-line-clamp: 3;
+  /*超出2行用省略号表示*/
+}
+.order > div:nth-child(2) > div {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0.1rem;
+  font: normal 0.4rem PingFang-SC-Regular;
+  display: flex;
+  justify-content: space-between;
+}
+
+.numbers, .numbera, .shipping, .message {
+  width: 9.6rem;
+  height: 1.173rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+
+.numbers {
+  border: none;
+  justify-content: space-between;
+}
+.numbers > div {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.numbera {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+.shipping {
+  justify-content: space-between;
+}
+.shipping > div {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.shipping > div:nth-child(2) {
+  color: #fa6939;
+}
+
+.message > div {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.message > input {
+  width: 7.7rem;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.foots {
+  height: 1.293rem;
+}
+.foots > div:nth-child(1) {
+  width: 6.173rem;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+}
+.foots > div:nth-child(1) > div:nth-child(1) {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.foots > div:nth-child(1) > div:nth-child(2) {
+  color: #fe6430;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+.foots > div:nth-child(2) {
+  width: 3.827rem;
+  height: 1.293rem;
+  background-color: #fa6939;
+  color: #fdfcfc;
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=sure_order.css.map */

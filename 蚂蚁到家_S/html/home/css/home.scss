@@ -83,7 +83,7 @@
         justify-content: space-between;
         padding:0 0.667rem 0.2rem 0.36rem;
         border-bottom:0.01rem solid #eeeeee;
-        >div{
+        >a{
             width:48%;
             >div:nth-child(1){
                 color: #fa4408;
@@ -116,12 +116,14 @@
 .menuk{
     width:100%;
     display: flex;
-    justify-content: space-between;
-    padding:0.5rem 0.3rem;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    padding:0.5rem 0.3rem 0.2rem 0.3rem;
     background:#eeeeee;
     >li{
         width:48%;
         padding-bottom:0.6rem;
+        margin-bottom:0.2rem;
         position:relative;
         background:white;
         >div:nth-child(1){
@@ -158,7 +160,14 @@
         }
     }
 }
-
+.foots{
+    >div:nth-child(1){
+        color:#fa6939;
+        >div{
+            color:#fa6939;
+        }
+    }
+}
 
 
 

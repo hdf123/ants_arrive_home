@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "../../../css/styleks.scss";
 .heads{
-    >div{
+    >div:nth-child(1){
         background:#f4f4f4;;
         >.centers{
             font:$fontb;

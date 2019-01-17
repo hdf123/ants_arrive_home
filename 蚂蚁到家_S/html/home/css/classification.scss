@@ -112,7 +112,14 @@
         }
     }  
 }
-
+.foots{
+    >div:nth-child(2){
+        color:#fa6939;
+        >div{
+            color:#fa6939;
+        }
+    }
+}
 
 
 

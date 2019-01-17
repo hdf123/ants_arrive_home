@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div:nth-child(1){
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.adds{
+    border-top:0.267rem solid #eeeeee;
+    padding:0 0.267rem;
+    >div:nth-child(1){
+        display: flex;
+        padding:0.48rem 0 0.387rem 0;
+        >div{
+            font:$fonta;
+        }
+        >div:nth-child(2){
+            margin-left:0.2rem;
+        }
+        >div:nth-child(3){
+            margin-left:1rem;
+        }
+    }
+    >div:nth-child(2){
+        font:$fonts;
+        padding-bottom:0.427rem;
+        border-bottom:0.01rem solid #eeeeee;
+        >span{
+            font:$fonts;
+        }
+    }
+    >div:nth-child(3){
+        height:1.187rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        >div:nth-child(1){
+            height:100%;
+            color: #666666;
+            display: flex;
+            align-items: center;
+            font-size:0.5rem;
+            >span{
+                margin-left:0.187rem;
+                font:$fonta;
+            }
+        }
+        >div:nth-child(2){
+            display: flex;
+            >div{
+                width: 1.48rem;
+                height: 0.64rem;
+                border-radius: 0.08rem;
+                border: solid 0.02rem #d2d2d2;
+                color: #666666;
+                font:$fonts;
+                @extend .flexs;
+            }
+            >div:nth-child(1){
+               margin-right:0.187rem;
+            }
+        } 
+    }
+}
+.foots{
+    height: 1.307rem;
+    background-color: #fa6939;
+    border-radius: 0.08rem;
+    @extend .flexs;
+    color: #ffffff;
+    font:$fontb;
+}

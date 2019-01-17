@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div:nth-child(1){
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    
+}
+.information{
+    padding:0.32rem 0 0.413rem 0;
+    >div:nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        padding:0 0.947rem;
+        >div{
+            font:$fonta;
+        }
+    }
+    >div:nth-child(2){
+        width:100%;
+        display: flex;
+        >div:nth-child(1){
+            width:90%;
+            padding:0 0.3rem;
+            margin-top:0.1rem;
+            font:$fonts;
+            >i{
+                margin-right:0.1rem;
+                font-size:0.5rem;
+            }
+        }
+        >div:nth-child(2){
+            width:10%;
+            @extend .flexs;
+            font-size:0.5rem;
+        }
+    }
+}
+.order{
+    width:10rem;
+    height:3.04rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0 auto;
+    background:#eeeeee;
+    padding:0.387rem 0.3rem 0.52rem 0.3rem;
+    >img{
+        width: 2.12rem;
+        height: 2.12rem;
+        background:#20D24B;
+    }
+    >div:nth-child(2){
+        width:6.6rem;
+        height:100%;
+        position:relative;
+        >p{
+            width:100%;
+            max-height:1.3rem;
+            font:$fonts;
+            @extend .yincangs;
+            -webkit-line-clamp:3; /*超出2行用省略号表示*/
+        }
+        >div{
+            width:100%;
+            position:absolute;
+            left: 0;
+            bottom:0.1rem;
+            font:$fonta;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+.numbers,.numbera,.shipping,.message{
+    width: 9.6rem;
+    height:1.173rem;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    border-bottom:0.01rem solid #eeeeee;
+}
+.numbers{
+    border:none;
+    justify-content: space-between;
+    >div{
+        font:$fonts;
+    }
+}
+.numbera{
+    font:$fonta;
+}
+.shipping{
+    justify-content: space-between;
+    >div{
+        font:$fonta;
+    }
+    >div:nth-child(2){
+        color: #fa6939;
+    }
+}
+.message{
+    >div{
+        font:$fonts;
+    }
+    >input{
+        width:7.7rem;
+        font:$fonts;
+    }
+}
+.foots{
+    height: 1.293rem;
+    >div:nth-child(1){
+        width:6.173rem;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-right:0.5rem;
+        >div:nth-child(1){
+            font:$fonts;
+        }
+        >div:nth-child(2){
+            color: #fe6430;
+            font:$fontb;
+        }
+    }
+    >div:nth-child(2){
+        width: 3.827rem;
+        height: 1.293rem;
+        background-color: #fa6939;
+        color: #fdfcfc;
+        font:$fonta;
+    }
+}

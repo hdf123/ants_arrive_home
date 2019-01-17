@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人信息</title>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.min.css"/>
+		<link href="../../css/scs.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/Personal.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/iscroll-zoom.js"></script>
+		<script src="../../js/hammer.js"></script>
+		<script src="../../js/jquery.photoClip.js"></script>
+		<script src="../../js/jquery.scs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/cnaddrarr.min.js"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
+				<div class="centers">个人信息</div>
+				<div class="rights">保存</div>
+			</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div>头像</div>
+				<img src="" alt="" class="logo" id="logox" />
+			</div>
+			<div>
+				<div>昵称</div>
+				<input type="text" placeholder="李磊的韩梅梅" />
+			</div>
+			<div>
+				<div>ID:</div>
+				<input type="text" readonly placeholder="1524621" />
+			</div>
+			<div>
+				<div>性别</div>
+				<form action="" id="hair">
+			  		<label><input type ="radio" name = "fruit" value ="男" checked><span>男</span></label>
+			  		<label><input type ="radio" name = "fruit" value ="女"><span>女</span></label>
+			  	</form>
+			</div>
+			<div>
+				<div>签名</div>
+				<input type="text" placeholder="自是有缘" />
+			</div>
+			<div>
+				<div>地区</div>
+				<!--<input type="text" placeholder="河南省郑州市" />-->
+				<input type="text" readonly placeholder="" id="myAddrs" name="addr" data-key="16-240-2664" value="河南省 郑州市 金水区" />
+			</div>
+		</section>
+		<article class="htmleaf-container">
+			<div id="clipArea"></div>
+			<div class="foot-use">
+				<div class="uploader1 blue">
+					<input type="button" name="file" class="button" value="打开">
+					<input id="file" type="file" accept="image/*" multiple  />
+				</div>
+				<button id="clipBtn">截取</button>
+			</div>
+			<div id="view"></div>
+		</article>
+		
+		
+<script>
+	var obUrl = ''
+	$("#clipArea").photoClip({
+		width: 300,
+		height: 300,
+		file: "#file",
+		view: "#view",
+		ok: "#clipBtn",
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			console.log(dataURL);//图片路径
+		}
+	});
+</script>
+<script>
+	$(function(){
+		$("#logox").click(function(){
+			$(".htmleaf-container").show();
+		})
+		$("#clipBtn").click(function(){
+			$("#logox").empty();
+			$('#logox').attr("src",imgsource);
+//			$('#logox').append('<img src="' + imgsource + '" align="absmiddle" style=" width: 3rem;height: 3rem;">');
+			$(".htmleaf-container").hide();
+		})
+	});
+</script>
+		
+		
+		
+		
+		
+<script type="text/javascript">
+    $(function() {
+    	funkr();//获取头部和底部的总高度
+        /**
+         * 通过数组id获取地址列表数组
+         *
+         * @param {Number} id
+         * @return {Array} 
+         */ 
+        function getAddrsArrayById(id) {
+            var results = [];
+            if (addr_arr[id] != undefined)
+                addr_arr[id].forEach(function(subArr) {
+                    results.push({
+                        key: subArr[0],
+                        val: subArr[1]
+                    });
+                });
+            else {
+                return;
+            }
+            return results;
+        }
+        /**
+         * 通过开始的key获取开始时应该选中开始数组中哪个元素
+         *
+         * @param {Array} StartArr
+         * @param {Number|String} key
+         * @return {Number} 
+         */         
+        function getStartIndexByKeyFromStartArr(startArr, key) {
+            var result = 0;
+            if (startArr != undefined)
+                startArr.forEach(function(obj, index) {
+                    if (obj.key == key) {
+                        result = index;
+                        return false;
+                    }
+                });
+            return result;
+        }
+
+        //bind the click event for 'input' element
+        $("#myAddrs").click(function() {
+            var PROVINCES = [],
+                startCities = [],
+                startDists = [];
+            //Province data，shall never change.
+            addr_arr[0].forEach(function(prov) {
+                PROVINCES.push({
+                    key: prov[0],
+                    val: prov[1]
+                });
+            });
+            //init other data.
+            var $input = $(this),
+                dataKey = $input.attr("data-key"),
+                provKey = 1, //default province 北京
+                cityKey = 36, //default city 北京
+                distKey = 37, //default district 北京东城区
+                distStartIndex = 0, //default 0
+                cityStartIndex = 0, //default 0
+                provStartIndex = 0; //default 0
+
+            if (dataKey != "" && dataKey != undefined) {
+                var sArr = dataKey.split("-");
+                if (sArr.length == 3) {
+                    provKey = sArr[0];
+                    cityKey = sArr[1];
+                    distKey = sArr[2];
+
+                } else if (sArr.length == 2) { //such as 台湾，香港 and the like.
+                    provKey = sArr[0];
+                    cityKey = sArr[1];
+                }
+                startCities = getAddrsArrayById(provKey);
+                startDists = getAddrsArrayById(cityKey);
+                provStartIndex = getStartIndexByKeyFromStartArr(PROVINCES, provKey);
+                cityStartIndex = getStartIndexByKeyFromStartArr(startCities, cityKey);
+                distStartIndex = getStartIndexByKeyFromStartArr(startDists, distKey);
+            }
+            var navArr = [{//3 scrollers, and the title and id will be as follows:
+                title: "省",
+                id: "scs_items_prov"
+            }, {
+                title: "市",
+                id: "scs_items_city"
+            }, {
+                title: "区",
+                id: "scs_items_dist"
+            }];
+            SCS.init({
+                navArr: navArr,
+                onOk: function(selectedKey, selectedValue) {
+                    $input.val(selectedValue).attr("data-key", selectedKey);
+                }
+            });
+            var distScroller = new SCS.scrollCascadeSelect({
+                el: "#" + navArr[2].id,
+                dataArr: startDists,
+                startIndex: distStartIndex
+            });
+            var cityScroller = new SCS.scrollCascadeSelect({
+                el: "#" + navArr[1].id,
+                dataArr: startCities,
+                startIndex: cityStartIndex,
+                onChange: function(selectedItem, selectedIndex) {
+                    distScroller.render(getAddrsArrayById(selectedItem.key), 0); //re-render distScroller when cityScroller change
+                }
+            });
+            var provScroller = new SCS.scrollCascadeSelect({
+                el: "#" + navArr[0].id,
+                dataArr: PROVINCES,
+                startIndex: provStartIndex,
+                onChange: function(selectedItem, selectedIndex) { //re-render both cityScroller and distScroller when provScroller change
+                    cityScroller.render(getAddrsArrayById(selectedItem.key), 0);
+                    distScroller.render(getAddrsArrayById(cityScroller.getSelectedItem().key), 0);
+                }
+            });
+        });
+    });
+</script>
+	</body>
+</html>

@@ -54,52 +54,52 @@
 }
 
 /*上下左右居中*/
-.flexs, .heads > div > div:nth-child(1) > i {
+.flexs, .heads > div:nth-child(1) > div:nth-child(1) > i {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.heads > div {
+.heads > div:nth-child(1) {
   height: 4.4rem;
 }
-.heads > div > div:nth-child(1) {
+.heads > div:nth-child(1) > div:nth-child(1) {
   display: flex;
   justify-content: flex-end;
 }
-.heads > div > div:nth-child(1) > i {
+.heads > div:nth-child(1) > div:nth-child(1) > i {
   width: 1.3rem;
   height: 1.3rem;
   font-size: 0.5rem;
 }
 
-.personal > div {
+.personal > a {
   width: 52%;
   margin-left: 0.907rem;
   display: flex;
   justify-content: center;
 }
-.personal > div > img {
+.personal > a > img {
   width: 1.76rem;
   height: 1.76rem;
   border-radius: 50%;
   overflow: hidden;
 }
-.personal > div > div:nth-child(2) {
+.personal > a > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin-left: 0.5rem;
 }
-.personal > div > div:nth-child(2) > div:nth-child(1) {
+.personal > a > div:nth-child(2) > div:nth-child(1) {
   font: normal 0.48rem PingFang-SC-Regular;
 }
-.personal > div > div:nth-child(2) > div:nth-child(2) {
+.personal > a > div:nth-child(2) > div:nth-child(2) {
   font: normal 0.4rem PingFang-SC-Regular;
   display: flex;
   align-items: center;
 }
-.personal > div > div:nth-child(2) > div:nth-child(2) > i {
+.personal > a > div:nth-child(2) > div:nth-child(2) > i {
   color: #666666;
   font-size: 0.45rem;
   margin-left: 0.3rem;
@@ -127,6 +127,13 @@
 }
 .sets > ul > li > i {
   font-size: 0.5rem;
+}
+
+.foots > div:nth-child(4) {
+  color: #fa6939;
+}
+.foots > div:nth-child(4) > div {
+  color: #fa6939;
 }
 
 /*# sourceMappingURL=my.css.map */

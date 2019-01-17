@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .heads > div:nth-child(1) > .centers > div, .tips > div:nth-child(1) > div:nth-child(1), .store > div:nth-child(2), .alls > div, .foots > div:nth-child(1) > div {
+.flexs, .heads > div:nth-child(1) > .centers > div, .tips > div:nth-child(1) > div:nth-child(1), .store > div:nth-child(2), .alls > div, .evaluations_child > div:nth-child(1) > div, .foots > div:nth-child(1) > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,6 +252,76 @@
 .dataks > div:nth-child(1) {
   font: normal 0.4rem PingFang-SC-Regular;
   padding: 0.45rem 0;
+}
+
+.evaluations_child {
+  width: 100%;
+  overflow: auto;
+}
+.evaluations_child > div:nth-child(1) {
+  width: 8.867rem;
+  height: 1.547rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.02rem solid #eeeeee;
+}
+.evaluations_child > div:nth-child(1) > div {
+  width: 2.533rem;
+  height: 0.76rem;
+  background-color: #fa6939;
+  border-radius: 0.38rem;
+  color: #ffffff;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.comments {
+  padding: 0.4rem;
+  border-bottom: 0.267rem solid #eeeeee;
+}
+.comments > div:nth-child(1) > img {
+  width: 0.96rem;
+  height: 0.96rem;
+  border-radius: 50%;
+}
+.comments > div:nth-child(1) > span {
+  color: #fa6939;
+  font: normal 0.4rem PingFang-SC-Regular;
+  margin-left: 0.2rem;
+}
+.comments > div:nth-child(2) {
+  color: #999999;
+  font: normal 0.32rem PingFang-SC-Regular;
+  line-height: 0.96rem;
+}
+.comments > div:nth-child(3) {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.comments > div:nth-child(4) {
+  margin-top: 0.3rem;
+}
+.comments > div:nth-child(4) > img {
+  width: 4.373rem;
+  height: 3.867rem;
+}
+.comments > div:nth-child(5) {
+  margin-top: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.comments > div:nth-child(5) > div:nth-child(1) {
+  color: #999999;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.comments > div:nth-child(5) > div:nth-child(2) > i {
+  font-size: 0.5rem;
+}
+.comments > div:nth-child(5) > div:nth-child(2) > span {
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.comments:last-child {
+  border: none;
 }
 
 .foots > div:nth-child(1) {

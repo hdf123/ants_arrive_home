@@ -163,8 +163,12 @@
     }
 }
 .foots{
-    
-//  background:white;
+    >div:nth-child(3){
+        color:#fa6939;
+        >div{
+            color:#fa6939;
+        }
+    }
 }
 
 

@@ -222,4 +222,11 @@
   font: normal 0.12rem PingFang-SC-Medium;
 }
 
+.foots > div:nth-child(3) {
+  color: #fa6939;
+}
+.foots > div:nth-child(3) > div {
+  color: #fa6939;
+}
+
 /*# sourceMappingURL=shopping.css.map */

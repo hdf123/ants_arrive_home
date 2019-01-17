@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>店铺</title>
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/store.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<section class="sets">
+			<div class="swiper-container swiper1">
+			  	<div class="swiper-wrapper">
+			    	<div class="swiper-slide">
+			    		<img src="" alt="" />
+			    	</div>
+			    	<div class="swiper-slide">
+			    		<img src="" alt="" />
+			    	</div>
+			    	<div class="swiper-slide">
+			    		<img src="" alt="" />
+			    	</div>
+			  	</div>
+			  	<div class="swiper-pagination"></div>
+			  	<div class="iconfont icon-guanbi" onclick="window.history.go(-1);"></div>
+			</div>
+			<a href="Shop_details.html" class="storea">
+				<div>
+					<img src="" alt="" />
+					<span>小迷糊蔬菜城</span>
+				</div>
+				<i class="iconfont icon-qianjin"></i>
+			</a>
+			<ul class="tabs">
+				<li>
+					<div class="act">全部商品</div>
+				</li>
+				<li>
+					<div>推荐商品</div>
+				</li>
+			</ul>
+			<ul class="storeb">
+				<li class="sons">
+					<img src="" alt="" />
+					<div>启初婴儿面霜</div>
+					<div>
+						<div>¥48.6</div>
+						<div class="iconfont icon-buy-car"></div>
+					</div>
+				</li>
+			</ul>
+		</section>
+<script type="text/javascript">
+	$(document).ready(function(){
+		funkr();//获取头部和底部的总高度
+		var mySwiper = new Swiper('.swiper1', {
+			autoplay: true,//可选选项，自动滑动
+			pagination: {
+		    	el: '.swiper-pagination',
+		  	},
+		})
+		$(".tabs>li").click(function(){
+			var a=$(this).index();
+			$(this).children().addClass("act");
+			$(this).siblings().children().removeClass("act");
+		})
+		$(".storeb").on("click",".sons",function(){
+			location.href="goods_details.html";
+		})
+	})
+</script>
+	</body>
+</html>

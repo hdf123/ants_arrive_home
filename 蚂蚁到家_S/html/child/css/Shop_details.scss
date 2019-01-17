@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div:nth-child(1){
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    >img:nth-child(1){
+        width:100%;
+        height:4.293rem;
+    }
+}
+.details{
+    padding:0 0.667rem;
+    margin:0.933rem auto 0;
+    >li{
+        width:100%;
+        height:0.85rem;
+        line-height:0.85rem;
+        @extend .yincang;
+        >i{
+            font-size:$fontsa;
+        }
+        >span{
+            font:$fonta;
+            line-height: 0.8rem;
+            letter-spacing: 0rem;
+        }
+    }
+    >li:last-child{
+        color: #fa6939;
+        >span{
+            color: #fa6939;
+        }
+    }
+}

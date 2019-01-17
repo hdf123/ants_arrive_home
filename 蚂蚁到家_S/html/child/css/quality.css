@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/* 清理浮动 */
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+/*单行隐藏*/
+.yincang, .quality > div > div:nth-child(1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行隐藏*/
+.yincangs {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 2;
+  /*超出2行用省略号表示*/
+}
+
+/*换行*/
+.newline {
+  word-break: break-all;
+  /* 只对英文起作用，以字母作为换行依据。*/
+  word-wrap: break-word;
+  /*只对英文起作用，以单词作为换行依据。*/
+  white-space: pre-wrap;
+  /*只对中文起作用，强制换行。*/
+}
+
+/*禁止换行*/
+.ban_newline {
+  white-space: nowrap;
+  /*禁止换行*/
+}
+
+/*placeholder样式*/
+.input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*隐藏滚动条*/
+.scroll_bar::-webkit-scrollbar {
+  width: 0 !important;
+  /*height:0 !important;*/
+  /*display: none;*/
+}
+
+/*上下左右居中*/
+.flexs, .quality > div > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heads > div:nth-child(1) > .lefts {
+  color: white;
+}
+.heads > div:nth-child(1) > .centers, .heads > div:nth-child(1) > .rights {
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
+}
+
+.sets {
+  background: #eeeeee;
+}
+
+.quality {
+  width: 9.28rem;
+  height: 3.653rem;
+  margin: 0.4rem auto;
+  background-color: #ffffff;
+  display: flex;
+  padding: 0.267rem;
+}
+.quality > img {
+  width: 3.093rem;
+  height: 3.12rem;
+}
+.quality > div {
+  margin-left: 0.267rem;
+}
+.quality > div > div:nth-child(1) {
+  width: 5.5rem;
+  height: 1.2rem;
+  color: #000000;
+  font: normal 0.4rem PingFang-SC-Regular;
+  line-height: 1.2rem;
+}
+.quality > div > div:nth-child(2) {
+  width: 1.827rem;
+  height: 0.587rem;
+  background-color: #fa6939;
+  border-radius: 0.08rem;
+  color: #ffffff;
+  font: normal 0.32rem PingFang-SC-Regular;
+  margin-top: 0.293rem;
+}
+.quality > div > div:nth-child(3) {
+  color: #fa6939;
+  font: normal 0.4rem PingFang-SC-Regular;
+  margin-top: 0.293rem;
+}
+
+/*# sourceMappingURL=quality.css.map */

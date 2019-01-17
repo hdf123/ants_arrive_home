@@ -142,6 +142,7 @@
 		
 <script type="text/javascript">
 	$(function(){
+		//菜单
 		var indexs=0;
 		menu(indexs);
 		$(".menu").on("click",".menu_child",function(){
@@ -154,6 +155,10 @@
 			$(".menu>li").eq(indexs).css({"border-top":"none"});
 			$(".menu>li").eq(indexs).addClass("active").siblings().removeClass("active");
 		}
+		//商品详情
+		$(".ccbg").on("click",".singles",function(){
+			location.href="../child/goods_details.html";
+		})
 	})
 	function num(obj){//只能输入正整数,可以为0
 		var reg=/^([1-9]\d*|[0]{1,1})$/; //含0正整数

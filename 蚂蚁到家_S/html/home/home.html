@@ -70,51 +70,41 @@
 			</div>
 			<ul class="menus">
 				<li onclick="location.href='../child/limit.html'">
-					<div>
+					<a href="../child/limit.html">
 						<div>限时抢购</div>
 						<div>
 							<div>优质海购</div>
 							<img src="" alt="" />
 						</div>
-					</div>
-					<div>
+					</a>
+					<a href="../child/quality.html">
 						<div>优质好货</div>
 						<div>
 							<div>男神搭配</div>
 							<img src="" alt="" />
 						</div>
-					</div>
+					</a>
 				</li>
 				<li>
-					<div>
+					<a href="../child/parenting.html">
 						<div>育儿必备</div>
 						<div>
 							<div>优质海购</div>
 							<img src="" alt="" />
 						</div>
-					</div>
-					<div>
+					</a>
+					<a href="../child/recommendeds.html">
 						<div>相关商品推荐</div>
 						<div>
 							<div>优质海购</div>
 							<img src="" alt="" />
 						</div>
-					</div>
+					</a>
 				</li>
 			</ul>
 			<div>猜你喜欢</div>
 			<ul class="menuk">
-				<li>
-					<div>
-						<img src="" alt="" />
-					</div>
-					<p>越南进口香蕉，口感香糯1.5斤</p>
-					<div>
-						<div>¥98</div>
-						<i class="iconfont icon-buy-car"></i>
-					</div>
-				</li>
-				<li>
+				<li class="menuk_child">
 					<div>
 						<img src="" alt="" />
 					</div>
@@ -149,12 +139,14 @@
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
-		
 		var swiper1 = new Swiper('.swiper1', {
 			autoplay: true,//可选选项，自动滑动
 			pagination: {
 		    	el: '.swiper-pagination',
 		  	},
+		})
+		$(".menuk").on("click",".menuk_child",function(){
+			location.href="../child/goods_details.html";
 		})
 	})
 </script>

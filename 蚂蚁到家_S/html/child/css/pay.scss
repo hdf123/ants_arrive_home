@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div:nth-child(1){
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}
+.sets{
+    background:#eeeeee;
+    >div:nth-child(1){
+        height:1.573rem;
+        display: flex;
+        align-items: center;
+        padding:0 0.267rem;
+        font:$fonta;
+        background:white;
+        border-bottom:0.267rem solid #eeeeee;
+        >span{
+            color: #fe6430;
+            font:$fontb;
+        }
+    }
+    >div:nth-child(2){
+        height:1.573rem;
+        padding:0 0.267rem;
+        font:normal 0.453rem PingFang-SC-Regular;
+        line-height:1.573rem;
+        background:white;
+        border-bottom:0.01rem solid #eeeeee;
+    }
+    >div:nth-child(4){
+        width: 9.467rem;
+        height: 1.173rem;
+        background-color: #fa6939;
+        border-radius: 0.08rem;
+        color: #ffffff;
+        font:normal 0.453rem PingFang-SC-Regular;
+        @extend .flexs;
+        margin:0.8rem auto 0;
+    }
+}
+.typek{
+    width:100%;
+    background:white;
+    >div{
+        width:100%;
+        height:1.573rem;
+        padding:0 0.267rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom:0.01rem solid #eeeeee;
+        >div{
+            font-size:0.5rem;
+            display: flex;
+            align-items: center;
+            >span{
+                font:$fonta;
+                margin-left:0.2rem;
+            }
+        }
+        >i{
+            font-size:0.5rem;
+        }
+    }
+    >div:nth-child(1){
+        >div{
+            color:#42b035;
+        }
+    }
+    >div:nth-child(2){
+        >div{
+            color:#01aef0;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

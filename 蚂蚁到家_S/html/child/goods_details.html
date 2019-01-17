@@ -18,11 +18,11 @@
 			<div class="hd0">
 				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
 				<div class="centers">
-					<div class="act">商品</div>
-					<div>评价</div>
-					<div>详情</div>
+					<div class="act goods">商品</div>
+					<div class="evaluations">评价</div>
+					<div class="detailsk">详情</div>
 				</div>
-				<div class="rights iconfont icon-buy-car"></div>
+				<a href="../home/shopping.html" class="rights iconfont icon-buy-car"></a>
 			</div>
 		</header>
 		<section class="sets">
@@ -61,7 +61,7 @@
 				</div>
 				<i class="iconfont icon-qianjin"></i>
 			</div>
-			<div class="store">
+			<div class="store" onclick="location.href='store.html'">
 				<div>
 					<img src="" alt="" />
 					<span>陌上浅笑</span>
@@ -96,6 +96,57 @@
 				</div>
 			</div>
 		</section>
+		<div class="evaluations_child">
+			<div>
+				<div>全部（1325）</div>
+			</div>
+			<ul>
+				<li class="comments">
+					<div>
+						<img src="" alt="" />
+						<span>清单耿悦</span>
+					</div>
+					<div>2018-3-5</div>
+					<div>
+						因为搞活动买的东西比较多。西兰花质量都很好，比较方便会继续购买。
+					</div>
+					<div class="imgs">
+						<img src="" alt="" />
+						<img src="" alt="" />
+						<img src="" alt="" />
+					</div>
+					<div>
+						<div>浏览：59次</div>
+						<div>
+							<i class="iconfont icon-dianzan"></i>
+							<span>566</span>
+						</div>
+					</div>
+				</li>
+				<li class="comments">
+					<div>
+						<img src="" alt="" />
+						<span>清单耿悦</span>
+					</div>
+					<div>2018-3-5</div>
+					<div>
+						因为搞活动买的东西比较多。西兰花质量都很好，比较方便会继续购买。
+					</div>
+					<div class="imgs">
+						<img src="" alt="" />
+						<img src="" alt="" />
+						<img src="" alt="" />
+					</div>
+					<div>
+						<div>浏览：59次</div>
+						<div>
+							<i class="iconfont icon-dianzan"></i>
+							<span>566</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
 		<footer class="foots">
 			<div>
 				<div class="iconfont icon-wangwang2">
@@ -110,6 +161,9 @@
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		$(".evaluations_child").height($(".sets").outerHeight());
+		$(".evaluations_child").hide();
+//		$(".sets>div:eq(0)").hide();
 		var mySwiper1 = new Swiper('.swiper1', {
 			autoplay: true,//可选选项，自动滑动
 			loop : true,
@@ -117,6 +171,52 @@
 				el: '.swiper-pagination',
 			},
 		})
+		//商品
+		$(".goods").click(function(){
+			var ind=$(this);
+			var kk=document.querySelector(".swiper1");
+			kkk(ind,kk);
+		})
+		//详情
+		$(".detailsk").click(function(){
+			console.log(111)
+			var ind=$(this);
+			var kk=document.querySelector(".dataks");
+			kkk(ind,kk);
+		})
+		function kkk(ind,kk){
+			$(".evaluations_child").hide(function(){
+				$(".sets").show(function(){
+					ind.addClass("act").siblings().removeClass("act");
+					kk.scrollIntoView(true);//true顶部为准,false底部为准
+				});
+			});
+		}
+	  	//评价
+	  	$(".evaluations").click(function(){
+	  		$(this).addClass("act").siblings().removeClass("act");
+	  		$(".sets").hide(function(){
+	  			$(".evaluations_child").show();
+	  		});
+	  	})
+	  	//查看全部评价
+	  	$(".alls>div").click(function(){
+	  		$(".evaluations").addClass("act").siblings().removeClass("act");
+	  		$(".sets").hide(function(){
+	  			$(".evaluations_child").show();
+	  		});
+	  	})
+		//滚动
+	  	$(".sets").scroll(function(){
+	  		var a=$(".dataks").offset().top;
+	  		var b=$(".sets").offset().top;
+	  		var c=$(".foots").offset().top;
+	  		if(a<c-b/2){
+	  			$(".detailsk").addClass("act").siblings().removeClass("act");
+	  		}else{
+	  			$(".detailsk").removeClass("act").siblings(".goods").addClass("act");
+	  		}
+	  	});
 	})
 </script>
 	</body>
