@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang {
+.yincang, .wdows > div {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -92,10 +92,12 @@
   border-bottom: 0.01rem solid #eeeeee;
 }
 .sets > div:nth-child(2) {
+  margin-top: 0;
   border-bottom: 0.01rem solid #eeeeee;
 }
 .sets > div:nth-child(2) > div:nth-child(3) {
-  height: 0.2rem;
+  width: 2rem;
+  height: 70%;
   color: #999999;
   font: normal 0.102rem PingFang-SC-Regular;
   border-left: 0.02rem solid #eeeeee;
@@ -121,6 +123,29 @@
   height: 100%;
   color: #0099fe;
   font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.wdows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(128, 128, 128, 0.8);
+}
+.wdows > div {
+  width: 50%;
+  height: 10%;
+  background: white;
+  border-radius: 0.3rem;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  text-align: center;
+  font: normal .64rem PingFang-SC-Medium;
+  line-height: 1.5rem;
 }
 
 /*# sourceMappingURL=registered.css.map */

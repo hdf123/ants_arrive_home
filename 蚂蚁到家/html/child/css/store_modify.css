@@ -92,20 +92,17 @@
 .menu li i {
   font-size: 0.5rem;
 }
-.menu > .fillk > input, .menu .fillks > input {
+.menu > .fillk > input, .menu .fillks > input, .menu .phone > input {
   width: 80%;
   font: normal 0.4rem PingFang-SC-Regular;
   padding-right: 1.1rem;
 }
-.menu > .fillk > input::-webkit-input-placeholder, .menu .fillks > input::-webkit-input-placeholder {
+.menu > .fillk > input::-webkit-input-placeholder, .menu .fillks > input::-webkit-input-placeholder, .menu .phone > input::-webkit-input-placeholder {
   color: #333333;
   text-align: right;
 }
 .menu > .fillks > input {
   width: 88%;
-}
-.menu > li:nth-of-type(5) > div:nth-of-type(2) {
-  padding-right: 1.1rem;
 }
 
 .logos {

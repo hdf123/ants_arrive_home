@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/md5.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div>登录</div>
@@ -16,8 +17,8 @@
 			<img src=""/>
 		</div>
 		<div>
-			<input type="text" placeholder="请输入手机号"/>
-			<input type="text" placeholder="请输入密码"/>
+			<input type="text" id="tel" placeholder="请输入手机号" value="17303831924"/>
+			<input type="password" id="pass" placeholder="请输入密码" value="ad123456"/>
 		</div>
 		<div id="login">登录</div>
 		<div>
@@ -27,13 +28,52 @@
 
 <script type="text/javascript">
 	$(function(){
-//		ajaxsd("/goods/?ndByCityAndKey/",true,'post',parameter,function(data){
-//			console.log(data);
-//		},function(err){
-//			console.log(err);
-//		})
+		var one=0;
+		var parameter={
+			phone:3,
+			password:3,
+			kkk:3//3:取消启动页
+		}
+		localStorage.setItem('蚂蚁登录', JSON.stringify(parameter));
+		localStorage.setItem('one', JSON.stringify(one));
 		$("#login").click(function(){
-			window.location.href="../home/home.html";
+			var pho = $('#tel').val();
+			var pass=$("#pass").val();
+			pho==""||pass==""?alert("填写不可为空"):funelse();//判断输入是否为空
+			function funelse(){
+				var df=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号正则
+				df.test(pho)?funcel():alert("账号格式错误！");
+			}
+			function funcel(){
+				pass=hex_md5(pass);
+				var parameter={
+					mobilePhone :pho,
+					password:pass,
+					kkk:6
+				}
+				ajaxs("/seller/login",'post',parameter,function(data){
+					console.log(data);
+					if(data.success==true){
+					    localStorage.setItem('蚂蚁登录', JSON.stringify(parameter));
+					    localStorage.setItem('token', JSON.stringify(data.data));
+						window.location.href="../home/home.html";
+					}else{
+						return alert(data.msg);
+					}
+				},function(err){
+					console.log(err);
+					console.log(JSON.stringify(err));
+				})
+			}
+		})
+		$(".logb>div").click(function(){
+			console.log($(this).index());
+			var index=$(this).index();
+			if(index==0){
+				window.location.href="registered.html";
+			}else{
+				window.location.href="forget.html";
+			}
 		})
 	})
 </script>

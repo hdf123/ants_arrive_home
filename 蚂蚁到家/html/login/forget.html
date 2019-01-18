@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/forget.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/md5.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<header class="heads">
@@ -20,19 +21,99 @@
 		</header>
 		<section class="sets">
 			<div>
-				<input type="text" placeholder="请输入手机号/邮箱/用户名" />
+				<input type="number" id="tel" placeholder="请输入手机号" value="17303831924" />
 				<div>
-					<input type="text" placeholder="请输入验证码" />
-					<div>获取验证码</div>
+					<input type="text" id="yz" placeholder="请输入验证码" value="" />
+					<div class="code">获取验证码</div>
 				</div>
-				<input type="text" placeholder="请输入新密码" />
-				<input type="text" placeholder="请再次输入确认新密码" />
+				<input type="password" id="pass" placeholder="请输入新密码" value="ad123456" />
+				<input type="password" id="passd" placeholder="请再次输入确认新密码" value="ad123456" />
 			</div>
-			<div>确定</div>
+			<div class="btn">确定</div>
 		</section>
+		<div class="wdows">
+			<div>密码修改成功</div>
+		</div>
 <script type="text/javascript">
 	$(function(){
-		
+		$(".wdows").hide();
+		var yzs="";
+		$(".code").click(function(){
+			var tel=$("#tel").val();
+			if(tel==""){
+				alert("手机号不可为空");
+			}else{
+				var myreg=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+				if(!myreg.test(tel)){
+					return alert("格式错误");
+				}else{
+					settime(this);
+					ajaxs("/api/getCode",'post',{mobilePhone:$("#tel").val()},function(data){
+						console.log(data);
+						yzs=data.data.result;
+					},function(err){
+						console.log(err);
+					})
+				}
+			}
+		})
+		//倒计时
+        var countdown = 60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.innerHTML = "获取验证码";
+                countdown = 60+"s";
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.innerHTML =countdown+"s";
+                countdown--;
+            }
+            setTimeout(function (){
+                settime(obj)
+            }, 1000)
+        }
+		//修改密码
+		$(".btn").click(function(){
+			$("#pass").val()==""||$("#passd").val()==""||$("#tel").val()==""?alert("输入不可为空"):funkt();
+			function funkt(){
+				$("#pass").val()==$("#passd").val()?func():alert("密码输入一致，请重新输入")
+			}
+			function func(){
+				var df=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{8,16}$/;
+				df.test($("#pass").val())?funks():alert("密码格式输入错误！\n 注：可以包含数字、字母、下划线，并且要同时含有数字和字母，且长度在8-16位之间");
+				function funks(){
+					$("#yz").val()==""?alert("验证码输入不可为空"):funkk();
+				}
+				function funkk(){
+					$("#yz").val()!=yzs?alert("验证码输入错误"):funjk();
+				}
+				function funjk(){
+					var pass=hex_md5($("#pass").val());
+					var firs={
+						mobilePhone:$("#tel").val(),
+						password:pass
+					}
+					ajaxs("/seller/updatePassword",'post',firs,function(data){
+						console.log(data);
+						if(data.success ==true){
+							$(".wdows").fadeIn(300,function(){
+								setTimeout(function(){
+									$(".wdows").fadeOut(2000,function(){
+										window.location.href="login.html";
+									});
+								},500);
+							});
+						}else{
+							alert(data.msg);
+						}
+					},function(err){
+						console.log(err);
+					})
+				}
+			}
+		})
 	})
 </script>
 	</body>

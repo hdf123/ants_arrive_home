@@ -33,14 +33,14 @@
             font-size:0.5rem;
         }
     }
-    >.fillk,.fillks{
+    >.fillk,.fillks,.phone{
         >input{
             width:80%;
             font:$fonta;
             padding-right:1.1rem;
         }
        >input::-webkit-input-placeholder{
-           color:#333333;
+            color:#333333;
             text-align:right;
         }
     }
@@ -48,11 +48,6 @@
         >input{
             width:88%;
         } 
-    }
-    >li:nth-of-type(5){
-        >div:nth-of-type(2){
-            padding-right:1.1rem;
-        }
     }
 }
 .logos{

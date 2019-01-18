@@ -107,14 +107,13 @@
     }
 })(window, window['lib'] || (window['lib'] = {}));
 //ajax封装调用
-	var urs="http://x5wkyg.natappfree.cc";
-	function ajaxsd(url,async,type,data,suFn,erFn){
+	var urs="http://a3jc6z.natappfree.cc";
+	/*function ajaxs(url,type,data,suFn,erFn){
+		var token= JSON.parse(localStorage.getItem('token'));//获取token
+		console.log(token);
 		$.ajax({
 			url:urs+url,
-	 		xhrFields:{
-	           withCredentials:true
-	       	},
-	     	async:async,
+			headers:{"Authorization":token},
 			type:type,
 	        dataType : "json",
 	        data:data,
@@ -122,12 +121,34 @@
 				suFn(data);
 			},error: function(error){
 	            erFn(error);
-	            return function(){
-	            	alert("登录已失效，请重新登录");
-	            }
 	        }
 		});
+	}*/
+
+
+	function ajaxs(url,type,data,suFn,erFn,params){
+	 	var token= JSON.parse(localStorage.getItem('token'));//获取token
+		$.ajax(Object.assign({
+			url:urs+url,
+			headers:{"Authorization":token},
+			type:type,
+	        dataType : "json",
+	        data:data,
+			success: function(data){
+				suFn(data);
+			},error: function(error){
+	            erFn(error);
+	        }
+		},params||{}));
 	}
+
+
+
+
+
+
+
+
 
 //上拉加载
 //_loadIndex 为请求的页数    _loadState为请求状态  0 可以请求  1 正在请求  2 请求结束
