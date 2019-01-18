@@ -50,6 +50,7 @@ body {
 .sets {
   width: 100%;
   overflow: auto;
+  position: relative;
 }
 
 .foots {

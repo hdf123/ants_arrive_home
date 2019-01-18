@@ -107,14 +107,12 @@
     }
 })(window, window['lib'] || (window['lib'] = {}));
 //ajax封装调用
-	var urs="http://x5wkyg.natappfree.cc";
-	function ajaxsd(url,async,type,data,suFn,erFn){
-		$.ajax({
+	var urs="http://a3jc6z.natappfree.cc";
+	function ajaxs(url,type,data,suFn,erFn,params){
+	 	var token= JSON.parse(localStorage.getItem('tokens'));//获取token
+		$.ajax(Object.assign({
 			url:urs+url,
-	 		xhrFields:{
-	           withCredentials:true
-	       	},
-	     	async:async,
+			headers:{"Authorization":token},
 			type:type,
 	        dataType : "json",
 	        data:data,
@@ -122,12 +120,10 @@
 				suFn(data);
 			},error: function(error){
 	            erFn(error);
-	            return function(){
-	            	alert("登录已失效，请重新登录");
-	            }
 	        }
-		});
+		},params||{}));
 	}
+
 
 //上拉加载
 //_loadIndex 为请求的页数    _loadState为请求状态  0 可以请求  1 正在请求  2 请求结束
@@ -280,7 +276,7 @@
 	}
 //loading
 	function loading(){
-		return html ='<div id="loading" style="width:100%;height:100%;background:#000000;filter:alpha(opacity=50);opacity:0.2;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../img/loading.gif" /></div></div>';
+		return html = '<div id="loading" style="width:100%;height:100%;background:rgba(238,238,238,1);text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loading.gif" /></div></div>';
 	}
 //图片加载失败时，动态添加也包含在内
 	function imgks(){
@@ -294,8 +290,6 @@
 //基础布局
 	function funkr(){
 		var ss=$(document.body).outerHeight(true);
-//		var ss=document.body.scrollHeight;
-//		var ss=window.screen.availHeight;
 		var he=$(".heads").outerHeight();
 		var ft=$(".foots").outerHeight();
 		he==undefined?he=0:he=he;
@@ -303,3 +297,19 @@
 		var bod=ss-(he+ft);
 		$(".sets").css({"height":bod+"px"});
 	}
+
+
+//个人资料
+function current(){
+	ajaxs("/user/getCurrentUserMessage",'get',{},function(data){
+		$("#loading").remove();
+		console.log(data);
+	},function(err){
+		console.log(err);
+		alert("请登录");
+//		location.href="../login/login.html";
+	})
+	$(".menuk").on("click",".menuk_child",function(){
+		location.href="../child/goods_details.html";
+	})
+}

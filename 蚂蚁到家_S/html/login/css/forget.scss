@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "../../../css/styleks.scss";
 .heads{
-    >div{
+    >div:nth-child(1){
         >.lefts{
             color:#ffffff;
         }
@@ -56,7 +56,29 @@
     @extend .flexs;
     
 }
-
+.wdows{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    top:0;
+    left:0;
+    background: rgba(128,128,128,0.8);
+    >div{
+        width:60%;
+        height:10%;
+        @extend .yincang;
+        background:white;
+        border-radius:0.3rem;
+        position:absolute;
+        top:45%;
+        left:20%;
+        text-align: center;
+        font:normal .64rem PingFang-SC-Medium;
+        line-height:1.5rem;
+    }
+}
 
 
 

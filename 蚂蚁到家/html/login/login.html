@@ -34,7 +34,7 @@
 			password:3,
 			kkk:3//3:取消启动页
 		}
-		localStorage.setItem('蚂蚁登录', JSON.stringify(parameter));
+		localStorage.setItem('my_login', JSON.stringify(parameter));
 		localStorage.setItem('one', JSON.stringify(one));
 		$("#login").click(function(){
 			var pho = $('#tel').val();
@@ -54,7 +54,7 @@
 				ajaxs("/seller/login",'post',parameter,function(data){
 					console.log(data);
 					if(data.success==true){
-					    localStorage.setItem('蚂蚁登录', JSON.stringify(parameter));
+					    localStorage.setItem('my_login', JSON.stringify(parameter));
 					    localStorage.setItem('token', JSON.stringify(data.data));
 						window.location.href="../home/home.html";
 					}else{
@@ -64,15 +64,6 @@
 					console.log(err);
 					console.log(JSON.stringify(err));
 				})
-			}
-		})
-		$(".logb>div").click(function(){
-			console.log($(this).index());
-			var index=$(this).index();
-			if(index==0){
-				window.location.href="registered.html";
-			}else{
-				window.location.href="forget.html";
 			}
 		})
 	})

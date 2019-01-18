@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/Personal.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/iscroll-zoom.js"></script>
 		<script src="../../js/hammer.js"></script>
 		<script src="../../js/jquery.photoClip.js"></script>
@@ -35,9 +35,9 @@
 				<div>头像</div>
 				<img src="" alt="" class="logo" id="logox" />
 			</div>
-			<div>
+			<div class="nick">
 				<div>昵称</div>
-				<input type="text" placeholder="李磊的韩梅梅" />
+				<input type="text" placeholder="李磊的韩梅梅" value="" />
 			</div>
 			<div>
 				<div>ID:</div>
@@ -50,7 +50,7 @@
 			  		<label><input type ="radio" name = "fruit" value ="女"><span>女</span></label>
 			  	</form>
 			</div>
-			<div>
+			<div class="signature">
 				<div>签名</div>
 				<input type="text" placeholder="自是有缘" />
 			</div>
@@ -72,7 +72,6 @@
 			<div id="view"></div>
 		</article>
 		
-		
 <script>
 	var obUrl = ''
 	$("#clipArea").photoClip({
@@ -87,29 +86,63 @@
 		loadComplete: function() {
 			console.log("照片读取完成");
 		},
-		clipFinish: function(dataURL) {
+		clipFinish: function(dataURL){
 			console.log(dataURL);//图片路径
 		}
 	});
 </script>
 <script>
 	$(function(){
+		current();//当前用户个人信息
+		$(".sets").append(loading());//加载动画
 		$("#logox").click(function(){
 			$(".htmleaf-container").show();
 		})
+		//头像
 		$("#clipBtn").click(function(){
 			$("#logox").empty();
 			$('#logox').attr("src",imgsource);
-//			$('#logox').append('<img src="' + imgsource + '" align="absmiddle" style=" width: 3rem;height: 3rem;">');
 			$(".htmleaf-container").hide();
+			ajaxs("/user/uploadAvatar",'post',{base64Avatar:imgsource},function(data){
+				console.log(data);
+			},function(err){
+				console.log(err);
+			})
 		})
+//昵称
+		$(".nick>input").on('input propertychange',function(){
+			var nick=$(".nick>input").val();
+			if(nick.length<=4){
+				$(this).css({"color":"#333333"});
+			}else{
+				$(this).css({"color":"red"});
+			}
+		})
+		//修改完成
+		$(".rights").click(function(){
+			if($(".nick>input").val().length>4||$(".nick>input").val().length==0){
+				return alert("昵称长度为1-4个字段，请重新输入");
+			}
+			var nick=$(".nick>input").val();//昵称
+			var gender=$('#hair input[name="fruit"]:checked').val();//性别
+			var age=$(".age>input").val();//年龄
+			var address=$("#myAddrs").val();//地址
+			var signature=$(".signature>input").val();//签名
+			var parameter={
+				sign:signature,//签名
+				nickName:nick,//昵称
+				sex:gender,//性别
+				address:address//地址
+			}
+			ajaxs("/user/updateUserMessage",'post',parameter,function(data){
+				console.log(data);
+			},function(err){
+				console.log(err);
+			})
+		})
+		
 	});
 </script>
-		
-		
-		
-		
-		
 <script type="text/javascript">
     $(function() {
     	funkr();//获取头部和底部的总高度

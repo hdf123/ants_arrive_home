@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script src="../../js/md5.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="logina">logo</div>
@@ -24,14 +24,14 @@
 					<div class="inps">
 						<div>
 							<div class="iconfont icon-geren"></div>
-							<input type="text" />
+							<input type="text" id="telk" placeholder="手机号" value="17303831924" />
 						</div>
 						<div>
 							<div class="iconfont icon-tubiao202"></div>
-							<input type="text" />
+							<input type="password" id="passk" placeholder="密码" value="ad123456" />
 						</div>
 					</div>
-					<div class="login" onclick="location.href='../home/home.html'">登录</div>
+					<div class="login">登录</div>
 					<div class="forget" onclick="location.href='forget.html'">忘记密码</div>
 					<div class="thirds">
 						<div></div>
@@ -50,16 +50,16 @@
 					<div class="inpk">
 						<div>
 							<div class="iconfont icon-shouji"></div>
-							<input type="text" />
+							<input type="text" id="tel" value="17303831924" />
 						</div>
 						<div>
 							<div class="iconfont icon-yanzhengma"></div>
-							<input type="text" />
-							<div>获取验证码</div>
+							<input type="text" id="yz" value="" />
+							<div class="code">获取验证码</div>
 						</div>
 						<div>
 							<div class="iconfont icon-shouji"></div>
-							<input type="text" placeholder="6~16位数字字母符号组合" />
+							<input type="password" id="pass" placeholder="6~16位数字字母符号组合" value="ad123456" />
 						</div>
 					</div>
 					<div class="registered">注册</div>
@@ -70,10 +70,12 @@
 				</div>
 			</div>
 		</div>
-		
-		
+		<div class="wdows">
+			<div>注册成功</div>
+		</div>
 <script type="text/javascript">
 	$(function(){
+		$(".wdows").hide();
 		$(".tabs_child>div").eq(1).hide();
 		$(".tabs>li").click(function(){
 			zuobiao=$(this).index();
@@ -90,8 +92,126 @@
 				$(this).children("i").removeClass("icon-danxuankuang2");
 			}
 		})
+		//服务条款
 		$(".tks>span").click(function(event){
 			 event.stopPropagation();
+		})
+//注册
+		var yzs="";
+		$(".code").click(function(){
+			var tel=$("#tel").val();
+			if(tel==""){
+				alert("手机号不可为空");
+			}else{
+				var myreg=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+				if(!myreg.test(tel)){
+					return alert("格式错误");
+				}else{
+					settime(this);
+					ajaxs("/api/getCode",'post',{mobilePhone:$("#tel").val()},function(data){
+						console.log(data);
+						yzs=data.data.result;
+					},function(err){
+						console.log(err);
+					})
+				}
+			}
+		})
+		//倒计时
+        var countdown = 60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.innerHTML = "获取验证码";
+                countdown = 60+"s";
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.innerHTML =countdown+"s";
+                countdown--;
+            }
+            setTimeout(function (){
+                settime(obj)
+            }, 1000)
+        }
+		//确定注册
+		$(".registered").click(function(){
+			$("#pass").val()==""||$("#tel").val()==""?alert("输入不可为空"):func();
+			function func(){
+				var df=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{8,16}$/;
+				df.test($("#pass").val())?funks():funk();
+				function funks(){
+					$("#yz").val()==""?alert("验证码输入不可为空"):funkk();
+				}
+				function funkk(){
+					$("#yz").val()!=yzs?alert("验证码输入错误"):funjk();
+				}
+				function funjk(){
+					var pass=hex_md5($("#pass").val());
+					var firs={
+						mobilePhone:$("#tel").val(),
+						password:pass
+					}
+					ajaxs("/user/register",'post',firs,function(data){
+						console.log(data);
+						if(data.success ==true){
+							$(".wdows").fadeIn(300,function(){
+								setTimeout(function(){
+									$(".wdows").fadeOut(2000,function(){
+										window.location.href="login.html";
+									});
+								},1000);
+							});
+						}else{
+							alert(data.msg);
+						}
+					},function(err){
+						console.log(err);
+					})
+				}
+				function funk(){
+					alert("密码格式输入错误！\n 注：可以包含数字、字母、下划线，并且要同时含有数字和字母，且长度在8-16位之间");
+				}
+			}
+		})
+//登录
+		var one=0;
+		var parameter={
+			phone:3,
+			password:3,
+			kkk:3//3:取消启动页
+		}
+		localStorage.setItem('mys_login', JSON.stringify(parameter));
+		localStorage.setItem('one', JSON.stringify(one));
+		$(".login").click(function(){
+			var pho = $('#telk').val();
+			var pass=$("#passk").val();
+			pho==""||pass==""?alert("填写不可为空"):funelse();//判断输入是否为空
+			function funelse(){
+				var df=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号正则
+				df.test(pho)?funcel():alert("账号格式错误！");
+			}
+			function funcel(){
+				pass=hex_md5(pass);
+				var parameter={
+					mobilePhone :pho,
+					password:pass,
+					kkk:6
+				}
+				ajaxs("/user/login",'post',parameter,function(data){
+					console.log(data);
+					if(data.success==true){
+					    localStorage.setItem('mys_login', JSON.stringify(parameter));
+					    localStorage.setItem('tokens', JSON.stringify(data.data));
+						window.location.href="../home/home.html";
+					}else{
+						return alert(data.msg);
+					}
+				},function(err){
+					console.log(err);
+					console.log(JSON.stringify(err));
+				})
+			}
 		})
 	})
 </script>

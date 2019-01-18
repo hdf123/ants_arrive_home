@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang {
+.yincang, .wdows > div {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -229,6 +229,29 @@
 
 .icon-danxuankuang2 {
   color: #fa4408;
+}
+
+.wdows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(128, 128, 128, 0.8);
+}
+.wdows > div {
+  width: 50%;
+  height: 10%;
+  background: white;
+  border-radius: 0.3rem;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  text-align: center;
+  font: normal .64rem PingFang-SC-Medium;
+  line-height: 1.5rem;
 }
 
 /*# sourceMappingURL=login.css.map */

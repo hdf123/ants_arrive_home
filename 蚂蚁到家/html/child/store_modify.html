@@ -101,9 +101,6 @@
 				<div>已打烊</div>
 			</div>
 		</div>
-
-			
-			
 <script src="js/iscroll-zoom.js"></script>
 <script src="js/hammer.js"></script>
 <script src="js/jquery.photoClip.js"></script>
@@ -138,9 +135,16 @@
 				$(".imgs").empty();
 				$(".imgs").attr("src",imgsource);
 				$(".htmleaf-container").hide();
+				//店铺logo
+				ajaxs("/seller/updateBusinessMessage",'post',{businessImage:imgsource},function(data){
+					console.log(data);
+				},function(err){
+					console.log(err);
+				})
 			}else{
 				$(".htmleaf-container").hide();
 			}
+			
 		})
 	});
 </script>
@@ -190,6 +194,7 @@
 	$(".states>div").click(function(){
 		$(".shijians").eq(2).hide();
 	})
+	//
 </script>
 	</body>
 </html>
