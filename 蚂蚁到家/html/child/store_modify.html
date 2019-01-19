@@ -199,12 +199,16 @@
 		//保存更改
 		$(".determine").click(function(){
 			var fillk=$(".fillk>input").val();//店铺名称
-			if(fillk.length>4||fillk.length==0){
-				return alert("昵称长度为1-4个字段，请重新输入");
+			if(fillk.length!=0){
+				if(fillk.length>4||fillk.length==0){
+					return alert("店铺名称长度为1-4个字段，请重新输入");
+				}
+			}else{
+				fillk=undefined;
 			}
 			var fillks=$(".fillks>input").val();//主营
-			if(fillks.length<1){
-				return alert("请输入主营业务");
+			if(fillks.length==0){
+				fillks=undefined;
 			}
 			var state="";//营业状态
 			if($(".state>span").html()=="营业中"){
@@ -218,7 +222,6 @@
 				sellerName:fillk,//店铺名称
 				companyType:fillks,//主营
 				businessStatus:state,//营业状态
-//				mobilePhone:phone,//电话
 				startTime:startTime,//营业开始时间
 				endTime:endTime,//营业结束时间
 			}
