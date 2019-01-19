@@ -17,13 +17,13 @@
 		<header class="heads">
 			<div>
 				<div>
-					<i class="iconfont icon-xiaoxi"></i>
+					<i class="iconfont icon-xiaoxi" onclick="location.href='../child/message.html'"></i>
 				</div>
 				<div class="personal">
 					<a href="../child/Personal.html">
 						<img src="" alt="" />
 						<div>
-							<div>李磊的韩梅梅</div>
+							<div class="names"></div>
 							<div>个人信息<i class="iconfont icon-qianjin"></i></div>
 						</div>
 					</a>
@@ -122,7 +122,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		funkr();//获取头部和底部的总高度
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
 		
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		$(".personal img").attr("src",current.current.avatar);
+		$(".names").html(current.current.nickName);
 	})
 </script>
 	</body>

@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs {
+.flexs, .menu > .determine {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,6 +103,15 @@
 }
 .menu > .fillks > input {
   width: 88%;
+}
+.menu > .determine {
+  width: 9.2rem;
+  height: 1.173rem;
+  background-color: #fa6939;
+  border-radius: 0.08rem;
+  margin-top: 1rem;
+  color: white;
+  font: normal 0.48rem PingFang-SC-Regular;
 }
 
 .logos {
@@ -187,6 +196,9 @@
   margin: 0 auto;
   font: normal 0.4rem PingFang-SC-Regular;
   border-bottom: 0.01rem solid #eeeeee;
+}
+.states > .act {
+  color: #fa6939;
 }
 
 /*# sourceMappingURL=store_modify.css.map */

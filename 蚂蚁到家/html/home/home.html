@@ -215,12 +215,7 @@
 		$(".goods").on("click",".editor",function(){
 			window.location.href="../child/editor.html";
 		})
-		//当前商家信息
-		ajaxs("/seller/getCurrentSeller",'get',{},function(data){
-			console.log(data);
-		},function(err){
-			console.log(err);
-		})
+		
 		
 	})
 </script>

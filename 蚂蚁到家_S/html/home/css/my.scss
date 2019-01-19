@@ -17,10 +17,9 @@
 }
 .personal{
     >a{
-        width:52%;
+        width:80%;
         margin-left:0.907rem;
         display: flex;
-        justify-content: center;
         >img{
             width: 1.76rem;
             height: 1.76rem;
@@ -33,7 +32,10 @@
             justify-content: space-around;
             margin-left:0.5rem;
             >div:nth-child(1){
+                width:5.5rem;
+                height:0.7rem;
                 font:$fontb;
+                @extend .yincang;
             }
             >div:nth-child(2){
                 font:$fonta;

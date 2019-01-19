@@ -37,7 +37,7 @@
 			</div>
 			<div class="nick">
 				<div>昵称</div>
-				<input type="text" placeholder="李磊的韩梅梅" value="" />
+				<input type="text" placeholder="请输入你的昵称" value="" />
 			</div>
 			<div>
 				<div>ID:</div>
@@ -52,11 +52,10 @@
 			</div>
 			<div class="signature">
 				<div>签名</div>
-				<input type="text" placeholder="自是有缘" />
+				<input type="text" placeholder="编辑个性签名" />
 			</div>
 			<div>
 				<div>地区</div>
-				<!--<input type="text" placeholder="河南省郑州市" />-->
 				<input type="text" readonly placeholder="" id="myAddrs" name="addr" data-key="16-240-2664" value="河南省 郑州市 金水区" />
 			</div>
 		</section>
@@ -71,8 +70,12 @@
 			</div>
 			<div id="view"></div>
 		</article>
-		
+		<div class="wdows">
+			<div>个人信息修改成功</div>
+		</div>
 <script>
+	funkr();//获取头部和底部的总高度
+	$(".wdows").hide();//初始化异常弹窗
 	var obUrl = ''
 	$("#clipArea").photoClip({
 		width: 300,
@@ -93,23 +96,47 @@
 </script>
 <script>
 	$(function(){
-		current();//当前用户个人信息
-		$(".sets").append(loading());//加载动画
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+//登录后展示个人信息
+		$('#logox').attr("src",current.current.avatar);//头像
+		$(".nick>input").val(current.current.nickName);//昵称
+		$(".nick>input").attr("placeholder",current.current.nickName);//昵称
+		$("#hair input:radio[value="+current.current.sex+"]").attr('checked','true');//性别
+		$(".signature>input").val(current.current.sign);//签名
+		$("#myAddrs").val(current.current.address);//地址
+		$("#myAddrs").attr("data-key",current.current.coordinate);
+//头像
 		$("#logox").click(function(){
 			$(".htmleaf-container").show();
 		})
-		//头像
 		$("#clipBtn").click(function(){
-			$("#logox").empty();
-			$('#logox').attr("src",imgsource);
-			$(".htmleaf-container").hide();
-			ajaxs("/user/uploadAvatar",'post',{base64Avatar:imgsource},function(data){
-				console.log(data);
-			},function(err){
-				console.log(err);
-			})
+			if(imgsource!=""){
+				$("#logox").empty();
+				$('#logox').attr("src",imgsource);
+				$(".htmleaf-container").hide();
+				ajaxs("/user/uploadAvatar",'post',{base64Avatar:imgsource},function(data){
+					console.log(data);
+				},function(err){
+					console.log(err);
+				})
+			}else{
+				$(".htmleaf-container").hide();
+			}
 		})
 //昵称
+		$(".nick>input").focus(function(){
+			var nick=$(".nick>input").val();
+			if(nick==current.current.nickName){
+				$(".nick>input").val("");
+			}
+		})
+		$(".nick>input").blur(function(){
+			var nick=$(".nick>input").val();
+			if(nick.length<=0){
+				$(".nick>input").val(current.current.nickName);//昵称
+			}
+		})
 		$(".nick>input").on('input propertychange',function(){
 			var nick=$(".nick>input").val();
 			if(nick.length<=4){
@@ -120,6 +147,7 @@
 		})
 		//修改完成
 		$(".rights").click(function(){
+			$(".sets").append(loading());//加载动画
 			if($(".nick>input").val().length>4||$(".nick>input").val().length==0){
 				return alert("昵称长度为1-4个字段，请重新输入");
 			}
@@ -127,15 +155,36 @@
 			var gender=$('#hair input[name="fruit"]:checked').val();//性别
 			var age=$(".age>input").val();//年龄
 			var address=$("#myAddrs").val();//地址
+			var coordinate=$("#myAddrs").data("key");//地址定位
 			var signature=$(".signature>input").val();//签名
 			var parameter={
 				sign:signature,//签名
 				nickName:nick,//昵称
 				sex:gender,//性别
-				address:address//地址
+				address:address,//地址
+				coordinate:coordinate//地址定位
 			}
+			console.log(parameter);
 			ajaxs("/user/updateUserMessage",'post',parameter,function(data){
 				console.log(data);
+				ajaxs("/user/getCurrentUserMessage",'get',{},function(datas){
+					var parameter={
+						state:"0:未登录；1：已登录",
+						islogin:1,//0:未登录；1：已登录
+						current:datas.data
+					}
+					localStorage.setItem('mys_current', JSON.stringify(parameter));//当前账户信息
+					$("#loading").remove();
+					$(".wdows").fadeIn(500,function(){
+						setTimeout(function(){
+							$(".wdows").fadeOut(1000,function(){
+								window.location.reload();//刷新当前页面.
+							});
+						},1000);
+					});
+				},function(err){
+					alert(datas.msg);
+				})
 			},function(err){
 				console.log(err);
 			})
@@ -145,7 +194,6 @@
 </script>
 <script type="text/javascript">
     $(function() {
-    	funkr();//获取头部和底部的总高度
         /**
          * 通过数组id获取地址列表数组
          *

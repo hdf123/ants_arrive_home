@@ -56,7 +56,18 @@
 					if(data.success==true){
 					    localStorage.setItem('my_login', JSON.stringify(parameter));
 					    localStorage.setItem('token', JSON.stringify(data.data));
-						window.location.href="../home/home.html";
+						//当前商家信息
+						ajaxs("/seller/getCurrentSeller",'get',{},function(datas){
+							var parameter={
+								state:"0:未登录；1：已登录",
+								islogin:1,//0:未登录；1：已登录
+								current:datas.data
+							}
+							localStorage.setItem('my_current', JSON.stringify(parameter));//当前账户信息
+							location.href="../home/home.html";
+						},function(err){
+							console.log(err);
+						})
 					}else{
 						return alert(data.msg);
 					}

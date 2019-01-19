@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>店铺修改</title>
+		<title>我的店铺</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
@@ -18,14 +18,14 @@
 		<header class="heads">
 			<div>
 				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
-				<div class="centers">店铺修改</div>
+				<div class="centers">我的店铺</div>
 			</div>
 		</header>
 		<section class="sets">
 			<ul class="menu">
 				<li class="fillk">
 					<div>店铺名称</div>
-					<input type="text" placeholder="小龙虾" />
+					<input type="text" placeholder="请输入店铺名称" value="" />
 				</li>
 				<li>
 					<div>店铺LOGO</div>
@@ -36,7 +36,7 @@
 				</li>
 				<li class="fillks">
 					<div>主营</div>
-					<input type="text" placeholder="餐饮" />
+					<input type="text" placeholder="请输入主营的业务" value="" />
 				</li>
 				<li>
 					<div>营业时间</div>
@@ -50,18 +50,21 @@
 				</li>
 				<li class="phone">
 					<div>联系电话</div>
-					<input type="text" placeholder="15423678525" value="" />
+					<input type="number" placeholder="联系电话" readonly value="" />
 				</li>
 				<li>
 					<div>营业状态</div>
 					<div class="state">
-						<span>营业中</span>
+						<span>已打烊</span>
 						<i class="iconfont icon-qianjin"></i>
 					</div>
 				</li>
+				<li class="determine">确定</li>
 			</ul>
 		</section>
-		
+		<div class="wdows">
+			<div>店铺信息修改成功</div>
+		</div>
 		
 		<article class="htmleaf-container">
 			<div id="clipArea"></div>
@@ -127,6 +130,26 @@
 </script>
 <script>
 	$(function(){
+		$(".wdows").hide();//初始化异常弹窗
+		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+//登录后展示个人信息
+		$(".fillk>input").attr("placeholder",current.current.sellerName);//店铺名称
+		$(".fillks>input").attr("placeholder",current.current.companyType);//主营
+		$('#logox>img').attr("src",current.current.businessImage);//店铺logo
+		$(".phone>input").attr("placeholder",current.current.mobilePhone);//联系电话
+		//营业时间
+		$("#input1").html(current.current.startTime);
+		$("#input2").html(current.current.endTime);
+		var kt="";
+		if(current.current.businessStatus){
+			kt="营业中";
+		}else{
+			kt="已打烊";
+		}
+		$(".state>span").html(kt);
+		
+//店铺logo
 		$("#logox").click(function(){
 			$(".htmleaf-container").show();
 		})
@@ -135,7 +158,6 @@
 				$(".imgs").empty();
 				$(".imgs").attr("src",imgsource);
 				$(".htmleaf-container").hide();
-				//店铺logo
 				ajaxs("/seller/updateBusinessMessage",'post',{businessImage:imgsource},function(data){
 					console.log(data);
 				},function(err){
@@ -144,16 +166,98 @@
 			}else{
 				$(".htmleaf-container").hide();
 			}
-			
+		})
+//店铺名称
+		$(".fillk>input").focus(function(){
+			var fillk=$(".fillk>input").val();
+			if(fillk==current.current.nickName){
+				$(".fillk>input").val("");
+			}
+		})
+		$(".fillk>input").blur(function(){
+			var fillk=$(".fillk>input").val();
+			if(fillk.length<=0){
+				$(".fillk>input").val(current.current.nickName);//昵称
+			}
+		})
+		$(".fillk>input").on('input propertychange',function(){
+			var fillk=$(".fillk>input").val();
+			if(fillk.length<=4){
+				$(this).css({"color":"#333333"});
+			}else{
+				$(this).css({"color":"red"});
+			}
+		})
+		
+		
+		$(".shijians").click(function(event){
+			event.stopPropagation();//阻止冒泡
+		})
+		$(".statek").click(function(event){
+			event.stopPropagation();//阻止冒泡
+		})
+		//保存更改
+		$(".determine").click(function(){
+			var fillk=$(".fillk>input").val();//店铺名称
+			if(fillk.length>4||fillk.length==0){
+				return alert("昵称长度为1-4个字段，请重新输入");
+			}
+			var fillks=$(".fillks>input").val();//主营
+			if(fillks.length<1){
+				return alert("请输入主营业务");
+			}
+			var state="";//营业状态
+			if($(".state>span").html()=="营业中"){
+				state=true;
+			}else{
+				state=false;
+			}
+			var startTime=$("#input1").html();//营业开始时间
+			var endTime=$("#input2").html();//营业结束时间
+			var parameter={
+				sellerName:fillk,//店铺名称
+				companyType:fillks,//主营
+				businessStatus:state,//营业状态
+//				mobilePhone:phone,//电话
+				startTime:startTime,//营业开始时间
+				endTime:endTime,//营业结束时间
+			}
+			console.log(parameter);
+			ajaxs("/seller/updateSellerMessage",'post',parameter,function(data){
+				console.log(data);
+				//当前商家信息
+				ajaxs("/seller/getCurrentSeller",'get',{},function(datas){
+					var parameter={
+						state:"0:未登录；1：已登录",
+						islogin:1,//0:未登录；1：已登录
+						current:datas.data
+					}
+					localStorage.setItem('my_current', JSON.stringify(parameter));//当前账户信息
+					$("#loading").remove();
+					$(".wdows").fadeIn(500,function(){
+						setTimeout(function(){
+							$(".wdows").fadeOut(1000,function(){
+								window.location.reload();//刷新当前页面.
+							});
+						},1000);
+					});
+				},function(err){
+					console.log(err);
+				})
+			},function(err){
+				console.log(err);
+			})
 		})
 	});
 </script>
 <!--营业时间-->
 <script type="text/javascript">
 	$(".shijians").hide();
-	$(".times").click(function(){
+	//营业时间
+	$(".times").click(function(event){
 		$(".shijians").hide();
 		$(".shijians").eq(0).show();
+		event.stopPropagation();//阻止冒泡
 	})
 	$(".business>div:eq(2)").click(function(){
 		$(".shijians").eq(0).hide(function(){
@@ -183,18 +287,38 @@
 		alwaysShow:true,
 		timeElm:$(".time-boxs"),
 	})
-	//状态
-	$(".state").click(function(){
+	//营业状态
+	var statek;
+	$(document).click(function(){
 		$(".shijians").hide();
-		$(".shijians").eq(2).show();
+		$(".state>span").html(statek);
 	})
-	$(".state_father>div:eq(2)").click(function(){
+	$(".state").click(function(event){
+		statek=$(".state>span").html();
+		$(".shijians").hide();
+		$(".statek").show();
+		if($(".state>span").html()=="营业中"){
+			$(".states>div:eq(0)").addClass("act");
+			$(".states>div:eq(1)").removeClass("act");
+		}else{
+			$(".states>div:eq(1)").addClass("act");
+			$(".states>div:eq(0)").removeClass("act");
+		}
+		event.stopPropagation();//阻止冒泡
+	})
+	
+	$(".states>div").click(function(){//选择营业状态
+		var statea=$(this).html();
+		$(".state>span").html(statea);
+		$(this).addClass("act").siblings().removeClass("act");
+	})
+	$(".state_father>div:eq(2)").click(function(){//确认状态
 		$(".shijians").eq(2).hide();
 	})
-	$(".states>div").click(function(){
+	$(".state_father>div:eq(0)").click(function(){//取消选择状态
 		$(".shijians").eq(2).hide();
+		$(".state>span").html(statek);
 	})
-	//
 </script>
 	</body>
 </html>

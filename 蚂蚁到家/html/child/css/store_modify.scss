@@ -49,6 +49,16 @@
             width:88%;
         } 
     }
+    >.determine{
+        width: 9.2rem;
+        height: 1.173rem;
+        background-color: #fa6939;
+        border-radius: 0.08rem;
+        @extend .flexs;
+        margin-top:1rem;
+        color:white;
+        font:$fontb;
+    }
 }
 .logos{
     width:7rem;
@@ -130,5 +140,8 @@
         margin:0 auto;
         font:$fonta;
         border-bottom:0.01rem solid #eeeeee;
+    }
+    >.act{
+        color:#fa6939;
     }
 }

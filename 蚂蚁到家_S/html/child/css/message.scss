@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import "../../../css/styleks.scss";
+.heads{
+    >div:nth-child(1){
+        >.lefts{
+            color:white;
+        }
+        >.centers{
+            color:white;
+            font:$fontb;
+        }
+    }
+}

@@ -201,14 +201,27 @@
 				ajaxs("/user/login",'post',parameter,function(data){
 					console.log(data);
 					if(data.success==true){
-					    localStorage.setItem('mys_login', JSON.stringify(parameter));
-					    localStorage.setItem('tokens', JSON.stringify(data.data));
-						window.location.href="../home/home.html";
+					    localStorage.setItem('mys_login', JSON.stringify(parameter));//登录账号
+					    localStorage.setItem('tokens', JSON.stringify(data.data));//登录token
+					   //个人信息
+						ajaxs("/user/getCurrentUserMessage",'get',{},function(datas){
+							var parameter={
+								state:"0:未登录；1：已登录",
+								islogin:1,//0:未登录；1：已登录
+								current:datas.data
+							}
+							localStorage.setItem('mys_current', JSON.stringify(parameter));//当前账户信息
+							location.href="../home/home.html";
+//							var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+						},function(err){
+							alert(datas.msg);
+						})
 					}else{
 						return alert(data.msg);
 					}
 				},function(err){
 					console.log(err);
+					alert("网络连接失败");
 					console.log(JSON.stringify(err));
 				})
 			}

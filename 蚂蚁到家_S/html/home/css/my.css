@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang {
+.yincang, .personal > a > div:nth-child(2) > div:nth-child(1) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -74,10 +74,9 @@
 }
 
 .personal > a {
-  width: 52%;
+  width: 80%;
   margin-left: 0.907rem;
   display: flex;
-  justify-content: center;
 }
 .personal > a > img {
   width: 1.76rem;
@@ -92,6 +91,8 @@
   margin-left: 0.5rem;
 }
 .personal > a > div:nth-child(2) > div:nth-child(1) {
+  width: 5.5rem;
+  height: 0.7rem;
   font: normal 0.48rem PingFang-SC-Regular;
 }
 .personal > a > div:nth-child(2) > div:nth-child(2) {
