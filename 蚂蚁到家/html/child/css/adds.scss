@@ -14,8 +14,11 @@
 }
 .heads{
     >div{
-        background:white;
-        >.centers{
+        >.lefts{
+            color:white;
+        }
+        >.centers,.rights{
+            color:white;
             font:$fontb;
         }
     }
@@ -23,6 +26,7 @@
 .sets{
     top:2.5rem;
     bottom:0;
+    position:relative;
 }
 .addsa{
     width: 10rem;
@@ -48,6 +52,10 @@
             color: #333333;
             font:normal 0.32rem PingFang-SC-Regular;
         } 
+        >img{
+            width:100%;
+            height:100%;   
+        }
     }
 }
 .titles{
@@ -61,6 +69,7 @@
     >input:nth-child(2){
         width:88%;
         padding:0 0.2rem;
+        font:normal 0.32rem PingFang-SC-Regular;;
     }
 }
 .classification{
@@ -92,6 +101,30 @@
             justify-content: flex-end;
             font-size:0.5rem;
         } 
+    }
+}
+.classifications{
+    width:100%;
+    height:100%;
+    background:white;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    >li{
+        height:1.173rem;
+        padding:0 0.427rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom:0.01rem solid #eeeeee;
+        >span{
+            font:$fonta;
+        }
+        >i{
+            color:#fa6939;
+            font-size:0.4rem;
+        }
     }
 }
 .price{
@@ -129,7 +162,7 @@
     @extend .kks;
     background:white;
     border-top:0.32rem solid #eeeeee;
-    border-bottom:0.32rem solid #eeeeee;
+    border-bottom:0.02rem solid #eeeeee;
     >div:nth-child(1){
         width:20%;
         @extend .fota;
@@ -141,6 +174,57 @@
         font-size:0.5rem;
     }
 }
+.detailk{
+    width:100%;
+    height:3rem;
+    background:white;
+    padding:0.3rem 0.25rem;
+    >textarea{
+        width:100%;
+        height:100%;
+        resize:none;
+        border:none;
+        outline: none;
+        font:normal 0.32rem PingFang-SC-Regular;
+    }
+}
+.imgks{
+    width:100%;
+    padding-bottom:0.5rem;
+    background:white;
+    >div:nth-child(1){
+        width:3rem;
+        height:3rem;
+        margin-left:0.227rem;
+        border-radius:0.2rem;
+        overflow:hidden;
+        background:rgba(244,244,244,0.8);
+        border:0.03rem solid #eeeeee;
+        >input{
+            display:none;
+        }
+        >label{
+            >div:nth-child(1){
+                width:100%;
+                height:70%;
+                @extend .flexs;
+                color:#dddddd;
+                font-size:1rem;
+            } 
+            >div:nth-child(2){
+                width:100%;
+                text-align: center;
+                color:#bbbbbb;
+                font:$fonta;
+            } 
+        }
+    }
+}
+
+
+
+
+
 .releases{
     width: 9.2rem;
     height: 1.067rem;

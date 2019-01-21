@@ -54,8 +54,8 @@
 				ajaxs("/seller/login",'post',parameter,function(data){
 					console.log(data);
 					if(data.success==true){
-					    localStorage.setItem('my_login', JSON.stringify(parameter));
-					    localStorage.setItem('token', JSON.stringify(data.data));
+					    localStorage.setItem('my_login', JSON.stringify(parameter));//账号密码
+					    localStorage.setItem('token', JSON.stringify(data.data));//token
 						//当前商家信息
 						ajaxs("/seller/getCurrentSeller",'get',{},function(datas){
 							var parameter={

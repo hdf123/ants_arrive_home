@@ -80,8 +80,14 @@
 			</div>
 		</footer>
 <script type="text/javascript">
-	$(function(){
-		
+	$(document).ready(function(){
+		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		//查询钱包信息
+		ajaxs("/pay/getWallet/"+current.current.sellerId,'get',{},function(data){
+			console.log(data);
+		},function(err){
+			console.log(err);
+		})
 	})
 </script>
 	</body>

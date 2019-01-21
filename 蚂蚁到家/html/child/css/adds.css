@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .addsa > label > div:nth-child(1), .classification > div:nth-child(2) > div:nth-child(2), .price > div:nth-child(2), .releases {
+.flexs, .addsa > label > div:nth-child(1), .classification > div:nth-child(2) > div:nth-child(2), .price > div:nth-child(2), .imgks > div:nth-child(1) > label > div:nth-child(1), .releases {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,16 +74,18 @@
   align-items: center;
 }
 
-.heads > div {
-  background: white;
+.heads > div > .lefts {
+  color: white;
 }
-.heads > div > .centers {
+.heads > div > .centers, .heads > div .rights {
+  color: white;
   font: normal 0.48rem PingFang-SC-Regular;
 }
 
 .sets {
   top: 2.5rem;
   bottom: 0;
+  position: relative;
 }
 
 .addsa {
@@ -109,6 +111,10 @@
   color: #333333;
   font: normal 0.32rem PingFang-SC-Regular;
 }
+.addsa > label > img {
+  width: 100%;
+  height: 100%;
+}
 
 .titles {
   height: 1rem;
@@ -120,6 +126,7 @@
 .titles > input:nth-child(2) {
   width: 88%;
   padding: 0 0.2rem;
+  font: normal 0.32rem PingFang-SC-Regular;
 }
 
 .classification {
@@ -149,6 +156,31 @@
   height: 100%;
   justify-content: flex-end;
   font-size: 0.5rem;
+}
+
+.classifications {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.classifications > li {
+  height: 1.173rem;
+  padding: 0 0.427rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.01rem solid #eeeeee;
+}
+.classifications > li > span {
+  font: normal 0.4rem PingFang-SC-Regular;
+}
+.classifications > li > i {
+  color: #fa6939;
+  font-size: 0.4rem;
 }
 
 .price {
@@ -183,7 +215,7 @@
   height: 1.733rem;
   background: white;
   border-top: 0.32rem solid #eeeeee;
-  border-bottom: 0.32rem solid #eeeeee;
+  border-bottom: 0.02rem solid #eeeeee;
 }
 .details > div:nth-child(1) {
   width: 20%;
@@ -192,6 +224,51 @@
   width: 80%;
   justify-content: flex-end;
   font-size: 0.5rem;
+}
+
+.detailk {
+  width: 100%;
+  height: 3rem;
+  background: white;
+  padding: 0.3rem 0.25rem;
+}
+.detailk > textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+
+.imgks {
+  width: 100%;
+  padding-bottom: 0.5rem;
+  background: white;
+}
+.imgks > div:nth-child(1) {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 0.227rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  background: rgba(244, 244, 244, 0.8);
+  border: 0.03rem solid #eeeeee;
+}
+.imgks > div:nth-child(1) > input {
+  display: none;
+}
+.imgks > div:nth-child(1) > label > div:nth-child(1) {
+  width: 100%;
+  height: 70%;
+  color: #dddddd;
+  font-size: 1rem;
+}
+.imgks > div:nth-child(1) > label > div:nth-child(2) {
+  width: 100%;
+  text-align: center;
+  color: #bbbbbb;
+  font: normal 0.4rem PingFang-SC-Regular;
 }
 
 .releases {

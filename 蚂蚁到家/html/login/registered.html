@@ -38,12 +38,8 @@
 				<div onclick="location.href='login.html'">已有账号，去登录</div>
 			</div>
 		</section>
-		<div class="wdows">
-			<div>注册成功</div>
-		</div>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".wdows").hide();
 		var yzs="";
 		$(".code").click(function(){
 			var tel=$("#tel").val();
@@ -102,13 +98,7 @@
 					ajaxs("/seller/register",'post',firs,function(data){
 						console.log(data);
 						if(data.success ==true){
-							$(".wdows").fadeIn(300,function(){
-								setTimeout(function(){
-									$(".wdows").fadeOut(2000,function(){
-										window.location.href="login.html";
-									});
-								},1000);
-							});
+							popups("注册成功");
 						}else{
 							alert(data.msg);
 						}

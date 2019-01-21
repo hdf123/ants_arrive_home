@@ -31,12 +31,8 @@
 			</div>
 			<div class="btn">确定</div>
 		</section>
-		<div class="wdows">
-			<div>密码修改成功</div>
-		</div>
 <script type="text/javascript">
 	$(function(){
-		$(".wdows").hide();
 		var yzs="";
 		$(".code").click(function(){
 			var tel=$("#tel").val();
@@ -98,13 +94,7 @@
 					ajaxs("/seller/updatePassword",'post',firs,function(data){
 						console.log(data);
 						if(data.success ==true){
-							$(".wdows").fadeIn(300,function(){
-								setTimeout(function(){
-									$(".wdows").fadeOut(2000,function(){
-										window.location.href="login.html";
-									});
-								},500);
-							});
+							popups("密码修改成功","login.html");
 						}else{
 							alert(data.msg);
 						}

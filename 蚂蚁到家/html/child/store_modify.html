@@ -62,9 +62,6 @@
 				<li class="determine">确定</li>
 			</ul>
 		</section>
-		<div class="wdows">
-			<div>店铺信息修改成功</div>
-		</div>
 		
 		<article class="htmleaf-container">
 			<div id="clipArea"></div>
@@ -130,13 +127,12 @@
 </script>
 <script>
 	$(function(){
-		$(".wdows").hide();//初始化异常弹窗
 		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
 		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
 //登录后展示个人信息
 		$(".fillk>input").attr("placeholder",current.current.sellerName);//店铺名称
 		$(".fillks>input").attr("placeholder",current.current.companyType);//主营
-		$('#logox>img').attr("src",current.current.businessImage);//店铺logo
+		$('#logox>img').attr("src",current.current.logo);//店铺logo
 		$(".phone>input").attr("placeholder",current.current.mobilePhone);//联系电话
 		//营业时间
 		$("#input1").html(current.current.startTime);
@@ -158,7 +154,7 @@
 				$(".imgs").empty();
 				$(".imgs").attr("src",imgsource);
 				$(".htmleaf-container").hide();
-				ajaxs("/seller/updateBusinessMessage",'post',{businessImage:imgsource},function(data){
+				ajaxs("/seller/uploadLogo",'post',{logoBase64:imgsource},function(data){
 					console.log(data);
 				},function(err){
 					console.log(err);
@@ -198,6 +194,7 @@
 		})
 		//保存更改
 		$(".determine").click(function(){
+			$(".sets").append(loading());//加载动画
 			var fillk=$(".fillk>input").val();//店铺名称
 			if(fillk.length!=0){
 				if(fillk.length>4||fillk.length==0){
@@ -228,25 +225,8 @@
 			console.log(parameter);
 			ajaxs("/seller/updateSellerMessage",'post',parameter,function(data){
 				console.log(data);
-				//当前商家信息
-				ajaxs("/seller/getCurrentSeller",'get',{},function(datas){
-					var parameter={
-						state:"0:未登录；1：已登录",
-						islogin:1,//0:未登录；1：已登录
-						current:datas.data
-					}
-					localStorage.setItem('my_current', JSON.stringify(parameter));//当前账户信息
-					$("#loading").remove();
-					$(".wdows").fadeIn(500,function(){
-						setTimeout(function(){
-							$(".wdows").fadeOut(1000,function(){
-								window.location.reload();//刷新当前页面.
-							});
-						},1000);
-					});
-				},function(err){
-					console.log(err);
-				})
+				$("#loading").remove();
+				currentk();
 			},function(err){
 				console.log(err);
 			})

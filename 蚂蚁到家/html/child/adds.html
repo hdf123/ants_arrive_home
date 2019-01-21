@@ -18,6 +18,7 @@
 			<div>
 				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
 				<div class="centers">添加商品</div>
+				<div class="rights">发布</div>
 			</div>
 		</header>
 		<section class="sets">
@@ -30,15 +31,39 @@
 			</div>
 			<div class="titles">
 				<div>标题</div>
-				<input type="text" placeholder="水果猕猴桃2斤装" />
+				<input type="text" placeholder="商品标题" value="" />
 			</div>
-			<div class="classification" onclick="location.href='classification.html'">
+			<div class="classification">
 				<div>商品分类</div>
 				<div>
-					<div>生鲜水果</div>
+					<div class="classificationg">请选择商品分类</div>
 					<div class="iconfont icon-qianjin"></div>
 				</div>
 			</div>
+			<ul class="classifications">
+				<li class="classificationk">
+					<span>生鲜水果</span>
+					<!--<i class="iconfont icon-dui"></i>-->
+				</li>
+				<li class="classificationk">
+					<span>时令蔬菜</span>
+				</li>
+				<li class="classificationk">
+					<span>现切瓜果</span>
+				</li>
+				<li class="classificationk">
+					<span>小吃零食</span>
+				</li>
+				<li class="classificationk">
+					<span>酒水饮料</span>
+				</li>
+				<li class="classificationk">
+					<span>果脯蜜饯</span>
+				</li>
+				<li class="classificationk">
+					<span>粮油副食</span>
+				</li>
+			</ul>
 			<div class="price">
 				<div>价格</div>
 				<div>
@@ -48,15 +73,113 @@
 			</div>
 			<div class="details" onclick="location.href='details.html'">
 				<div>商品详情</div>
-				<div class="iconfont icon-qianjin"></div>
+				<!--<div class="iconfont icon-qianjin"></div>-->
 			</div>
-			<div class="releases">发布</div>
+			<div class="detailk">
+				<textarea placeholder="请输入产品说明"></textarea>
+			</div>
+			<div class="imgks">
+				<div>
+					<input type="file" name='files' id="photo_child2" multiple accept="image/*"/>
+					<label for="photo_child2" class="photo_child2">
+						<div class="iconfont icon-tupian"></div>
+						<div>添加图片</div>
+		        	</label>
+				</div>
+				<div class="images"></div>
+			</div>
 		</section>
-		
 		
 <script type="text/javascript">
 	$(function(){
-		
+		$(".classifications").hide();
+		$(".classification").click(function(){
+			$(".classifications").show();
+		})
+		var gg;
+		$(".classifications").on("click",".classificationk",function(){
+			if($(this).children(".icon-dui").length){
+				$(".classifications").hide();
+			}else{
+				$(this).append(`<i class="iconfont icon-dui"></i>`).siblings().children(".icon-dui").remove();
+				$(".classifications").hide();
+			}
+			$(".classificationg").html($(this).children("span").html());
+		})
+    	/*上传图片1*/
+        $("#photo_child1").change(function(){
+        	var file = this.files[0];
+        	console.log(file);
+        	var size = this.files[0].size / 1024;
+        	console.log(size);
+        	if(size > 1024*2){
+        		alert('图片大小不能超过2M');
+        		return false;
+        	}else{
+        		var reader = new FileReader();
+        		reader.readAsDataURL(file);
+        		reader.onload = function(e){
+        			var base=this.result;
+        			$(".photo_child1").empty();
+        			$(".photo_child1").append(`<img src=${base} alt="" />`);
+        		}
+        	}
+        })
+    	/*上传图片2*/
+        $("#photo_child2").change(function(){
+        	var file = this.files[0];
+        	console.log(file);
+        	var size = this.files[0].size / 1024;
+        	console.log(size);
+        	if(size > 1024*2){
+        		alert('图片大小不能超过2M');
+        		return false;
+        	}else{
+        		var reader = new FileReader();
+        		reader.readAsDataURL(file);
+        		reader.onload = function(e){
+        			var base=this.result;
+        			$(".images>img").css("display","block");
+        			$(".images").append(`<img src=${base} class="images_child" />`);
+        		}
+        	}
+        })
+		$(".images").on("click",".images_child",function(){
+			$(this).remove();
+		})
+		//发布
+		$(".rights").click(function(){
+			var imgs=$(".photo_child1>img").attr("src");//图片
+			var titles=$(".titles>input").val();//标题
+			var classificationg=$(".classificationg").html();//分类
+			var price=$(".price input").val();//价格
+			var detailk=$(".detailk>textarea").val();//详情
+			console.log(imgs);
+			console.log(titles);
+			console.log(classificationg);
+			console.log(price);
+			console.log(detailk);
+			if(imgs==undefined||titles==""||classificationg=="请选择商品分类"||price==""){
+				return alert("信息填写不完整");
+			}
+			$(".sets").append(loading());//加载动画
+			var parameter={
+				title:titles,//标题
+				goodsType:classificationg,//分类
+				price:price,//价格
+				introduce:detailk,//详情
+				baseImages:imgs+"。"//图片
+				
+			}
+			console.log(parameter);
+			ajaxs("/goods/pushGoods",'post',parameter,function(data){
+				console.log(data);
+				$("#loading").remove();//加载动画
+				popups("商品添加成功");
+			},function(err){
+				console.log(err);
+			})
+		})
 	})
 </script>
 	</body>
