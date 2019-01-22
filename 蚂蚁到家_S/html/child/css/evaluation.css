@@ -60,10 +60,10 @@
   justify-content: center;
 }
 
-.heads > div > .lefts {
+.heads > div:nth-child(1) > .lefts {
   color: white;
 }
-.heads > div > .centers {
+.heads > div:nth-child(1) > .centers {
   color: white;
   font: normal 0.48rem PingFang-SC-Regular;
 }

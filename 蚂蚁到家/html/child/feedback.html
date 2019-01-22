@@ -39,7 +39,21 @@
 			<input type="text" class="contact" placeholder="您的联系方式（选填 手机/邮箱）" />
 		</section>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$(".menu>li").click(function(){
+			$(this).children().addClass("act");$(this)
+			$(this).siblings().children().removeClass("act");
+		})
+		$(".rights").click(function(){
+			var images="";
+			var parameter={
+				messageType:$(".act").html(),
+				message:$(".texts textarea").val(),
+				base64:images
+			}
+			console.log(parameter);
+		})
+	})
 </script>
 	</body>
 </html>

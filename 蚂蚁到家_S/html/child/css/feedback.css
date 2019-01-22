@@ -60,17 +60,15 @@
   justify-content: center;
 }
 
-.heads > div > .lefts {
+.heads > div:nth-child(1) > .lefts {
   color: white;
 }
-.heads > div > .centers, .heads > div > .rights {
+.heads > div:nth-child(1) > .centers, .heads > div:nth-child(1) > .rights {
   color: white;
   font: normal 0.48rem PingFang-SC-Regular;
 }
 
 .sets {
-  top: 2.5rem;
-  bottom: 0;
   background: #eeeeee;
   border-top: 0.267rem solid #eeeeee;
 }

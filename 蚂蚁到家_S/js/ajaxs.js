@@ -1,5 +1,5 @@
 //ajax封装调用
-	var urs="http://pwc545.natappfree.cc";
+	var urs="http://kc2g8m.natappfree.cc";
 	function ajaxs(url,type,data,suFn,erFn,params){
 	 	var token= JSON.parse(localStorage.getItem('tokens'));//获取token
 		$.ajax(Object.assign({
@@ -173,6 +173,7 @@
 //loading
 	function loading(){
 		return html = '<div id="loading" style="width:100%;height:100%;background:rgba(238,238,238,1);text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loading.gif" /></div></div>';
+//		return html = '<div id="loading" style="width:100%;height:100%;background:#000000;filter:alpha(opacity=50);opacity:0.2;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../img/loading.gif" /></div></div>';
 	}
 	
 	

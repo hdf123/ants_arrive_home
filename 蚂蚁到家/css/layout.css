@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang, #wdows > div {
+.yincang, #wdows > div, #wdowk > div {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -161,7 +161,7 @@ body {
   height: 100%;
 }
 
-#wdows {
+#wdows, #wdowk {
   width: 100%;
   height: 100%;
   display: flex;
@@ -170,8 +170,9 @@ body {
   top: 0;
   left: 0;
   background: rgba(128, 128, 128, 0.8);
+  z-index: 1;
 }
-#wdows > div {
+#wdows > div, #wdowk > div {
   width: 60%;
   height: 10%;
   background: white;

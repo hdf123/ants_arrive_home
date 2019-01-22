@@ -19,8 +19,8 @@
 			</div>
 		</header>
 		<section class="sets">
-				<ul>
-					<li>
+				<ul class="goods_child">
+					<!--<li>
 						<div>
 							<img src="" alt="" />
 							<div>
@@ -39,16 +39,50 @@
 							</p>
 						</div>
 						<div class="editor">编辑</div>
-					</li>
+					</li>-->
 				</ul>
 		</section>
 		
 		
 <script type="text/javascript">
 	$(function(){
+		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
+		current=current.current;
+		ajaxs("/goods/findGoodsBySellerId/"+current.sellerId,'get',{},function(data){
+			var data=data.data.已下架;
+			console.log(data);
+			for(i in data){
+				console.log(data[i].goodsId);
+				$(".goods_child").append(`<li class="goodk" data-goosid=${data[i].goodsId}>
+											<div>
+												<img src=${data[i].images[0].path} alt="" />
+												<div>
+													<div class="iconfont icon-yixiajia"></div>
+												</div>
+											</div>
+											<div>
+												<p>${data[i].title}</p>
+												<p>
+													<span>¥${data[i].price}</span>
+													<span hidden>/2个*1份</span>
+												</p>
+												<p hidden>
+													<span>总销量 1102</span>
+													<span>日销量 11</span>
+												</p>
+											</div>
+											<div class="editor">编辑</div>
+										</li>`);
+			}
+		},function(err){
+			console.log(err);
+		})
 		//编辑
 		$(".sets").on("click",".editor",function(){
-			window.location.href="editor.html";
+			var goodsid=$(this).closest(".goodk").data("goosid");
+			//0:上架；1：下架；2：删除
+			location.href="editor.html?goodsid="+goodsid+"&state="+1;
 		})
 	})
 </script>

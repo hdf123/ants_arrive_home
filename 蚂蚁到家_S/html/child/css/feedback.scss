@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "../../../css/styleks.scss";
 .heads{
-    >div{
+    >div:nth-child(1){
         >.lefts{
             color:white;
         }
@@ -12,8 +12,6 @@
     }
 }
 .sets{
-    top:2.5rem;
-    bottom:0;
     background:#eeeeee;
     border-top:0.267rem solid #eeeeee;
     >div:nth-child(1){

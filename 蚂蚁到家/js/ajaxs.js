@@ -1,5 +1,5 @@
 //ajax封装调用
-	var urs="http://pwc545.natappfree.cc";
+	var urs="http://kc2g8m.natappfree.cc";
 	/*function ajaxs(url,type,data,suFn,erFn){
 		var token= JSON.parse(localStorage.getItem('token'));//获取token
 		console.log(token);
@@ -190,7 +190,8 @@
 	
 //loading
 	function loading(){
-		return html = '<div id="loading" style="width:100%;height:100%;background:rgba(238,238,238,0.5);text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loading.gif" /></div></div>';
+		return html = '<div id="loading" style="width:100%;height:100%;background:rgba(238,238,238,0.9);z-index:1;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loadings.gif" /></div></div>';
+//		return html = '<div id="loading" style="width:100%;height:100%;background:#000000;filter:alpha(opacity=50);opacity:0.2;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loadings.gif" /></div></div>';
 	}
 	
 	
@@ -237,7 +238,11 @@
 			console.log(err);
 		})
 	}
-
+//登录失效提醒
+	function failure(){
+		alert("登录已失效，请重新登录");
+		location.href="../login/login.html"
+	}
 
 
 

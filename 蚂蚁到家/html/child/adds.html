@@ -22,81 +22,100 @@
 			</div>
 		</header>
 		<section class="sets">
-			<div class="addsa">
-				<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
-				<label for="photo_child1" class="photo_child1">
-					<div class="iconfont icon-paizhao"></div>
-					<div>添加商品图片</div>
-	        	</label>
-			</div>
-			<div class="titles">
-				<div>标题</div>
-				<input type="text" placeholder="商品标题" value="" />
-			</div>
-			<div class="classification">
-				<div>商品分类</div>
-				<div>
-					<div class="classificationg">请选择商品分类</div>
-					<div class="iconfont icon-qianjin"></div>
+			<div>
+				<div class="swiper-container swiper1">
+				  	<div class="swiper-wrapper">
+				    	<!--<div class="swiper-slide">
+				    		<img src=""/>
+				    		<div class="iconfont icon-paizhao"></div>
+				    	</div>-->
+				    	<div class="swiper-slide addsa">
+				    		<input type="file" name='files' id="photo_child1" multiple accept="image/*"/>
+							<label for="photo_child1" class="photo_child1">
+								<div class="iconfont icon-paizhao"></div>
+								<div>添加商品图片</div>
+				        	</label>
+				    	</div>
+				  	</div>
+				  	<div class="swiper-pagination"></div>
 				</div>
-			</div>
-			<ul class="classifications">
-				<li class="classificationk">
-					<span>生鲜水果</span>
-					<!--<i class="iconfont icon-dui"></i>-->
-				</li>
-				<li class="classificationk">
-					<span>时令蔬菜</span>
-				</li>
-				<li class="classificationk">
-					<span>现切瓜果</span>
-				</li>
-				<li class="classificationk">
-					<span>小吃零食</span>
-				</li>
-				<li class="classificationk">
-					<span>酒水饮料</span>
-				</li>
-				<li class="classificationk">
-					<span>果脯蜜饯</span>
-				</li>
-				<li class="classificationk">
-					<span>粮油副食</span>
-				</li>
-			</ul>
-			<div class="price">
-				<div>价格</div>
-				<div>
-					<input type="text" placeholder="" />
-					<div>元</div>
+				<div class="titles">
+					<div>标题</div>
+					<input type="text" placeholder="商品标题" value="" />
 				</div>
-			</div>
-			<div class="details" onclick="location.href='details.html'">
-				<div>商品详情</div>
-				<!--<div class="iconfont icon-qianjin"></div>-->
-			</div>
-			<div class="detailk">
-				<textarea placeholder="请输入产品说明"></textarea>
-			</div>
-			<div class="imgks">
-				<div>
-					<input type="file" name='files' id="photo_child2" multiple accept="image/*"/>
-					<label for="photo_child2" class="photo_child2">
-						<div class="iconfont icon-tupian"></div>
-						<div>添加图片</div>
-		        	</label>
+				<div class="classification">
+					<div>商品分类</div>
+					<div>
+						<div class="classificationg">请选择商品分类</div>
+						<div class="iconfont icon-qianjin"></div>
+					</div>
 				</div>
-				<div class="images"></div>
+				<ul class="classifications">
+					<li class="classificationk">
+						<span>生鲜水果</span>
+						<!--<i class="iconfont icon-dui"></i>-->
+					</li>
+					<li class="classificationk">
+						<span>时令蔬菜</span>
+					</li>
+					<li class="classificationk">
+						<span>现切瓜果</span>
+					</li>
+					<li class="classificationk">
+						<span>小吃零食</span>
+					</li>
+					<li class="classificationk">
+						<span>酒水饮料</span>
+					</li>
+					<li class="classificationk">
+						<span>果脯蜜饯</span>
+					</li>
+					<li class="classificationk">
+						<span>粮油副食</span>
+					</li>
+				</ul>
+				<div class="price">
+					<div>价格</div>
+					<div>
+						<input type="number" placeholder="" />
+						<div>元</div>
+					</div>
+				</div>
+				<div class="details" onclick="location.href='details.html'">
+					<div>商品详情</div>
+					<!--<div class="iconfont icon-qianjin"></div>-->
+				</div>
+				<div class="detailk">
+					<textarea placeholder="请输入产品说明"></textarea>
+				</div>
+				<div class="imgks">
+					<div>
+						<input type="file" name='files' id="photo_child2" multiple accept="image/*"/>
+						<label for="photo_child2" class="photo_child2">
+							<div class="iconfont icon-tupian"></div>
+							<div>添加图片</div>
+			        	</label>
+					</div>
+					<div class="images"></div>
+				</div>
 			</div>
 		</section>
-		
+		<div id="wdowk">
+			<div>
+				<div>是否确认删除？</div>
+				<div>
+					<div class="yes">是</div>
+					<div class="nok">否</div>
+				</div>
+			</div>
+		</div>
 <script type="text/javascript">
 	$(function(){
+		$("#wdowk").hide();
 		$(".classifications").hide();
 		$(".classification").click(function(){
 			$(".classifications").show();
 		})
-		var gg;
 		$(".classifications").on("click",".classificationk",function(){
 			if($(this).children(".icon-dui").length){
 				$(".classifications").hide();
@@ -106,50 +125,52 @@
 			}
 			$(".classificationg").html($(this).children("span").html());
 		})
-    	/*上传图片1*/
-        $("#photo_child1").change(function(){
-        	var file = this.files[0];
-        	console.log(file);
-        	var size = this.files[0].size / 1024;
-        	console.log(size);
-        	if(size > 1024*2){
-        		alert('图片大小不能超过2M');
-        		return false;
-        	}else{
-        		var reader = new FileReader();
-        		reader.readAsDataURL(file);
-        		reader.onload = function(e){
-        			var base=this.result;
-        			$(".photo_child1").empty();
-        			$(".photo_child1").append(`<img src=${base} alt="" />`);
-        		}
-        	}
-        })
-    	/*上传图片2*/
-        $("#photo_child2").change(function(){
-        	var file = this.files[0];
-        	console.log(file);
-        	var size = this.files[0].size / 1024;
-        	console.log(size);
-        	if(size > 1024*2){
-        		alert('图片大小不能超过2M');
-        		return false;
-        	}else{
-        		var reader = new FileReader();
-        		reader.readAsDataURL(file);
-        		reader.onload = function(e){
-        			var base=this.result;
-        			$(".images>img").css("display","block");
-        			$(".images").append(`<img src=${base} class="images_child" />`);
-        		}
-        	}
-        })
-		$(".images").on("click",".images_child",function(){
-			$(this).remove();
+		var mySwiper = new Swiper('.swiper1', {
+			pagination : '.swiper-pagination',
+			paginationType : 'fraction',
+			observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    	observeParents:true,//修改swiper的父元素时，自动初始化swiper
 		})
+       	$("#photo_child1").change(function(){
+        	var file = this.files[0];
+        	console.log(file);
+        	var size = this.files[0].size / 1024;
+        	console.log(size);
+        	if(size > 1024*2){
+        		alert('图片大小不能超过2M');
+        		return false;
+        	}else{
+        		var reader = new FileReader();
+        		reader.readAsDataURL(file);
+        		reader.onload = function(e){
+        			var base=this.result;
+        			$(".addsa").before(`<div class="swiper-slide remok">
+								    		<img src=${base} />
+								    	</div>`);
+        		}
+        	}
+        })
+       	var ink;
+       	$(".swiper1").on("click",".remok",function(){
+       		ink=$(this).index();
+       		console.log($(this).index());
+       		$("#wdowk").show();
+       	})
+       	$(".yes").click(function(){
+       		$(".swiper1 .remok").eq(ink).remove();
+       		$("#wdowk").hide();
+       	})
+       	$(".nok").click(function(){
+       		$("#wdowk").hide();
+       	})
 		//发布
 		$(".rights").click(function(){
-			var imgs=$(".photo_child1>img").attr("src");//图片
+			$(".sets>div").append(loading());//加载动画
+			var imgs=$(".swiper1 .remok>img"),images="";//图片
+			for(var i=0;i<imgs.length;i++){
+				images+=imgs[i].src+"。";
+			}
+			console.log(images);
 			var titles=$(".titles>input").val();//标题
 			var classificationg=$(".classificationg").html();//分类
 			var price=$(".price input").val();//价格
@@ -162,13 +183,12 @@
 			if(imgs==undefined||titles==""||classificationg=="请选择商品分类"||price==""){
 				return alert("信息填写不完整");
 			}
-			$(".sets").append(loading());//加载动画
 			var parameter={
 				title:titles,//标题
 				goodsType:classificationg,//分类
 				price:price,//价格
 				introduce:detailk,//详情
-				baseImages:imgs+"。"//图片
+				baseImages:images//图片
 				
 			}
 			console.log(parameter);

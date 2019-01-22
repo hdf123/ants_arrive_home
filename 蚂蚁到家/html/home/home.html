@@ -25,32 +25,43 @@
 		<section class="sets tabs_child">
 			<!--店铺详情-->
 			<div class="store">
-				<!--<img src="" alt="" />-->
 				<div>
 					<input type="file" name='files' id="photos" multiple accept="image/*"/>
 					<label for="photos" class="photos">
-		            	<img src="../../img/add_01.png"  alt="">
+		            	<!--<img src="../../img/add_01.png"  alt="">-->
+		            	<img src="../../img/add_01.png"/>
 		        	</label>
 				</div>
+				<!--<div class="swiper-slide addsa">
+		    		<input type="file" name='files' id="photos" multiple accept="image/*"/>
+					<label for="photos" class="photos">
+						<div class="iconfont icon-paizhao"></div>
+						<div>添加商品图片</div>
+		        	</label>
+		    	</div>-->
+				
+				
+				
+				
 				<ul class="details">
 					<li>
 						<i class="iconfont icon-dian"></i><span>店铺名称:</span>
-						<span class="names">小龙侠</span>
+						<span class="names"></span>
 					</li>
 					<li>
 						<i class="iconfont icon-dian"></i><span>主营:</span>
-						<span class="company">餐饮</span>
+						<span class="company"></span>
 					</li>
 					<li>
 						<i class="iconfont icon-dian"></i><span>营业时间:</span>
-						<span class="times">周一至周日 早10.30~次日凌晨2.00</span>
+						<span class="times"></span>
 					</li>
 					<li>
 						<i class="iconfont icon-dian"></i><span>联系电话:</span>
 						<span class="phones">183xxxxxxxx</span>
 					</li>
 					<li>
-						<i class="iconfont icon-dian"></i><span class="states">营业中</span>
+						<i class="iconfont icon-dian"></i><span class="states">未开业</span>
 					</li>
 				</ul>
 				<div class="photo">
@@ -179,23 +190,32 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
+		$(".sets").append(loading());//加载动画
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
+		});
 		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
 		current=current.current;
-		$(".names").html(current.sellerName);//店铺名称
-		$(".company").html(current.companyType);//主营
-		$(".times").html(current.startTime+"~"+current.endTime);
-		$(".phones").html(current.mobilePhone);
-		var states=true;
-		if(current.businessStatus){
-			states="营业中";
-		}else{
-			states="已打烊";
+		console.log(current.sellerName);
+		if(current.sellerName!=null){
+			$(".names").html(current.sellerName);//店铺名称
+			$(".company").html(current.companyType);//主营
+			$(".times").html(current.startTime+"~"+current.endTime);//营业时间
+			$(".photos>img").attr("src",current.businessImage);//店铺照片
+			$(".photo_child1>img").attr("src",current.businessLicense);//营业执照
+			$(".photo_child2>img").attr("src",current.foodLicense);//许可证
+			$(".photo_child3>img").attr("src",current.foodLicense);//半身照
+			var states=true;
+			if(current.businessStatus){
+				states="营业中";
+			}else{
+				states="已打烊";
+			}
+			$(".states").html(states);
 		}
-		$(".states").html(states);
-		$(".photos>img").attr("src",current.businessImage);//店铺照片
-		$(".photo_child1>img").attr("src",current.businessLicense);//营业执照
-		$(".photo_child2>img").attr("src",current.foodLicense);//许可证
-		$(".photo_child3>img").attr("src",current.foodLicense);//半身照
+		$(".phones").html(current.mobilePhone);//联系电话
 		//菜单切换
 		var zuobiao=0;
 		$(".tabs_child>div").eq(zuobiao).show().siblings().hide();
@@ -247,52 +267,35 @@
         //获取商家商品
 		ajaxs("/goods/findGoodsBySellerId/"+current.sellerId,'get',{},function(data){
 			console.log(data);
-			var data=data.data;
+			var data=data.data.已上架;
 			console.log(data);
-			/*for(i in data){
-				console.log(data[i]);
-				console.log(data[i][0].price);
-				$(".goods_child").append(`<li>
-											<img src="" alt="" />
+			for(i in data){
+				console.log(data[i].title);
+				$(".goods_child").append(`<li class="goodk" data-goosid=${data[i].goodsId}>
+											<img src=${data[i].images[0].path} alt="" />
 											<div>
-												<p>福建桓管白心密柚</p>
+												<p>${data[i].title}</p>
 												<p>
-													<span>¥${data[i].}</span>
-													<span>/2个*份</span>
+													<span>¥${data[i].price}</span>
+													<span hidden>/2个*份</span>
 												</p>
-												<p>
+												<p hidden>
 													<span>总销量 1102</span>
 													<span>日销量 11</span>
 												</p>
 											</div>
 											<div class="editor">编辑</div>
 										</li>`);
-			}*/
-			$.each(data, function(index,val) {
-				$.each(val,function(key,vals){
-					$(".goods_child").append(`<li>
-												<img src="" alt="" />
-												<div>
-													<p>${vals.title}</p>
-													<p>
-														<span>¥${vals.price}</span>
-														<span hidden>/2个*份</span>
-													</p>
-													<p>
-														<span>总销量 1102</span>
-														<span>日销量 11</span>
-													</p>
-												</div>
-												<div class="editor">编辑</div>
-											</li>`);
-				})
-			});
+			}
 		},function(err){
 			console.log(err);
 		})
 		//编辑
 		$(".goods").on("click",".editor",function(){
-			window.location.href="../child/editor.html";
+			var goodsid=$(this).closest(".goodk").data("goosid");
+			console.log(goodsid);
+			//0:上架；1：下架；2：删除
+			location.href="../child/editor.html?goodsid="+goodsid+"&state="+0;
 		})
 		
 		

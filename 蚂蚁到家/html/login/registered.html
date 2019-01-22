@@ -98,7 +98,7 @@
 					ajaxs("/seller/register",'post',firs,function(data){
 						console.log(data);
 						if(data.success ==true){
-							popups("注册成功");
+							popups("注册成功","login.html");
 						}else{
 							alert(data.msg);
 						}
