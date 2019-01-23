@@ -41,7 +41,7 @@
 }
 
 .df-box {
-	width:100%;
+	width:90%;
 	min-width: 170px;
 	background: #fff;
 	border-radius: 10px;
@@ -165,6 +165,8 @@
 .df-btn div {
 	display: inline-block;
 	width: 50%;
+	height:100%;
+	padding:2% 0;
 	cursor: pointer;
 	border: 1px solid #ddd;
 	-webkit-box-sizing: border-box;

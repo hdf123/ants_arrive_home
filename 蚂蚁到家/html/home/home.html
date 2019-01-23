@@ -23,7 +23,7 @@
 			</ul>
 		</header>
 		<section class="sets tabs_child">
-			<!--店铺详情-->
+<!--店铺详情-->
 			<div class="store">
 				<div>
 					<input type="file" name='files' id="photos" multiple accept="image/*"/>
@@ -105,7 +105,7 @@
 			</div>
 			
 			
-			<!--商品管理-->
+<!--商品管理-->
 			<div class="goods">
 				<div>
 					<div class="adds" onclick="location.href='../child/adds.html'">添加新品</div>
@@ -131,7 +131,7 @@
 			</div>
 			
 			
-			<!--营销活动-->
+<!--营销活动-->
 			<div class="marketing">
 				<img src="" alt="" />
 				<ul>
@@ -150,7 +150,7 @@
 			</div>
 			
 			
-			<!--用户评价-->
+<!--用户评价-->
 			<div class="user">
 				<ul>
 					<li>
@@ -270,7 +270,6 @@
 			var data=data.data.已上架;
 			console.log(data);
 			for(i in data){
-				console.log(data[i].title);
 				$(".goods_child").append(`<li class="goodk" data-goosid=${data[i].goodsId}>
 											<img src=${data[i].images[0].path} alt="" />
 											<div>

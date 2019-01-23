@@ -1,5 +1,5 @@
 //ajax封装调用
-	var urs="http://kc2g8m.natappfree.cc";
+	var urs="http://8tuhz3.natappfree.cc";
 	function ajaxs(url,type,data,suFn,erFn,params){
 	 	var token= JSON.parse(localStorage.getItem('tokens'));//获取token
 		$.ajax(Object.assign({

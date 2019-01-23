@@ -160,7 +160,8 @@
 			"html/login/Start.html": {
 				"resources": [],
 				"refer": [
-					"html/login/login.html"
+					"html/login/login.html",
+					"html/home/home.html"
 				],
 				"priority": 0
 			},
@@ -202,7 +203,8 @@
 					"html/child/coupon.html",
 					"html/child/after-sales.html",
 					"html/child/change_password.html",
-					"html/child/feedback.html"
+					"html/child/feedback.html",
+					"html/login/login.html"
 				],
 				"priority": 0
 			},

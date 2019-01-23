@@ -132,18 +132,18 @@
 			$(".classificationg").html(data.goodsType);//商品分类
 			$(".price input").val(data.price);//价格
 			$(".detailk>textarea").val(data.introduce);//详情
+			//商品状态
+			if(data.status==0){
+				$(".state").html(`<div class="state_child unloads">下架</div>
+								<div class="dele">删除</div>`);
+			}else if(data.status==1){
+				$(".state").html(`<div class="state_child sell">上架</div>
+							<div class="dele">删除</div>`);
+			}
 		},function(err){
 			console.log(err);
 			console.log(JSON.stringify(err));
 		})
-		//商品状态
-		if(state==1){//已下架
-			$(".state").html(`<div class="state_child sell">上架</div>
-							<div class="dele">删除</div>`);
-		}else if(state==0){//已上架
-			$(".state").html(`<div class="state_child unloads">下架</div>
-							<div class="dele">删除</div>`);
-		}
 		//选择分类
 		$(".classification").click(function(){
 			$(".classifications").show();
@@ -255,10 +255,10 @@
 		})
 		//上架商品
 		$(".state").on("click",".sell",function(){
-			ajaxs("/goods/obtainedGoods/"+goods,'DELETE',{goodsId:goods},function(data){
+			ajaxs("/goods/upGoods",'post',{goodsId:goods},function(data){
 				console.log(data);
 				$("#loading").remove();//加载动画
-				popups("商品下架成功");
+				popups("商品上架成功");
 			},function(err){
 				console.log(err);
 			})

@@ -14,8 +14,8 @@
 	<body>
 		<section class="sets">
 			<div>
-				<img src=""/>
-				<span>李磊的韩梅梅</span>
+				<img src="" class="logos" />
+				<span class="names">李磊的韩梅梅</span>
 			</div>
 			<ul class="menu">
 				<li onclick="location.href='../child/store_modify.html'">
@@ -43,7 +43,7 @@
 					<i class="iconfont icon-qianjin"></i>
 				</li>
 			</ul>
-			<div onclick="location.href='../login/login.html'">退出登录</div>
+			<div class="btn">退出登录</div>
 		</section>
 		<footer class="foots">
 			<div class="aa" onclick="location.href='home.html'">
@@ -65,7 +65,20 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		
+		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
+		$(".logos").attr("src",current.current.logo);
+		$(".names").html(current.current.sellerName);
+		$(".btn").click(function(){
+			var logs = JSON.parse(localStorage.getItem('my_login'));//是否有登录
+			var parameter={
+				mobilePhone:logs.mobilePhone,
+				password:logs.password,
+				kkk:9
+			}
+			localStorage.setItem('logs', JSON.stringify(parameter));
+			location.href="../login/login.html";
+		})
 	})
 </script>
 	</body>

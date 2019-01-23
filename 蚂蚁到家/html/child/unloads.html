@@ -50,6 +50,7 @@
 		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
 		current=current.current;
 		ajaxs("/goods/findGoodsBySellerId/"+current.sellerId,'get',{},function(data){
+			console.log(data);
 			var data=data.data.已下架;
 			console.log(data);
 			for(i in data){

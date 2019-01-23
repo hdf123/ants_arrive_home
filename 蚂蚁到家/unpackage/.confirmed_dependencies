@@ -13,7 +13,8 @@
 	},
 	"html/login/Start.html": {
 		"refer": [
-			"html/login/login.html"
+			"html/login/login.html",
+			"html/home/home.html"
 		],
 		"resources": []
 	},
@@ -51,7 +52,8 @@
 			"html/child/coupon.html",
 			"html/child/after-sales.html",
 			"html/child/change_password.html",
-			"html/child/feedback.html"
+			"html/child/feedback.html",
+			"html/login/login.html"
 		]
 	},
 	"html/child/store_modify.html": {

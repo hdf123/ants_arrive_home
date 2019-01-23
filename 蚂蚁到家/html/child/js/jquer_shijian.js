@@ -67,7 +67,7 @@
 		                if(sjObj.opt.alwaysShow){
 		                    return
 		                }
-		                return $("<div class='df-btn' style='height:"+sjObj.opt.height+"px'><div class='df-ok'>"+sjObj.opt.okText+"</div><div class='df-no'>"+sjObj.opt.cancelText+"</div></div>")
+		                return $("<div class='df-btn' style='height:"+sjObj.opt.height*1.5+"px'><div class='df-ok'>"+sjObj.opt.okText+"</div><div class='df-no'>"+sjObj.opt.cancelText+"</div></div>")
 		            },
 		            df_wrap:function(){return $("<div class='df-wrap'><table><tbody><tr></tr></tbody></table></div>")},
 		            df_final:function(){return $("<div class='df-final'></div>")},
@@ -431,10 +431,18 @@
 		                    }
 		                    sjObj.opt.val=sjObj.opt.isparseInt?parseInt(str):str;
 		                    console.log("我执行了没")
-		                    $(sjObj.opt.thisElm).val(sjObj.opt.val);
+		                    
+		                    
+		                    //input1
+		                    var times=sjObj.opt.val;
+		                    times=times.replace(/-/g,"/");
+		                    $(sjObj.opt.thisElm).val(times);
+		                    
+		                    
 		                    $(this).parent().parent().parent().remove();
 		                    sjObj.opt.okfun(sjObj);
 		                    $("html").removeClass("ov_hi");
+//		                    $("#input2").data("times",sjObj.opt.val);
 		                })
 		                //滚动事件
 		                sjObj.opt.moveElm(sjObj.opt.timeElm.find(".G-bg"))

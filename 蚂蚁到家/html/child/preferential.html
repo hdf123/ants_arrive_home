@@ -20,40 +20,58 @@
 			</div>
 		</header>
 		<section class="sets">
-			<div>
+			<!--<div>
 				<img src="" alt="" />
 				<div>
 					福建桓管白心密柚
 				</div>
 				<div class="iconfont icon-danxuankuang xuanz"></div>
-			</div>
-			<div>
-				<img src="" alt="" />
-				<div>
-					福建桓管白心密柚
-				</div>
-				<div class="iconfont icon-danxuankuang xuanz"></div>
-			</div>
-			<div>
-				<img src="" alt="" />
-				<div>
-					福建桓管白心密柚
-				</div>
-				<div class="iconfont icon-danxuankuang xuanz"></div>
-			</div>
+			</div>-->
 		</section>
 		
 		
 <script type="text/javascript">
 	$(function(){
+		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
+		ajaxs("/goods/findGoodsBySellerId/"+current.current.sellerId,'get',{},function(data){
+			console.log(data);
+			var data=data.data.已上架;
+			console.log(data);
+			for(i in data){
+				$(".sets").append(`<div class="goods" data-goodsid=${data[i].goodsId}>
+									<img src=${data[i].images[0].path} alt="" />
+									<div>${data[i].title}</div>
+									<div class="iconfont icon-danxuankuang xuanz"></div>
+								</div>`);
+			}
+		},function(err){
+			console.log(err);
+		})
+		var goodsid;
 		$(".sets").on("click",".xuanz",function(){
 			if(!$(this).is(".icon-danxuankuang2")){
 				$(this).removeClass("icon-danxuankuang");
 				$(this).addClass("icon-danxuankuang2");
+//				$(this).closest(".goods").siblings().find(".xuanz").removeClass("icon-danxuankuang2").addClass("icon-danxuankuang");
+//				goodsid=$(this).closest(".goods").data("goodsid");
 			}else{
 				$(this).addClass("icon-danxuankuang");
 				$(this).removeClass("icon-danxuankuang2");
 			}
+		})
+		//确认选择优惠商品
+		$(".rights").click(function(){
+			var arr=[];
+			if($(".icon-danxuankuang2").length<=0){
+				return alert("请选择优惠商品");
+			}
+			for(var i=0;i<$(".icon-danxuankuang2").length;i++){
+				var aa=$(".icon-danxuankuang2").eq(i).closest(".goods").data("goodsid");
+				console.log(aa);
+				arr.push(aa);
+			}
+			location.href="coupon.html?goodsid="+arr;
 		})
 	})
 </script>

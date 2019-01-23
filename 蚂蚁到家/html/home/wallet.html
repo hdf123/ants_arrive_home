@@ -82,6 +82,9 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		$(".tabs>li").click(function(){
+			$(this).addClass("act").siblings().removeClass("act");
+		})
 		//查询钱包信息
 		ajaxs("/pay/getWallet/"+current.current.sellerId,'get',{},function(data){
 			console.log(data);

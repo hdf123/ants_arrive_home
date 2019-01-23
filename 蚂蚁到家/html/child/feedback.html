@@ -45,13 +45,20 @@
 			$(this).siblings().children().removeClass("act");
 		})
 		$(".rights").click(function(){
-			var images="";
+			$(".sets").append(loading());//加载动画
 			var parameter={
 				messageType:$(".act").html(),
 				message:$(".texts textarea").val(),
-				base64:images
+				mobilePhone:$(".contact").val()
 			}
 			console.log(parameter);
+			ajaxs("/messageBack/pushMessageBack",'post',parameter,function(data){
+				console.log(data);
+				$("#loading").remove();
+				popups("提交成功");
+			},function(err){
+				console.log(err);
+			})
 		})
 	})
 </script>
