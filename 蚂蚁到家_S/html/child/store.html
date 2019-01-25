@@ -17,15 +17,9 @@
 		<section class="sets">
 			<div class="swiper-container swiper1">
 			  	<div class="swiper-wrapper">
-			    	<div class="swiper-slide">
+			    	<!--<div class="swiper-slide">
 			    		<img src="" alt="" />
-			    	</div>
-			    	<div class="swiper-slide">
-			    		<img src="" alt="" />
-			    	</div>
-			    	<div class="swiper-slide">
-			    		<img src="" alt="" />
-			    	</div>
+			    	</div>-->
 			  	</div>
 			  	<div class="swiper-pagination"></div>
 			  	<div class="iconfont icon-guanbi" onclick="window.history.go(-1);"></div>
@@ -59,8 +53,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		funkr();//获取头部和底部的总高度
+		var store=getRequest().storeid;//商品id
+		console.log(store);
 		var mySwiper = new Swiper('.swiper1', {
 			autoplay: true,//可选选项，自动滑动
+			observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    	observeParents:true,//修改swiper的父元素时，自动初始化swiper
 			pagination: {
 		    	el: '.swiper-pagination',
 		  	},
@@ -69,6 +67,24 @@
 			var a=$(this).index();
 			$(this).children().addClass("act");
 			$(this).siblings().children().removeClass("act");
+		})
+		ajaxs("/banner/getBanners",'get',{},function(data){
+			console.log(data);
+			var data=data.data;
+			for(i in data){
+				$(".swiper1>.swiper-wrapper").append(`<div class="swiper-slide" data-banid=${data[i].bannerId}>
+														<img src=${data[i].path} alt="" />
+													</div>`);
+			}
+		},function(err){
+			console.log(err);
+		})
+		//查询商家信息
+		ajaxs("/goods/findGoodsBySellerId/"+store,'get',{sellerId:store},function(data){
+			console.log(data);
+		},function(err){
+			console.log(err);
+			console.log(JSON.stringify(err));
 		})
 		$(".storeb").on("click",".sons",function(){
 			location.href="goods_details.html";

@@ -45,20 +45,28 @@
 			$(this).siblings().children().removeClass("act");
 		})
 		$(".rights").click(function(){
-			$(".sets").append(loading());//加载动画
-			var parameter={
-				messageType:$(".act").html(),
-				message:$(".texts textarea").val(),
-				mobilePhone:$(".contact").val()
+			if($(".texts textarea").val()==""||$(".contact").val()==""){
+				alert("信息填写不完整");
+			}else{
+				var df=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号正则
+				df.test($(".contact").val())?funcel():alert("联系方式填写错误！");
+				function funcel(){
+					$(".sets").append(loading());//加载动画
+					var parameter={
+						messageType:$(".act").html(),//反馈类型
+						message:$(".texts textarea").val(),//反馈详情
+						mobilePhone:$(".contact").val()//电话
+					}
+					console.log(parameter);
+					ajaxs("/messageBack/pushMessageBack",'post',parameter,function(data){
+						console.log(data);
+						$("#loading").remove();
+						popups("提交成功");
+					},function(err){
+						console.log(err);
+					})
+				}
 			}
-			console.log(parameter);
-			ajaxs("/messageBack/pushMessageBack",'post',parameter,function(data){
-				console.log(data);
-				$("#loading").remove();
-				popups("提交成功");
-			},function(err){
-				console.log(err);
-			})
 		})
 	})
 </script>

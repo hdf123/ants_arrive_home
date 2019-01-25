@@ -28,40 +28,27 @@
 		<section class="sets">
 			<div class="swiper-container swiper1">
 			  	<div class="swiper-wrapper">
-			    	<div class="swiper-slide">
+			    	<!--<div class="swiper-slide">
 			    		<img src="" alt="" />
-			    	</div>
-			    	<div class="swiper-slide">slider2</div>
-			    	<div class="swiper-slide">slider3</div>
+			    	</div>-->
 			  	</div>
 			  	<div class="swiper-pagination"></div>
 			</div>
 			<div class="details">
-				<div>¥2.8</div>
-				<div>优质西蓝花</div>
-				<div>
-					<div>重量0.8kg</div>
+				<div>¥0</div>
+				<div class="names">
+					<div>西兰花</div>
 					<div>月销1254</div>
-				</div>
-				<div>
-					<div>
-						<div>500k*1袋</div>
-						<div>规格</div>
-					</div>
-					<div>
-						<div>新鲜采摘</div>
-						<div>产品特点</div>
-					</div>
 				</div>
 			</div>
 			<div class="tips">
 				<div>
 					<div>店铺红包</div>
-					<div>满300减50，满500减100</div>
+					<div class="securities">满300减50，满500减100</div>
 				</div>
 				<i class="iconfont icon-qianjin"></i>
 			</div>
-			<div class="store" onclick="location.href='store.html'">
+			<div class="store">
 				<div>
 					<img src="" alt="" />
 					<span>陌上浅笑</span>
@@ -152,7 +139,7 @@
 				<div class="iconfont icon-wangwang2">
 					<div>客服</div>
 				</div>
-				<div class="iconfont icon-favourite">
+				<div class="iconfont icon-favourite collection">
 					<div>收藏</div>
 				</div>
 			</div>
@@ -161,17 +148,120 @@
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		$(".sets").append(loading());//加载动画
+		$("#loading").click(function(event){
+			event.stopPropagation();
+		})
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
+		});
+		//当前账户信息
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		console.log(current);
+		
 		$(".evaluations_child").height($(".sets").outerHeight());
 		$(".evaluations_child").hide();
-//		$(".sets>div:eq(0)").hide();
+		//查询当前商品信息
+		var goods=getRequest().goodsid;//商品id
 		var mySwiper1 = new Swiper('.swiper1', {
 			autoplay: true,//可选选项，自动滑动
 			loop : true,
-			pagination: {
-				el: '.swiper-pagination',
+			observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    	observeParents:true,//修改swiper的父元素时，自动初始化swiper
+			pagination:{
+				el:'.swiper-pagination',
 			},
 		})
-		//商品
+		//商品信息
+		ajaxs("/goods/getGoodsDetailByGoodsId/"+goods,'get',{},function(data){
+			console.log(data);
+			var information=data.data.商品信息;
+			
+			$.each(information.images, function(key,val) {
+				$(".swiper1>.swiper-wrapper").append(`<div class="swiper-slide">
+											    		<img src=${val.path} alt="" />
+											    	</div>`);
+			});
+			$(".details>div:eq(0)").html(`¥${information.price}`);//价格
+			$(".names>div:eq(0)").html(`${information.title}`);//商品名称
+			$(".names>div:eq(1)").html(`月销${information.salesVolume}`);//月销
+			$(".dataks>div:eq(1)").html(information.introduce);//商品详情
+			//店铺信息
+			var shop=information.seller;
+			//console.log(shop);
+			$(".store img").attr("src",shop.logo);
+			$(".store span").html(shop.sellerName);
+			$(".store").data("storeid",shop.sellerId);
+			//进店逛逛
+			$(".store").click(function(){
+				location.href='store.html?storeid='+$(this).data("storeid");
+			})
+		},function(err){
+			console.log(err);
+			console.log(JSON.stringify(err));
+		})
+//收藏
+		ajaxs("/collection/isCollectionByGoodsId/"+goods,'get',{},function(data){
+			console.log(data);
+			var stats=data.data;
+			if(stats=="已收藏"){
+				$(".collection").removeClass("icon-favourite").addClass("icon-shoucang");
+			}else{
+				$(".collection").removeClass("icon-shoucang").addClass("icon-favourite");
+			}
+			$(".collection").click(function(){
+				$(".sets").append(loading());//加载动画
+				if(stats=="已收藏"){
+					//取消收藏
+					ajaxs("/collection/cancelCollection",'post',{goodsId:goods},function(data){
+						console.log(data);
+						funa();
+					},function(err){
+						console.log(err);
+						console.log(JSON.stringify(err));
+					})
+				}else{
+					//添加收藏
+					ajaxs("/collection/addCollection",'post',{goodsId:goods},function(data){
+						console.log(data);
+						funa();
+					},function(err){
+						console.log(err);
+						console.log(JSON.stringify(err));
+					})	
+				}
+				
+				function funa(){
+					if($(".collection").is(".icon-favourite")){
+						popups("商品收藏成功","no");
+						$(".collection").removeClass("icon-favourite").addClass("icon-shoucang");
+					}else{
+						popups("取消收藏成功","no");
+						$(".collection").removeClass("icon-shoucang").addClass("icon-favourite");
+					}
+				}
+			})
+		},function(err){
+			console.log(err);
+			console.log(JSON.stringify(err));
+		})
+		//优惠信息
+		ajaxs("/coupon/getCouponByGoodsId/"+goods,'get',{},function(data){
+			//console.log(data);
+			var data=data.data,ks="";
+			$.each(data, function(key,val) {
+				ks+=`满${val.requirementPrice}减${val.subPrice},`;
+			});
+			var reg=/,$/gi;
+			ks=ks.replace(reg,"");//去除最后的，-*等字符
+			$(".securities").html(ks);//优惠劵信息
+		},function(err){
+			console.log(err);
+			console.log(JSON.stringify(err));
+		})
+		//商品滚动位置
 		$(".goods").click(function(){
 			var ind=$(this);
 			var kk=document.querySelector(".swiper1");
@@ -217,6 +307,25 @@
 	  			$(".detailsk").removeClass("act").siblings(".goods").addClass("act");
 	  		}
 	  	});
+	  	//添加到购物车
+	  	$(".foots>div:eq(1)").click(function(){
+	  		$(".sets").append(loading());//加载动画
+	  		var parameter={
+	  			userId:current.current.userId,
+	  			goodsId:goods,
+	  			number:1
+	  		}
+	  		console.log(parameter);
+			ajaxs("/order/pushShoppingCart",'post',parameter,function(data){
+				console.log(data);
+				if(data.code==200){
+					popups("商品添加成功","no");
+				}
+			},function(err){
+				console.log(err);
+				console.log(JSON.stringify(err));
+			})
+	  	})
 	})
 </script>
 	</body>

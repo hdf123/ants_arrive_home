@@ -20,10 +20,6 @@
 }
 .store{
     overflow: auto;
-//  >img:nth-of-type(1){
-//      width:10rem;
-//      height:4.293rem;
-//  }
     >div:nth-child(1){
         width:10rem;
         height:4.293rem;
@@ -65,9 +61,6 @@
         }
     }
 }
-//.store::-webkit-scrollbar {
-//  width:0 !important;
-//}
 .photo{
     padding:0 0.667rem;
     >div{

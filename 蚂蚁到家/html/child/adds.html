@@ -52,26 +52,29 @@
 				</div>
 				<ul class="classifications">
 					<li class="classificationk">
-						<span>生鲜水果</span>
+						<span>蚂蚁超市</span>
 						<!--<i class="iconfont icon-dui"></i>-->
 					</li>
 					<li class="classificationk">
-						<span>时令蔬菜</span>
+						<span>生鲜</span>
 					</li>
 					<li class="classificationk">
-						<span>现切瓜果</span>
+						<span>果蔬</span>
 					</li>
 					<li class="classificationk">
-						<span>小吃零食</span>
+						<span>送药上门</span>
 					</li>
 					<li class="classificationk">
-						<span>酒水饮料</span>
+						<span>电器</span>
 					</li>
 					<li class="classificationk">
-						<span>果脯蜜饯</span>
+						<span>母婴用品</span>
 					</li>
 					<li class="classificationk">
-						<span>粮油副食</span>
+						<span>甜点</span>
+					</li>
+					<li class="classificationk">
+						<span>鲜花</span>
 					</li>
 				</ul>
 				<div class="price">
@@ -111,6 +114,8 @@
 		</div>
 <script type="text/javascript">
 	$(function(){
+		var current = JSON.parse(localStorage.getItem('my_current'));//当前账户信息,没有登录返回null
+		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
 		$("#wdowk").hide();
 		$(".classifications").hide();
 		$(".classification").click(function(){

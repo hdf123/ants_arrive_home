@@ -41,7 +41,7 @@
 			</div>
 			<div>
 				<div>ID:</div>
-				<input type="text" readonly placeholder="1524621" />
+				<input type="text" class="ids" readonly placeholder="1524621" />
 			</div>
 			<div>
 				<div>性别</div>
@@ -99,9 +99,11 @@
 		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
 		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
 //登录后展示个人信息
+		console.log(current);
 		$('#logox').attr("src",current.current.avatar);//头像
 		$(".nick>input").val(current.current.nickName);//昵称
 		$(".nick>input").attr("placeholder",current.current.nickName);//昵称
+		$(".ids").attr("placeholder",current.current.userId);//id
 		$("#hair input:radio[value="+current.current.sex+"]").attr('checked','true');//性别
 		$(".signature>input").val(current.current.sign);//签名
 		$("#myAddrs").val(current.current.address);//地址
@@ -167,7 +169,11 @@
 			console.log(parameter);
 			ajaxs("/user/updateUserMessage",'post',parameter,function(data){
 				console.log(data);
-				ajaxs("/user/getCurrentUserMessage",'get',{},function(datas){
+				$("#loading").remove();
+				currentk();
+				
+				
+				/*ajaxs("/user/getCurrentUserMessage",'get',{},function(datas){
 					var parameter={
 						state:"0:未登录；1：已登录",
 						islogin:1,//0:未登录；1：已登录
@@ -184,7 +190,7 @@
 					});
 				},function(err){
 					alert(datas.msg);
-				})
+				})*/
 			},function(err){
 				console.log(err);
 			})

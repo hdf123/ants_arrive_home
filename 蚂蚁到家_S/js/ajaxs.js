@@ -1,5 +1,5 @@
 //ajax封装调用
-	var urs="http://8tuhz3.natappfree.cc";
+	var urs="http://39rt6d.natappfree.cc";
 	function ajaxs(url,type,data,suFn,erFn,params){
 	 	var token= JSON.parse(localStorage.getItem('tokens'));//获取token
 		$.ajax(Object.assign({
@@ -102,10 +102,10 @@
 
 
 //地址栏传参
-	function getRequest() {
+	function getRequest(){
   		var url=window.location.search; //获取url中"?"符后的字串
   		var theRequest = new Object();
-  		if (url.indexOf("?") != -1) {
+  		if (url.indexOf("?") != -1){
     		var str = url.substr(1);
     		strs = str.split("&");
     		for(var i = 0; i < strs.length; i ++) {
@@ -172,8 +172,7 @@
 	
 //loading
 	function loading(){
-		return html = '<div id="loading" style="width:100%;height:100%;background:rgba(238,238,238,1);text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loading.gif" /></div></div>';
-//		return html = '<div id="loading" style="width:100%;height:100%;background:#000000;filter:alpha(opacity=50);opacity:0.2;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../img/loading.gif" /></div></div>';
+		return html = '<div id="loading" style="width:100%;height:100%;background:rgba(238,238,238,0.9);z-index:1;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loadings.gif" /></div></div>';
 	}
 	
 	
@@ -198,26 +197,44 @@
 		var bod=ss-(he+ft);
 		$(".sets").css({"height":bod+"px"});
 	}
+	
+	
+//弹窗
+	function popups(contents,address){//contents：内容；address：地址
+		$("#wdows").remove();
+		$("body").append(`<div id="wdows">
+							<div>${contents}</div>
+						</div>`);
+		$("#wdows").hide();//初始化异常弹窗
+		$("#wdows").fadeIn(500,function(){
+			setTimeout(function(){
+				$("#wdows").fadeOut(1000,function(){
+					console.log(address);
+					address==""||address==undefined||address==null?location.reload():wode(address);//有传地址跳转，没有就刷新当前页面.
+					function wode(address){
+						address!="no"?location.href=address:console.log("什么也不做");
+					}
+				});
+			},1000);
+		});
+	}
 
 
-//个人资料
-/*function current(address){
-	ajaxs("/user/getCurrentUserMessage",'get',{},function(datas){
-		var parameter={
-			state:"0:未登录；1：已登录",
-			islogin:1,//0:未登录；1：已登录
-			current:datas.data
-		}
-		localStorage.setItem('mys_current', JSON.stringify(parameter));//当前账户信息
-		address==1?location.href="../home/home.html":refreshs();//刷新当前页面.
-		function refreshs(){
-			window.location.reload();
-			$("#loading").remove();
-		}
-	},function(err){
-		alert(datas.msg);
-	})
-}*/
+//个人信息
+	function currentk(){
+		ajaxs("/user/getCurrentUserMessage",'get',{},function(datas){
+			console.log(111);
+			var parameter={
+				state:"0:未登录；1：已登录",
+				islogin:1,//0:未登录；1：已登录
+				current:datas.data
+			}
+			localStorage.setItem('mys_current', JSON.stringify(parameter));//当前账户信息
+			popups("个人信息修改成功");
+		},function(err){
+			console.log(err);
+		})
+	}
 
 
 //rem适配

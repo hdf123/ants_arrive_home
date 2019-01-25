@@ -27,43 +27,41 @@
 		<section class="sets">
 			<div class="swiper-container swiper1">
 			  	<div class="swiper-wrapper">
-			    	<div class="swiper-slide">slider1</div>
-			    	<div class="swiper-slide">slider2</div>
-			    	<div class="swiper-slide">slider3</div>
+			    	<!--<div class="swiper-slide">slider1</div>-->
 			  	</div>
 			  	<div class="swiper-pagination"></div>
 			</div>
 			
 			<div class="menu">
-				<a href="../child/supermarket.html">
+				<a href="../child/supermarket.html?ind=0">
 					<img src="../../img/menu_01.png" alt="" />
 					<span>蚂蚁超市</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=1">
 					<img src="../../img/menu_02.png" alt="" />
 					<span>生鲜</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=2">
 					<img src="../../img/menu_03.png" alt="" />
 					<span>果蔬</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=3">
 					<img src="../../img/menu_04.png" alt="" />
 					<span>送药上门</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=4">
 					<img src="../../img/menu_05.png" alt="" />
 					<span>电器</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=5">
 					<img src="../../img/menu_06.png" alt="" />
 					<span>母婴用品</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=6">
 					<img src="../../img/menu_07.png" alt="" />
 					<span>甜点</span>
 				</a>
-				<a href="javescript:;">
+				<a href="../child/supermarket.html?ind=7">
 					<img src="../../img/menu_08.png" alt="" />
 					<span>鲜花</span>
 				</a>
@@ -134,16 +132,39 @@
 				我的
 			</div>
 		</footer>
-		
-		
+
+
 <script type="text/javascript">
 	$(function(){
+		
+		/*var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录*/
+		
 		funkr();//获取头部和底部的总高度
+		$(".sets").append(loading());//加载动画
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
+		});
 		var swiper1 = new Swiper('.swiper1', {
 			autoplay: true,//可选选项，自动滑动
+			observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    	observeParents:true,//修改swiper的父元素时，自动初始化swiper
 			pagination: {
 		    	el:'.swiper-pagination',
 		  	},
+		})
+//banner
+		ajaxs("/banner/getBanners",'get',{},function(data){
+			console.log(data);
+			var data=data.data;
+			for(i in data){
+				$(".swiper1>.swiper-wrapper").append(`<div class="swiper-slide" data-banid=${data[i].bannerId}>
+														<img src=${data[i].path} alt="" />
+													</div>`);
+			}
+		},function(err){
+			console.log(err);
 		})
 		$(".menuk").on("click",".menuk_child",function(){
 			location.href="../child/goods_details.html";

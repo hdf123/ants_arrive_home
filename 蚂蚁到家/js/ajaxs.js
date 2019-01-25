@@ -1,5 +1,5 @@
 //ajax封装调用
-	var urs="http://qs92m8.natappfree.cc";
+	var urs="http://39rt6d.natappfree.cc";
 	/*function ajaxs(url,type,data,suFn,erFn){
 		var token= JSON.parse(localStorage.getItem('token'));//获取token
 		console.log(token);
@@ -208,6 +208,7 @@
 
 //弹窗
 	function popups(contents,address){//contents：内容；address：地址
+		$("#wdows").remove();
 		$("body").append(`<div id="wdows">
 							<div>${contents}</div>
 						</div>`);
