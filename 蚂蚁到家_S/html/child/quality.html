@@ -22,29 +22,35 @@
 		</header>
 		<section class="sets">
 			<ul>
-				<li class="quality">
+				<!--<li class="quality">
 					<img src=""/>
 					<div>
 						<div>德质德国原装进口牛奶全脂德质德国原装进口牛奶全脂</div>
-						<div>已降￥50</div>
 						<div>¥399</div>
 					</div>
-				</li>
-				<li class="quality">
-					<img src=""/>
-					<div>
-						<div>德质德国原装进口牛奶全脂德质德国原装进口牛奶全脂</div>
-						<div>已降￥50</div>
-						<div>¥399</div>
-					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
-		$(".sets").on("click",".quality",function(){
-			window.location.href="goods_details.html";
+		ajaxs("/goods/getGoodsByGoodGoods",'get',{},function(data){
+			var array=data.data;
+			console.log(array);
+			$.each(array, function(key,val) {
+				$(".sets>ul").append(`<li class="quality" data-goodsid=${val.goodsId}>
+										<img src=${val.images[0].path} />
+										<div>
+											<div>${val.title}</div>
+											<div>¥${val.price}</div>
+										</div>
+									</li>`);
+			});
+			$(".sets").on("click",".quality",function(){
+				location.href="goods_details.html?goodsid="+$(this).data("goodsid");
+			})
+		},function(err){
+			console.log(err);
 		})
 	})
 </script>

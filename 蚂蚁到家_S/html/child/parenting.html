@@ -22,7 +22,7 @@
 		</header>
 		<section class="sets">
 			<ul>
-				<li class="sons">
+				<!--<li class="sons">
 					<img src="" alt="" />
 					<div>启初婴儿面霜启初婴儿面霜启初婴儿面霜启初婴儿面霜启初婴儿面霜启初婴儿面霜启初婴儿面霜</div>
 					<div>
@@ -33,26 +33,30 @@
 						<div>¥48.6</div>
 						<div class="iconfont icon-buy-car"></div>
 					</div>
-				</li>
-				<li class="sons">
-					<img src="" alt="" />
-					<div>启初婴儿面霜</div>
-					<div>
-						<div>40gx1罐</div>
-						<div>新生</div>
-					</div>
-					<div>
-						<div>¥48.6</div>
-						<div class="iconfont icon-buy-car"></div>
-					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
-		$(".sets").on("click",".sons",function(){
-			location.href="goods_details.html";
+		ajaxs("/goods/getGoodsByChild",'get',{},function(data){
+			console.log(data);
+			var array=data.data;
+			$.each(array, function(key,val){
+				$(".sets>ul").append(`<li class="sons" data-goodsid=${val.goodsId}>
+										<img src=${val.images[0].path} alt="" />
+										<div>${val.title}</div>
+										<div>
+											<div>¥${val.price}</div>
+											<div class="iconfont icon-buy-car"></div>
+										</div>
+									</li>`);
+			});	
+			$(".sets").on("click",".sons",function(){
+				location.href="goods_details.html?goodsid="+$(this).data("goodsid");
+			})
+		},function(err){
+			console.log(err);
 		})
 	})
 </script>

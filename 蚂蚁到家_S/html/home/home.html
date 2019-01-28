@@ -102,7 +102,7 @@
 			</ul>
 			<div>猜你喜欢</div>
 			<ul class="menuk">
-				<li class="menuk_child">
+				<!--<li class="menuk_child">
 					<div>
 						<img src="" alt="" />
 					</div>
@@ -111,7 +111,7 @@
 						<div>¥98</div>
 						<i class="iconfont icon-buy-car"></i>
 					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 		<footer class="foots">
@@ -137,8 +137,8 @@
 <script type="text/javascript">
 	$(function(){
 		
-		/*var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
-		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录*/
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
 		
 		funkr();//获取头部和底部的总高度
 		$(".sets").append(loading());//加载动画
@@ -166,8 +166,28 @@
 		},function(err){
 			console.log(err);
 		})
-		$(".menuk").on("click",".menuk_child",function(){
-			location.href="../child/goods_details.html";
+//猜你喜欢
+		ajaxs("/goods/getLoveGoods/"+current.current.userId,'get',{},function(data){
+			console.log(data);
+			var array=data.data;
+			$.each(array, function(key,val) {
+				$(".menuk").append(`<li class="menuk_child" data-goodsid=${val.goodsId}>
+										<div>
+											<img src=${val.images[0].path} alt="" />
+										</div>
+										<p>${val.title}</p>
+										<div>
+											<div>¥${val.price}</div>
+											<i class="iconfont icon-buy-car"></i>
+										</div>
+									</li>`);
+			});
+			$(".menuk").on("click",".menuk_child",function(){
+//				location.href="../child/goods_details.html";
+				location.href="../child/goods_details.html?goodsid="+$(this).data("goodsid");
+			})
+		},function(err){
+			console.log(err);
 		})
 	})
 </script>

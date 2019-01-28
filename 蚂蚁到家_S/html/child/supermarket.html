@@ -58,7 +58,7 @@
 		    		</div>
 		  		</div>
 			</div>
-			<ul class="menu">
+			<!--<ul class="menu">
 				<li><div>精选</div></li>
 				<li><div>电饭煲</div></li>
 				<li><div class="act">电热水壶</div></li>
@@ -69,7 +69,7 @@
 				<li><div>吸尘器</div></li>
 				<li><div>加湿器</div></li>
 				<li><div>空调</div></li>
-			</ul>
+			</ul>-->
 			<ul class="menu_child">
 				<li class="goods">
 					<div>
@@ -105,7 +105,7 @@
 		
 //按照商品类型自动分类
 		ajaxs("/goods/getGoodsByType",'get',{},function(data){
-			//console.log(data);
+			console.log(data);
 			$(".swiper1 .swiper-slide").click(function(){
 				ind=$(this).index();
 				$(this).addClass("act");
@@ -121,6 +121,18 @@
 					datas=data.data.蚂蚁超市;
 				}else if(ind==1){
 					datas=data.data.生鲜;
+				}else if(ind==2){
+					datas=data.data.果蔬;
+				}else if(ind==3){
+					datas=data.data.送药上门;
+				}else if(ind==4){
+					datas=data.data.电器;
+				}else if(ind==5){
+					datas=data.data.母婴用品;
+				}else if(ind==6){
+					datas=data.data.甜点;
+				}else if(ind==7){
+					datas=data.data.鲜花;
 				}
 				console.log(datas);
 				$.each(datas, function(key,val){

@@ -27,6 +27,7 @@
     }
     >div{
         margin-left:0.267rem;
+        position:relative;
         >div:nth-child(1){
             width:5.5rem;
             height:1.2rem;
@@ -36,16 +37,9 @@
             @extend .yincang;
         }
         >div:nth-child(2){
-            width: 1.827rem;
-            height: 0.587rem;
-            background-color: #fa6939;
-            border-radius: 0.08rem;
-            color: #ffffff;
-            font:$fonts;
-            @extend .flexs;
-            margin-top:0.293rem;
-        }
-        >div:nth-child(3){
+            position:absolute;
+            left:0;
+            bottom:0;
             color: #fa6939;
             font:$fonta;
             margin-top:0.293rem;

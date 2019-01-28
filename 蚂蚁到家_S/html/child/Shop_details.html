@@ -25,28 +25,50 @@
 			<ul class="details">
 				<li>
 					<i class="iconfont icon-dian"></i><span>店铺名称:</span>
-					<span>小龙侠</span>
+					<span class="names">小龙侠</span>
 				</li>
 				<li>
 					<i class="iconfont icon-dian"></i><span>主营:</span>
-					<span>餐饮</span>
+					<span class="company">餐饮</span>
 				</li>
 				<li>
 					<i class="iconfont icon-dian"></i><span>营业时间:</span>
-					<span>周一至周日 早10.30~次日凌晨2.00</span>
+					<span class="times">周一至周日 早10.30~次日凌晨2.00</span>
 				</li>
 				<li>
 					<i class="iconfont icon-dian"></i><span>联系电话:</span>
-					<span>183xxxxxxxx</span>
+					<span class="phones">183xxxxxxxx</span>
 				</li>
 				<li>
-					<i class="iconfont icon-dian"></i><span>营业中</span>
+					<i class="iconfont icon-dian"></i><span class="states">营业中</span>
 				</li>
 			</ul>
 		</section>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		var store=getRequest().storeid;//商铺id
+		ajaxs("/seller/findSellerBySellerId/"+store,'get',{},function(data){
+			console.log(data);
+			var data=data.data;
+			$(".sets>img:eq(0)").attr("src",data.businessImage);
+			$(".names").html(data.sellerName);
+			$(".company").html(data.companyType);
+			$(".times").html(data.startTime+"~"+data.endTime);//营业时间
+			$(".phones").html(data.mobilePhone);
+			var states=true;
+			if(data.businessStatus){
+				states="营业中";
+			}else{
+				states="已打烊";
+			}
+			$(".states").html(states);
+		},function(err){
+			console.log(err);
+			console.log(JSON.stringify(err));
+		})
 	})
 </script>
 	</body>

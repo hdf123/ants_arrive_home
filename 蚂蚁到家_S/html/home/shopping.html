@@ -169,8 +169,10 @@
 		
 <script type="text/javascript">
 	$(document).ready(function(){
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
 		//获取购物车信息
-		/*ajaxs("api/cart/getitem",'post',{type:1,userId:isLogin()},function(data){
+		ajaxs("/order/getShoppingCartByUserId/"+current.current.userId,'get',{},function(data){
 			console.log(data);
 			var data=data.list,ks="",arrs=[];
 			$.each(data, function(index,item){
@@ -195,7 +197,7 @@
 						</div>
 					</div>`;
 			});
-			$(".sets>div").html(ks);*/
+			$(".sets>div").html(ks);
 			//加
 			$(".sets").on("click",".icon-jia",function(){
 				var beforek=$(this).closest(".shopping").data("price");//当前商品开始总价
@@ -364,9 +366,9 @@
 //				}
 				location.href="../child/sure_order.html";
 			})
-        /*},function(err){
+        },function(err){
             console.log(err);
-        });*/
+        });
 	})
 	//input验证不能输入包含0在内的字母和汉子
 	function num(obj){

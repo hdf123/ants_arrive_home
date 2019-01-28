@@ -156,11 +156,6 @@
 			$("#loading").remove();
 		  	console.log("所有 AJAX 请求已完成");
 		});
-		//当前账户信息
-		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
-		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
-		console.log(current);
-		
 		$(".evaluations_child").height($(".sets").outerHeight());
 		$(".evaluations_child").hide();
 		//查询当前商品信息
@@ -309,6 +304,10 @@
 	  	});
 	  	//添加到购物车
 	  	$(".foots>div:eq(1)").click(function(){
+			//当前账户信息
+			var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+			current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+			console.log(current);
 	  		$(".sets").append(loading());//加载动画
 	  		var parameter={
 	  			userId:current.current.userId,

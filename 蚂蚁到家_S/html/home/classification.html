@@ -27,97 +27,23 @@
 		</header>
 		<section class="sets">
 			<ul class="menu">
-				<li class="menu_child act">0000</li>
-				<li class="menu_child">1111</li>
-				<li class="menu_child">2222</li>
-				<li class="menu_child">3333</li>
-				<li class="menu_child">4444</li>
-				<li class="menu_child">5555</li>
-				<li class="menu_child">6666</li>
-				<li class="menu_child">7777</li>
-				<li class="menu_child">8888</li>
-				<li class="menu_child">9999</li>
-				<li class="menu_child">000</li>
-				<li class="menu_child">111</li>
-				<li class="menu_child">222</li>
-				<li class="menu_child">333</li>
+				<li class="menu_child act">蚂蚁超市</li>
+				<li class="menu_child">生鲜</li>
+				<li class="menu_child">果蔬</li>
+				<li class="menu_child">送药上门</li>
+				<li class="menu_child">电器</li>
+				<li class="menu_child">母婴用品</li>
+				<li class="menu_child">甜点</li>
+				<li class="menu_child">鲜花</li>
 			</ul>
 			<ul class="ccbg">
-				<li class="singles">
+				<!--<li class="singles">
 					<img src="" />
 					<div>
 						<div>水晶并才</div>
 						<div>0.01元/斤</div>
-						<!--<div>
-							<div class="iconfont icon-jian"></div>
-							<input type="text" class="inps" onkeyup="num(this)" onblur="nums(this)" value="0"/>
-							<div class="iconfont icon-jia"></div>
-						</div>-->
 					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.02元/斤
-						</div>
-					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.03元/斤
-						</div>
-					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.04元/斤
-						</div>
-					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.05元/斤
-						</div>
-					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.06元/斤
-						</div>
-					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.07元/斤
-						</div>
-					</div>
-				</li>
-				<li class="singles">
-					<img src="" />
-					<div>
-						<div>水晶并才水晶并才水晶并才</div>
-						<div>
-							0.08元/斤
-						</div>
-					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 		<footer class="foots">
@@ -143,36 +69,68 @@
 <script type="text/javascript">
 	$(function(){
 		//菜单
-		var indexs=0;
-		menu(indexs);
-		$(".menu").on("click",".menu_child",function(){
-			indexs=$(this).index();
-			menu(indexs);
+		$(".sets").append(loading());//加载动画
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
 		});
-		function menu(indexs){
-			$(".menu>li").eq(indexs+1).css({"border-top":"none"});
-			$(".menu>li").eq(indexs+1).siblings().css({"border-top":"0.01rem solid #666666"});
-			$(".menu>li").eq(indexs).css({"border-top":"none"});
-			$(".menu>li").eq(indexs).addClass("active").siblings().removeClass("active");
-		}
-		//商品详情
-		$(".ccbg").on("click",".singles",function(){
-			location.href="../child/goods_details.html";
-		})
+		ajaxs("/goods/getGoodsByType",'get',{},function(data){
+			console.log(data);
+			var indexs=0;
+			menu(indexs);
+			goods(indexs);
+			$(".menu").on("click",".menu_child",function(){
+				$(".sets").append(loading());//加载动画
+				indexs=$(this).index();
+				menu(indexs);//菜单状态
+				goods(indexs);//商品
+			});
+			function menu(indexs){
+				$(".menu>li").eq(indexs+1).css({"border-top":"none"});
+				$(".menu>li").eq(indexs+1).siblings().css({"border-top":"0.01rem solid #666666"});
+				$(".menu>li").eq(indexs).css({"border-top":"none"});
+				$(".menu>li").eq(indexs).addClass("active").siblings().removeClass("active");
+			}
+			function goods(indexs){
+				var datas;
+				$(".ccbg").empty();
+				$("#loading").remove();//切换商品完成，取消加载动画
+				if(indexs==0){
+					datas=data.data.蚂蚁超市;
+				}else if(indexs==1){
+					datas=data.data.生鲜;
+				}else if(indexs==2){
+					datas=data.data.果蔬;
+				}else if(indexs==3){
+					datas=data.data.送药上门;
+				}else if(indexs==4){
+					datas=data.data.电器;
+				}else if(indexs==5){
+					datas=data.data.母婴用品;
+				}else if(indexs==6){
+					datas=data.data.甜点;
+				}else if(indexs==7){
+					datas=data.data.鲜花;
+				}
+				console.log(datas);
+				$.each(datas,function(key,val){
+					$(".ccbg").append(`<li class="singles" data-goodsid=${val.goodsId}>
+										<img src=${val.images[0].path} />
+										<div>
+											<div>${val.title}</div>
+											<div>¥${val.price}</div>
+										</div>
+									</li>`);
+				});
+				//商品详情
+				$(".ccbg").on("click",".singles",function(){
+					location.href="../child/goods_details.html?goodsid="+$(this).data("goodsid");
+				})
+			}
+		},function(err){
+			console.log(err);
+		})	
 	})
-	function num(obj){//只能输入正整数,可以为0
-		var reg=/^([1-9]\d*|[0]{1,1})$/; //含0正整数
-		if(reg.test(obj.value)){
-			return;
-		}else{
-			obj.value="";
-		}
-	}
-	function nums(obj){
-		if(obj.value==""){
-			obj.value=0;
-		}
-	}
 </script>
 	</body>
 </html>

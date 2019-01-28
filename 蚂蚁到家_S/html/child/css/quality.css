@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .quality > div > div:nth-child(2) {
+.flexs {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,6 +86,7 @@
 }
 .quality > div {
   margin-left: 0.267rem;
+  position: relative;
 }
 .quality > div > div:nth-child(1) {
   width: 5.5rem;
@@ -95,15 +96,9 @@
   line-height: 1.2rem;
 }
 .quality > div > div:nth-child(2) {
-  width: 1.827rem;
-  height: 0.587rem;
-  background-color: #fa6939;
-  border-radius: 0.08rem;
-  color: #ffffff;
-  font: normal 0.32rem PingFang-SC-Regular;
-  margin-top: 0.293rem;
-}
-.quality > div > div:nth-child(3) {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   color: #fa6939;
   font: normal 0.4rem PingFang-SC-Regular;
   margin-top: 0.293rem;

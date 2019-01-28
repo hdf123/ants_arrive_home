@@ -24,10 +24,10 @@
 			  	<div class="swiper-pagination"></div>
 			  	<div class="iconfont icon-guanbi" onclick="window.history.go(-1);"></div>
 			</div>
-			<a href="Shop_details.html" class="storea">
+			<a href="#" class="storea">
 				<div>
 					<img src="" alt="" />
-					<span>小迷糊蔬菜城</span>
+					<span></span>
 				</div>
 				<i class="iconfont icon-qianjin"></i>
 			</a>
@@ -40,21 +40,22 @@
 				</li>
 			</ul>
 			<ul class="storeb">
-				<li class="sons">
+				<!--<li class="sons">
 					<img src="" alt="" />
 					<div>启初婴儿面霜</div>
 					<div>
 						<div>¥48.6</div>
 						<div class="iconfont icon-buy-car"></div>
 					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 <script type="text/javascript">
 	$(document).ready(function(){
 		funkr();//获取头部和底部的总高度
-		var store=getRequest().storeid;//商品id
-		console.log(store);
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		var store=getRequest().storeid;//商铺id
 		var mySwiper = new Swiper('.swiper1', {
 			autoplay: true,//可选选项，自动滑动
 			observer:true,//修改swiper自己或子元素时，自动初始化swiper
@@ -82,9 +83,39 @@
 		//查询商家信息
 		ajaxs("/goods/findGoodsBySellerId/"+store,'get',{sellerId:store},function(data){
 			console.log(data);
+			var data=data.data.已上架;
+			console.log(data);
+			$.each(data, function(key,val) {
+				$(".storea img").attr("src",val.seller.logo);
+				$(".storea span").html(val.seller.sellerName);
+				$(".storeb").append(`<li class="sons" data-goodsid=${val.goodsId}>
+										<img src=${val.images[0].path} alt="" />
+										<div>${val.title}</div>
+										<div>
+											<div>¥${val.price}</div>
+											<div class="iconfont icon-buy-car"></div>
+										</div>
+									</li>`);
+			});
+			$(".storeb").on("click",".sons",function(){
+				console.log($(this).data("goodsid"));
+				location.href="goods_details.html?goodsid="+$(this).data("goodsid");
+			})
 		},function(err){
 			console.log(err);
 			console.log(JSON.stringify(err));
+		})
+		//推荐商品
+		ajaxs("/goods/getLoveGoodsBySellerId/"+store,'get',{sellerId:store},function(data){
+//			var data=data.data.已上架;
+			console.log(data);
+		},function(err){
+			console.log(err);
+			console.log(JSON.stringify(err));
+		})
+		//店铺详情
+		$(".storea").click(function(){
+			location.href="Shop_details.html?storeid="+store;
 		})
 		$(".storeb").on("click",".sons",function(){
 			location.href="goods_details.html";

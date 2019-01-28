@@ -19,7 +19,7 @@
 				<div class="iconfont icon-guanbi lefts" onclick="window.history.go(-1);"></div>
 				<div class="centers">限时抢购</div>
 			</div>
-			<ul>
+			<!--<ul>
 				<li>
 					<div>11:00</div>
 					<div>已开抢</div>
@@ -40,11 +40,11 @@
 					<div>15:00</div>
 					<div>即将开场</div>
 				</li>
-			</ul>
+			</ul>-->
 		</header>
 		<section class="sets">
 			<ul>
-				<li class="menu">
+				<!--<li class="menu">
 					<img src="" alt="" />
 					<div>
 						<div>前200名到手价49</div>
@@ -55,26 +55,36 @@
 						</div>
 						<div>¥59</div>
 					</div>
-				</li>
-				<li class="menu">
-					<img src="" alt="" />
-					<div>
-						<div>前200名到手价49</div>
-						<div>小熊电热饭盒加热保湿上班族</div>
-						<div>
-							<div>已抢258件</div>
-							<div>13%</div>
-						</div>
-						<div>¥59</div>
-					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		$(".sets").append(loading());//加载动画
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
+		});
+		ajaxs("/goods/limitShoppingByTime",'get',{},function(data){
+			var data=data.data;
+			console.log(data);
+			$.each(data, function(key,val) {
+				$(".sets>ul").append(`<li class="menu" data-goodsid=${val.goodsId}>
+										<img src=${val.images[0].path} alt="" />
+										<div>
+											<div>${val.title}</div>
+											<div>¥${val.price}</div>
+										</div>
+									</li>`);
+			});
+		},function(err){
+			console.log(err);
+		})
+		
 		$(".sets").on("click",".menu",function(){
-			window.location.href="goods_details.html";
+//			window.location.href="goods_details.html";
+			location.href="goods_details.html?goodsid="+$(this).data("goodsid");
 		})
 		
 	})

@@ -1,5 +1,5 @@
 //ajax封装调用
-	var urs="http://39rt6d.natappfree.cc";
+	var urs="http://www.ddqm365.com:9796/";
 	function ajaxs(url,type,data,suFn,erFn,params){
 	 	var token= JSON.parse(localStorage.getItem('tokens'));//获取token
 		$.ajax(Object.assign({

@@ -123,7 +123,6 @@
 	$(document).ready(function(){
 		funkr();//获取头部和底部的总高度
 		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
-		
 		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
 		$(".personal img").attr("src",current.current.avatar);
 		$(".names").html(current.current.nickName);

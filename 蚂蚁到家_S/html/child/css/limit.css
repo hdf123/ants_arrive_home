@@ -7,7 +7,7 @@
 }
 
 /*单行隐藏*/
-.yincang, .menu > div:nth-child(2) > div:nth-child(1), .menu > div:nth-child(2) > div:nth-child(2) {
+.yincang, .menu > div:nth-child(2) > div:nth-child(1) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -106,38 +106,20 @@
 .menu > div:nth-child(2) {
   width: 6.267rem;
   margin-left: 0.28rem;
+  position: relative;
 }
 .menu > div:nth-child(2) > div:nth-child(1) {
-  width: 100%;
-  height: 0.7rem;
-  font: normal 0.48rem PingFang-SC-Regular;
-  margin-top: 0.1rem;
-  line-height: 0.7rem;
-}
-.menu > div:nth-child(2) > div:nth-child(2) {
   width: 100%;
   height: 0.6rem;
   color: #666666;
   font: normal 0.32rem PingFang-SC-Regular;
   line-height: 0.6rem;
 }
-.menu > div:nth-child(2) > div:nth-child(3) {
-  width: 3.853rem;
-  height: 0.533rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #fde85e;
-  border-radius: 0.267rem;
-  padding: 0 0.15rem;
-  margin: 0.1rem 0;
-}
-.menu > div:nth-child(2) > div:nth-child(3) > div {
-  color: #ff3f00;
-  font: normal 0.32rem PingFang-SC-Regular;
-}
-.menu > div:nth-child(2) > div:nth-child(4) {
+.menu > div:nth-child(2) > div:nth-child(2) {
   font: normal 0.48rem PingFang-SC-Regular;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 /*# sourceMappingURL=limit.css.map */

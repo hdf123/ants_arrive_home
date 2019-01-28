@@ -22,19 +22,36 @@
 		</header>
 		<section class="sets">
 			<ul>
-				<li class="goods">
+				<!--<li class="goods">
 					<div>人气榜</div>
 					<img src="" alt="" />
 					<div>利仁学生火锅</div>
 					<div>13万人已买</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
-		$(".sets").on("click",".goods",function(){
-			location.href="goods_details.html";
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		ajaxs("/goods/getGoodsByAuto",'get',{},function(data){
+			console.log(data);
+			var array=data.data;
+			$.each(array, function(key,val) {
+				$(".sets>ul").append(`<li class="goods" data-goodsid=${val.goodsId}>
+										<div>人气榜</div>
+										<img src=${val.images[0].path} alt="" />
+										<div>${val.title}</div>
+										<div hidden>13万人已买</div>
+									</li>`);
+								});
+			$(".sets").on("click",".goods",function(){
+				location.href="goods_details.html?goodsid="+$(this).data("goodsid");
+//				location.href="goods_details.html";
+			})
+		},function(err){
+			console.log(err);
 		})
 	})
 </script>
