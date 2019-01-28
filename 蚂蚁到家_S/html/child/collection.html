@@ -23,7 +23,7 @@
 		</header>
 		<section class="sets">
 			<ul>
-				<li class="collection">
+				<!--<li class="collection">
 					<div class="iconfont icon-danxuankuang xuanz"></div>
 					<img src="" alt="" />
 					<div>
@@ -33,85 +33,100 @@
 							<div class="iconfont icon-buy-car"></div>
 						</div>
 					</div>
-				</li>
-				<li class="collection">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
-					<img src="" alt="" />
-					<div>
-						<p>大青椒10个3斤</p>
-						<div>
-							<div>98元</div>
-							<div class="iconfont icon-buy-car"></div>
-						</div>
-					</div>
-				</li>
-				<li class="collection">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
-					<img src="" alt="" />
-					<div>
-						<p>大青椒10个3斤</p>
-						<div>
-							<div>98元</div>
-							<div class="iconfont icon-buy-car"></div>
-						</div>
-					</div>
-				</li>
-				<li class="collection">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
-					<img src="" alt="" />
-					<div>
-						<p>大青椒10个3斤</p>
-						<div>
-							<div>98元</div>
-							<div class="iconfont icon-buy-car"></div>
-						</div>
-					</div>
-				</li>
-				<li class="collection">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
-					<img src="" alt="" />
-					<div>
-						<p>大青椒10个3斤</p>
-						<div>
-							<div>98元</div>
-							<div class="iconfont icon-buy-car"></div>
-						</div>
-					</div>
-				</li>
-				<li class="collection">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
-					<img src="" alt="" />
-					<div>
-						<p>大青椒10个3斤</p>
-						<div>
-							<div>98元</div>
-							<div class="iconfont icon-buy-car"></div>
-						</div>
-					</div>
-				</li>
-				<li class="collection">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
-					<img src="" alt="" />
-					<div>
-						<p>大青椒10个3斤</p>
-						<div>
-							<div>98元</div>
-							<div class="iconfont icon-buy-car"></div>
-						</div>
-					</div>
-				</li>
+				</li>-->
 			</ul>
 		</section>
 		<footer class="foots">
-			<div class="iconfont icon-danxuankuang">
+			<div class="iconfont icon-danxuankuang quanx">
 				<div>全选</div>
 			</div>
-			<div>删除</div>
+			<div class="deles">删除</div>
 		</footer>
 		
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		
+		ajaxs("/collection/getCollection/"+current.current.userId,'get',{},function(data){
+			var array=data.data.goods;
+			console.log(array);
+			$.each(array, function(key,val) {
+				$(".sets>ul").append(`<li class="collection" data-goodsid=${val.goodsId}>
+										<div class="iconfont icon-danxuankuang xuanz"></div>
+										<img src=${val.images[0].path} alt="" />
+										<div>
+											<p>${val.title}</p>
+											<div>
+												<div>¥${val.price}</div>
+												<div class="iconfont icon-buy-car"></div>
+											</div>
+										</div>
+									</li>`);
+			});
+			//选择
+			$(".sets").on("click",".xuanz",function(){
+				var aa=$(this);
+				if(aa.is(".icon-danxuankuang")){//选中
+					aa.removeClass("icon-danxuankuang");
+					aa.addClass("icon-danxuankuang2");
+					var fg=true;//是否全部选中，改变全选状态
+					$(".sets .xuanz").each(function(){
+						if($(this).is(".icon-danxuankuang")){
+							return fg=false;
+						}
+					});
+					if(fg){
+						$(".quanx").removeClass("icon-danxuankuang");
+						$(".quanx").addClass("icon-danxuankuang2");
+					}
+				}else{
+					aa.removeClass("icon-danxuankuang2");
+					aa.addClass("icon-danxuankuang");
+					$(".quanx").removeClass("icon-danxuankuang2");
+					$(".quanx").addClass("icon-danxuankuang");
+				}
+			});
+			//全选
+			$(".quanx").click(function(){
+				if($(this).is(".icon-danxuankuang")){
+					$(this).removeClass("icon-danxuankuang");
+					$(this).addClass("icon-danxuankuang2");
+					$(this).children("div").html("取消");
+					$(".xuanz").removeClass("icon-danxuankuang");
+					$(".xuanz").addClass("icon-danxuankuang2");
+					$("#mun").html($(".sets .icon-danxuankuang2").length);
+				}else{
+					$(this).addClass("icon-danxuankuang");
+					$(this).removeClass("icon-danxuankuang2");
+					$(this).children("div").html("全选");
+					$(".xuanz").addClass("icon-danxuankuang");
+					$(".xuanz").removeClass("icon-danxuankuang2");
+				}
+			})
+			//删除
+			$(".deles").click(function(){
+				var arr=[];
+				for(var i=0;i<$(".sets .icon-danxuankuang2").length;i++){
+					arr.push($(".sets .icon-danxuankuang2").eq(i).closest(".collection").data("goodsid"));
+				}
+				console.log(arr);
+				if(arr.length<=0){
+					alert("请选择要取消收藏的商品");
+				}else{
+					arr=arr.join(",");
+					ajaxs("/collection/cancelCollection",'post',{goodsId:arr},function(data){
+						console.log(data);
+						
+					},function(err){
+						console.log(err);
+					})	
+				}
+			})
+		},function(err){
+			console.log(err);
+		})
 		var flag=false;
 		$(".xuanz").hide();
 		$(".rights").click(function(){
