@@ -27,11 +27,11 @@
 		<section class="sets">
 			<div class="names">
 				<div>收货人</div>
-				<input type="text" placeholder="姓名" />
+				<input type="text" placeholder="姓名" value="" />
 			</div>
 			<div class="phone">
 				<div>联系方式</div>
-				<input type="number" placeholder="手机号码" />
+				<input type="number" placeholder="手机号码" value="" />
 			</div>
 			<div class="address">
 				<div>所在地区</div>
@@ -41,11 +41,39 @@
 			<div class="detailed">
 				<textarea placeholder="详细地址"></textarea>
 			</div>
-			<div>保存</div>
+			<div class='btn'>保存</div>
 		</section>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
+		});
+		$(".btn").click(function(){
+			var name=$(".names>input").val();
+			var phone=$(".phone>input").val();
+			var address=$("#myAddrs").val();
+			var detailed=$(".detailed>textarea").val();
+			if(name==""||phone==""||detailed==""){
+				alert("信息填写不完整");
+			}
+			var parameter={
+				receiver:name,
+				receiverPhone:phone,
+				expressAddress:address+","+detailed
+			}
+			$(".sets").append(loading());//加载动画
+			console.log(parameter);
+			ajaxs("/address/addAddress",'post',parameter,function(data){
+				console.log(data);
+				if(data.code==200){
+					popups("地址添加成功");
+				}
+			},function(err){
+				console.log(err);
+			})
+		})
 	})
 </script>
 <script>

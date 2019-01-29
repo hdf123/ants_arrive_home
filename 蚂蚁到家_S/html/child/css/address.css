@@ -101,7 +101,6 @@
 }
 .adds > div:nth-child(3) > div:nth-child(1) {
   height: 100%;
-  color: #666666;
   display: flex;
   align-items: center;
   font-size: 0.5rem;
@@ -109,6 +108,12 @@
 .adds > div:nth-child(3) > div:nth-child(1) > span {
   margin-left: 0.187rem;
   font: normal 0.4rem PingFang-SC-Regular;
+}
+.adds > div:nth-child(3) > .icon-danxuankuang2 {
+  color: #fa6939;
+}
+.adds > div:nth-child(3) > .icon-danxuankuang2 > span {
+  color: #fa6939;
 }
 .adds > div:nth-child(3) > div:nth-child(2) {
   display: flex;

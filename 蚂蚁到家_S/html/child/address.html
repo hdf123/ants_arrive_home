@@ -21,27 +21,7 @@
 			</div>
 		</header>
 		<section class="sets">
-			<div class="adds">
-				<div>
-					<div>收件人:</div>
-					<div>魏雨 </div>
-					<div> 176****8322</div>
-				</div>
-				<div>取货地址：<span>河南省郑州市中原区梧桐街道祝福红城南区</span></div>
-				
-				
-				
-				<div>
-					<div class="defaults iconfont icon-danxuankuang">
-						<span>设为默认地址</span>
-					</div>
-					<div>
-						<div class="editor">编辑</div>
-						<div>删除</div>
-					</div>
-				</div>
-			</div>
-			<div class="adds">
+			<!--<div class="adds">
 				<div>
 					<div>收件人:</div>
 					<div>魏雨 </div>
@@ -57,7 +37,7 @@
 						<div>删除</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</section>
 		<footer class="foots" onclick="location.href='Management_address.html'">
 			添加新地址
@@ -65,6 +45,81 @@
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		$(".sets").append(loading());//加载动画
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		$(document).ajaxStop(function(){
+			$("#loading").remove();
+		  	console.log("所有 AJAX 请求已完成");
+		});
+		ajaxs("/address/getAllAddressByUserId/"+current.current.userId,'get',{},function(data){
+			console.log(data);
+			var datak=data.data.默认地址;
+			var datas=data.data.非默认地址;
+			console.log(datas);
+			address(datak,1);
+			address(datas,2);
+			function address(array,state){
+				var kk="";
+				if(state==1){
+					kk=`<div class="iconfont icon-danxuankuang2">
+							<span>设为默认地址</span>
+						</div>`;
+				}else{
+					kk=`<div class="defaults iconfont icon-danxuankuang">
+							<span>设为默认地址</span>
+						</div>`;
+				}
+				$.each(array, function(key,val) {
+					$(".sets").append(`<div class="adds" data-addressid=${val.addressId}>
+										<div>
+											<div>收件人:</div>
+											<div>${val.receiver} </div>
+											<div>${val.receiverPhone}</div>
+										</div>
+										<div>取货地址：<span>${val.expressAddress}</span></div>
+										<div>
+											${kk}
+											<div>
+												<div class="editor" style="display:none">编辑</div>
+												<div class="deletes">删除</div>
+											</div>
+										</div>
+									</div>`);
+				});
+			}
+			//设置默认地址
+			$(".sets").on("click",".defaults",function(){
+				var addressid=$(this).closest(".adds").data("addressid");
+				ajaxs("/address/setDefault",'post',{addressId:addressid},function(data){
+					console.log(data);
+					if(data.code==200){
+						popups("修改默认地址成功");
+					}
+				},function(err){
+					console.log(err);
+				})
+			})
+			//删除地址
+			$(".sets").on("click",".deletes",function(){
+				var addressid=$(this).closest(".adds").data("addressid");
+				ajaxs("/address/deleteAddress/"+addressid,'delete',{},function(data){
+					console.log(data);
+					if(data.code==200){
+						popups("删除地址成功");
+					}
+				},function(err){
+					console.log(err);
+				})
+			})
+			//编辑地址
+			$(".sets").on("click",".editor",function(){
+				var addressid=$(this).closest(".adds").data("addressid");
+				location.href='Management_address.html?addressid='+addressid;
+			})
+		},function(err){
+			console.log(err);
+		})
 		$(".sets").on("click",".editor",function(){
 			location.href="add_address.html";
 		})

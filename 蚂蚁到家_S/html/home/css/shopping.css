@@ -54,7 +54,7 @@
 }
 
 /*上下左右居中*/
-.flexs, .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1), .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(2), .shopping > div > div:nth-child(1), .shopping > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+.flexs, .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1), .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2), .sets > div:nth-child(2) > div:nth-child(2) > div:nth-child(2), .shopping > div > div:nth-child(1), .shopping > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,9 +76,13 @@
   /*结算*/
   width: 100%;
   height: 1rem;
-  display: flex;
 }
 .sets > div:nth-child(2) > div:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
   width: 6.187rem;
   height: 100%;
   background-color: #eeeeee;
@@ -86,27 +90,27 @@
   align-items: center;
   justify-content: space-around;
 }
-.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
   width: 35%;
   height: 100%;
   font-size: 0.2rem;
 }
-.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span {
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span {
   margin-left: 0.1rem;
   color: #333333;
   font: normal 0.12rem PingFang-SC-Medium;
 }
-.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) {
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
   width: 65%;
   height: 100%;
   color: #333333;
   font: normal 0.14rem PingFang-SC-Medium;
 }
-.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span {
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span {
   color: #333333;
   font: normal 0.14rem PingFang-SC-Medium;
 }
-.sets > div:nth-child(2) > div:nth-child(2) {
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) {
   width: 3.813rem;
   height: 100%;
   display: flex;
@@ -116,9 +120,37 @@
   color: #ffffff;
   font: normal 0.14rem PingFang-SC-Medium;
 }
-.sets > div:nth-child(2) > div:nth-child(2) > span {
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span {
   color: #ffffff;
   font: normal 0.14rem PingFang-SC-Medium;
+}
+.sets > div:nth-child(2) > div:nth-child(2) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.sets > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  width: 6.213rem;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: inset 0rem 0.107rem 0.063rem 0.004rem rgba(167, 167, 167, 0.43);
+  border: solid 0rem #00204c;
+  font-size: 0.5rem;
+  padding: 0.3rem 0 0.3rem 0.5rem;
+  display: flex;
+}
+.sets > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span {
+  display: inline-block;
+  height: 100%;
+  font: normal 0.4rem PingFang-SC-Regular;
+  margin-left: 0.2rem;
+}
+.sets > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  width: 3.813rem;
+  background-color: #fa6939;
+  box-shadow: inset 0rem 0.107rem 0.063rem 0.004rem rgba(167, 167, 167, 0.22);
+  color: #ffffff;
+  font: normal 0.4rem PingFang-SC-Regular;
 }
 
 .shopping {
