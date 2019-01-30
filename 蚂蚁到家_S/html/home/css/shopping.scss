@@ -34,12 +34,15 @@
                     width:35%;
                     height:100%;
                     @extend .flexs;
-                    font-size:0.2rem;
+                    font-size:0.5rem;
                     >span{
                         margin-left:0.1rem;
                         color: #333333;
                         font:normal 0.12rem PingFang-SC-Medium;
                     }
+                }
+                >.icon-danxuankuang2{
+                    color:#fa6939;
                 }
                 >div:nth-child(2){
                     width:65%;
@@ -60,7 +63,7 @@
                 align-items: center;
                 justify-content: center;
                 background-color: #ff3366;
-                color: #ffffff;
+                  color: #ffffff;
                 font:normal 0.14rem PingFang-SC-Medium;
                 >span{
                     color: #ffffff;
@@ -118,6 +121,9 @@
             height:100%;
             font-size:0.5rem;
             @extend .flexs;
+        }
+        >.icon-danxuankuang2{
+            color:#fa6939;
         }
         >div:nth-child(2){
             width: 8.667rem;
@@ -203,7 +209,6 @@
         }
     }
 }
-
 
 
 

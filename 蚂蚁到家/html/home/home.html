@@ -198,13 +198,20 @@
 		current==null?failure():console.log("正常登录");//判断是否登录，没有登录去登录
 		current=current.current;
 		console.log(current.sellerName);
+		console.log(current.foodLicense);
+		if(current.businessImage!=null){//店铺照片
+			$(".photos>img").attr("src",current.businessImage);
+		}
+		if(current.businessLicense!=null){//营业执照
+			$(".photo_child1>img").attr("src",current.businessLicense);
+		}
+		if(current.foodLicense!=null){//许可证
+			$(".photo_child2>img").attr("src",current.foodLicense);
+		}
 		if(current.sellerName!=null){
 			$(".names").html(current.sellerName);//店铺名称
 			$(".company").html(current.companyType);//主营
 			$(".times").html(current.startTime+"~"+current.endTime);//营业时间
-			$(".photos>img").attr("src",current.businessImage);//店铺照片
-			$(".photo_child1>img").attr("src",current.businessLicense);//营业执照
-			$(".photo_child2>img").attr("src",current.foodLicense);//许可证
 			$(".photo_child3>img").attr("src",current.foodLicense);//半身照
 			var states=true;
 			if(current.businessStatus){
@@ -246,6 +253,7 @@
             reader.readAsDataURL(file);
             reader.onload = function(e){
             	var base=this.result,parameter;
+            	console.log(base);
             	if(kk==0){
             		parameter={businessImage:base}
             	}else if(kk==1){
@@ -257,7 +265,7 @@
             	}
 				ajaxs("/seller/updateBusinessMessage",'post',parameter,function(data){
 					console.log(data);
-					currentk();//重新加载个人信息
+					//currentk();//重新加载个人信息
 				},function(err){
 					console.log(err);
 				})

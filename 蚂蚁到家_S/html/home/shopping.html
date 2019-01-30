@@ -104,7 +104,7 @@
 			var data=data.data,ks="",arrs=[];
 			$.each(data, function(index,item){
 												//商品id						单条购物信息						当前商品总价
-				ks+=`<div class="shopping" data-sta=${item.goods.goodsId} data-itemid=${item.itemId} data-price=${item.goods.price*100*item.number}>
+				ks+=`<div class="shopping" data-sta=${item.goods.goodsId} data-goods=${JSON.stringify(item.goods)} data-price=${item.goods.price*100*item.number}>
 						<div>
 							<div class="iconfont icon-danxuankuang xzs"></div>
 							<div>
@@ -308,25 +308,15 @@
 			})
 			//结算
 			$(".settlement").click(function(){
-				console.log(fg);
 				var arr=[];
 				$(".sets>div:eq(0) .xzs").each(function(){
 					if($(this).is(".icon-danxuankuang2")){
-						/*var orderItems={
-							productid:$(this).closest(".shopping").data("sta"),//商品id
-							quantity:$(this).closest(".shopping").find(".inp").data("munk")//数量
-						}*/
+						var seller=$(this).closest(".shopping").data("goods");
 						var orderItems={
-							goods:{
-								goodsId:$(this).closest(".shopping").data("sta")
-							},//商品id
+							goods:seller,
 							number:$(this).closest(".shopping").find(".inp").data("munk"),//数量
-							city:"郑州",
-							address:{
-								addressId:fg
-							}
+							address
 						}
-						//arr.push(JSON.stringify(orderItems));
 						arr.push(orderItems);
 					}
 				});
@@ -337,30 +327,20 @@
 				}
 				ajaxs("/order/settleAccounts",'post',JSON.stringify(arr),function(data){
 					console.log(data);
-					/*if(data.code==200){
-						popups("删除成功");
-					}*/
+					if(data.code==200){
+						console.log(data.data);
+						sessionStorage.setItem('mys_order', JSON.stringify(data.data));
+						location.href="../child/sure_order.html";
+					}
 				},function(err){
 					console.log(err);
-				//});
 				},{contentType : 'application/json;charset=utf-8'});
-				//location.href="../child/sure_order.html";
 			})
         	//收货地址
-        	var fg="";
 			isaddress();
 			function isaddress(){
 				ajaxs("/address/getAllAddressByUserId/"+current.current.userId,'get',{},function(data){
 					console.log(data);
-					var address=data.data.默认地址;
-					console.log(address);
-					fg=address[0].expressAddress;
-					var parameter={
-						a:address[0].receiver,
-						b:address[0].receiverPhone,
-						c:address[0].expressAddress
-					}
-					//localStorage.setItem('mys_address', JSON.stringify(parameter));//默认的收货地址
 				},function(err){
 					console.log(err);
 				})

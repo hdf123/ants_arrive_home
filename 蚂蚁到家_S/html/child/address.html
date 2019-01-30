@@ -74,10 +74,10 @@
 					$(".sets").append(`<div class="adds" data-addressid=${val.addressId}>
 										<div>
 											<div>收件人:</div>
-											<div>${val.receiver} </div>
-											<div>${val.receiverPhone}</div>
+											<div class="name">${val.receiver} </div>
+											<div class="phone">${val.receiverPhone}</div>
 										</div>
-										<div>取货地址：<span>${val.expressAddress}</span></div>
+										<div>取货地址：<span class="address">${val.expressAddress}</span></div>
 										<div>
 											${kk}
 											<div>
@@ -91,10 +91,23 @@
 			//设置默认地址
 			$(".sets").on("click",".defaults",function(){
 				var addressid=$(this).closest(".adds").data("addressid");
+				var name=$(this).closest(".adds").find(".name").data("addressid");//电话
+				var phone=$(this).closest(".adds").find(".phone").data("addressid");//手机
+				var address=$(this).closest(".adds").find(".address").data("addressid");//地址
+				
 				ajaxs("/address/setDefault",'post',{addressId:addressid},function(data){
 					console.log(data);
 					if(data.code==200){
+						var Modify=0;
+						sessionStorage.setItem('mys_address_stats', JSON.stringify(addressid));
 						popups("修改默认地址成功");
+						/*var parameter={
+							收货人:name,//收货人
+							电话:phone,//电话
+							地址:address//地址
+						}
+						sessionStorage.setItem('mys_address', JSON.stringify(parameter));//默认的收货地址*/
+						//location.href="sure_order.html?address="+addressid;
 					}
 				},function(err){
 					console.log(err);

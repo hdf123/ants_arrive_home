@@ -23,34 +23,36 @@
 		<section class="sets">
 			<div class="information" onclick="location.href='address.html'">
 				<div>
-					<div>收货人：魏雨</div>
-					<div>17684569322</div>
+					<div class="names">收货人：魏雨</div>
+					<div class="phone">17684569322</div>
 				</div>
 				<div>
 					<div>
 						<i class="iconfont icon-dingwei1"></i>
-						取货地址：<span>河南省郑州市中原区梧桐街道祝福红城南区河南省郑州市中原区梧桐街道祝福红城南区</span>
+						取货地址：<span class="address">河南省郑州市中原区梧桐街道祝福红城南区河南省郑州市中原区梧桐街道祝福红城南区</span>
 					</div>
 					<div class="iconfont icon-qianjin"></div>
 				</div>
 			</div>
-			<div class="order">
-				<img src="" alt="" />
-				<div>
-					<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+			<div class="goods">
+				<!--<div class="order">
+					<img src="" alt="" />
 					<div>
-						<div>¥38.50</div>
-						<div>X1</div>
+						<p>iPhone 8 /8P/7/7P金色黑色精致手机壳</p>
+						<div>
+							<div>¥38.50</div>
+							<div>X1</div>
+						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class="numbers">
 				<div>购买数量</div>
 				<div>总计1件</div>
 			</div>
-			<div class="numbera">
+			<!--<div class="numbera">
 				订单号：23256562354623
-			</div>
+			</div>-->
 			<div class="shipping">
 				<div>配送费</div>
 				<div>¥3</div>
@@ -63,15 +65,90 @@
 		<footer class="foots">
 			<div>
 				<div>合计：</div>
-				<div>54646</div>
+				<div class="us">54646</div>
 			</div>
 			<div>提交订单</div>
 		</footer>
 <script type="text/javascript">
 	$(function(){
 		funkr();//获取头部和底部的总高度
+		var current = JSON.parse(localStorage.getItem('mys_current'));//当前账户信息,没有登录返回null
+		current==null?location.href="../login/login.html":console.log("正常登录");//判断是否登录，没有登录去登录
+		var mys_order = JSON.parse(sessionStorage.getItem('mys_order'));//订单信息
+		var mys_address_stats = JSON.parse(sessionStorage.getItem('mys_address_stats'));//修改地址
+		//收货地址
+		var address="";
+		ajaxs("/address/getAllAddressByUserId/"+current.current.userId,'get',{},function(data){
+			console.log(data);
+			var data=data.data.默认地址[0];
+			address=data.addressId;
+			$(".names").html(`收货人：${data.receiver}`);
+			$(".phone").html(data.receiverPhone);
+			$(".address").html(data.expressAddress);
+		},function(err){
+			console.log(err);
+		})
+		var mys_address = JSON.parse(sessionStorage.getItem('mys_address'));//收货地址
+		$(".shipping>div:eq(1)").html(`${mys_order.配送费}`);
+		$(".us").html(mys_order.总价);
+		var array=mys_order.所有商品订单;
+		var num=0;
+		var arr=[];
+		$.each(array, function(key,val){
+			arr.push(val.goodsOrderId);
+			num+=val.number;
+			$(".goods").append(`<div class="order">
+									<img src=${val.goods.images[0].path} alt="" />
+									<div>
+										<p>${val.goods.title}</p>
+										<div>
+											<div>¥${val.goods.price}</div>
+											<div>X${val.number}</div>
+										</div>
+									</div>
+								</div>`);
+		});
+		$(".numbers>div:eq(1)").html(`总计${num}件`);
+		//修改收货地址
+		if(mys_address_stats!=null){
+			console.log("新地址");
+			console.log(arr);
+			arr=arr.join();
+			var parameter={
+				addressId:mys_address_stats,
+				goodsIds:arr
+			}
+			ajaxs("/order/updateSettleAccounts",'post',parameter,function(data){
+				console.log(data);
+				var mys_order=data.data;
+				sessionStorage.setItem('mys_order', JSON.stringify(mys_order));
+				$(".shipping>div:eq(1)").html(`${mys_order.配送费}`);
+				$(".us").html(mys_order.总价);
+			},function(err){
+				console.log(err);
+			});
+		}
+		//提交订单
 		$(".foots>div:eq(1)").click(function(){
-			location.href="pay.html";
+			var mys_order = JSON.parse(sessionStorage.getItem('mys_order'));//订单信息
+			var array=mys_order.所有商品订单;
+			var arr=[];
+			$.each(array, function(key,val){
+				arr.push(val.goodsOrderId);
+			});
+			arr=arr.join();
+			console.log(arr);
+			var arr={
+				goodsOrdersIds:arr,
+				comment:"今晚打老虎"
+			}
+			console.log(arr);
+			ajaxs("/order/submitOrder",'post',arr,function(data){
+				console.log(data);
+			},function(err){
+				console.log(err);
+			});
+			//location.href="pay.html";
 		})
 	})
 </script>

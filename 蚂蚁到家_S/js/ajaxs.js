@@ -114,7 +114,7 @@
   		}
   		return theRequest;
 	}
-	getRequest();//全部参数
+	//getRequest();//全部参数
 	
 	
 //计算时间

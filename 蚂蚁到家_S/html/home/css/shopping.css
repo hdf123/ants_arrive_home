@@ -93,12 +93,15 @@
 .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
   width: 35%;
   height: 100%;
-  font-size: 0.2rem;
+  font-size: 0.5rem;
 }
 .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span {
   margin-left: 0.1rem;
   color: #333333;
   font: normal 0.12rem PingFang-SC-Medium;
+}
+.sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > .icon-danxuankuang2 {
+  color: #fa6939;
 }
 .sets > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
   width: 65%;
@@ -172,6 +175,9 @@
   width: 0.92rem;
   height: 100%;
   font-size: 0.5rem;
+}
+.shopping > div > .icon-danxuankuang2 {
+  color: #fa6939;
 }
 .shopping > div > div:nth-child(2) {
   width: 8.667rem;

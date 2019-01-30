@@ -107,6 +107,7 @@
   margin: 0 auto;
   background: #eeeeee;
   padding: 0.387rem 0.3rem 0.52rem 0.3rem;
+  border-bottom: 0.01rem solid white;
 }
 .order > img {
   width: 2.12rem;
@@ -166,6 +167,9 @@
   color: #fa6939;
 }
 
+.message {
+  display: none;
+}
 .message > div {
   font: normal 0.32rem PingFang-SC-Regular;
 }
