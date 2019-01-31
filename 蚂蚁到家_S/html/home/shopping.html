@@ -102,6 +102,10 @@
 		ajaxs("/order/getShoppingCartByUserId/"+current.current.userId,'get',{},function(data){
 			console.log(data);
 			var data=data.data,ks="",arrs=[];
+			console.log(data);
+			if(data==null){
+				data="";
+			}
 			$.each(data, function(index,item){
 												//商品id						单条购物信息						当前商品总价
 				ks+=`<div class="shopping" data-sta=${item.goods.goodsId} data-goods=${JSON.stringify(item.goods)} data-price=${item.goods.price*100*item.number}>
@@ -308,6 +312,9 @@
 			})
 			//结算
 			$(".settlement").click(function(){
+				if(address==""){
+					return	location.href="../child/address.html";
+				}
 				var arr=[];
 				$(".sets>div:eq(0) .xzs").each(function(){
 					if($(this).is(".icon-danxuankuang2")){
@@ -325,6 +332,7 @@
 					alert("请选择结算商品");
 					return false;
 				}
+				$(".sets").append(loading());//加载动画
 				ajaxs("/order/settleAccounts",'post',JSON.stringify(arr),function(data){
 					console.log(data);
 					if(data.code==200){
@@ -337,10 +345,18 @@
 				},{contentType : 'application/json;charset=utf-8'});
 			})
         	//收货地址
+        	var address;
 			isaddress();
 			function isaddress(){
 				ajaxs("/address/getAllAddressByUserId/"+current.current.userId,'get',{},function(data){
 					console.log(data);
+					var data=data.data;
+					if(JSON.stringify(data)=="{}"){
+						address="";
+					}else{
+						console.log(456);
+						address=data.默认地址[0];
+					}
 				},function(err){
 					console.log(err);
 				})
